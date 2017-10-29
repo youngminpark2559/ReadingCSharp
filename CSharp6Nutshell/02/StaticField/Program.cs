@@ -29,6 +29,12 @@ namespace StaticField
             Console.WriteLine(p2.Name);      // Pan Dah
 
             Console.WriteLine(Panda.Population);   // 2
+
+            //Compile time error.
+            Console.WriteLine(p1.Polulation);
+            Console.WriteLine(Panda.Name);
+
+
         }
     }
 }
