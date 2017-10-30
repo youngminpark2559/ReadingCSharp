@@ -1,5 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+
+//c Add FakeProductRepository.cs which implements IProductRepository.(Client->IProductRepository->FakeProductRepository is for testing, Client-IProductRepository->ProductRepository is for accessing to DB.)
+
 namespace SportsStore.Models
 {
     public class FakeProductRepository : IProductRepository
