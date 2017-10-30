@@ -6,34 +6,20 @@ using System.Threading.Tasks;
 
 namespace StaticField
 {
-    public class Panda
-    {
-        public string Name;             // Instance field
-        public static int Population;   // Static field
-
-        public Panda(string n)         // Constructor
-        {
-            Name = n;                     // Assign the instance field
-            Population = Population + 1;  // Increment the static Population field
-        }
-    }
+    public class Point { public int X, Y; }
 
     class Program
     {
         static void Main()
         {
-            Panda p1 = new Panda("Pan Dee");
-            Panda p2 = new Panda("Pan Dah");
+            short a = 1;
+            short b = 2;
+            int c = (int)(a + b);
 
-            Console.WriteLine(p1.Name);      // Pan Dee
-            Console.WriteLine(p2.Name);      // Pan Dah
+            Console.WriteLine(c);
 
-            Console.WriteLine(Panda.Population);   // 2
-
-            //Compile time error.
-            Console.WriteLine(p1.Polulation);
-            Console.WriteLine(Panda.Name);
-
+            short x = 1, y = 1;
+//          short z = x + y;          // Compile-time error
 
         }
     }
