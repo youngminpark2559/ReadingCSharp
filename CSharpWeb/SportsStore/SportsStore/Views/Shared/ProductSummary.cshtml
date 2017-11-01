@@ -1,5 +1,7 @@
 ﻿@model Product
 
+@*//c Add button UI of "Add to Cart" in ProductSummary.cshtml*@
+
 <div class="card card-outline-primary m-1 p-1">
 	<div class="bg-faded p-1">
 		<h4>
@@ -9,5 +11,18 @@
 			</span>
 		</h4>
 	</div>
+	@*Button for "Add to cart"*@
+	<form id="@Model.ProductID" asp-action="AddToCart" asp-controller="Cart" method="post">
+		<input type="hidden" asp-for="ProductID" />
+		<input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()" />
+		<span class="card-text p-1">
+			@Model.Description
+			<button type="submit" class="btn btn-success btn-sm pull-right" style="float:right">
+				Add To Cart
+			</button>
+		</span>
+	</form>
+
+
 	<div class="card-text p-1">@Model.Description</div>
 </div>
