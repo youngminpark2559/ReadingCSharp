@@ -9,6 +9,8 @@ using Xunit;
 //c Add unit test Can_Remove_Line() to test if I can remove certain product(in this case, p2) which is contained in CartLine from the Cart.
 
 //c Add unit test Calculate_Cart_Total() to test if target.ComputeTotalValue() works well.
+
+//c Add unit test Can_Clear_Contents() to test if I can all clear Cart.
 namespace SportsStore.Tests
 {
     public class CartTests
@@ -82,7 +84,7 @@ namespace SportsStore.Tests
             Assert.Equal(2, target.Lines.Count());
         }
 
-        
+
         [Fact]
         public void Calculate_Cart_Total()
         {
@@ -100,6 +102,26 @@ namespace SportsStore.Tests
 
             // Assert
             Assert.Equal(450M, result);
+        }
+
+        
+        [Fact]
+        public void Can_Clear_Contents()
+        {
+            // Arrange - create some test products
+            Product p1 = new Product { ProductID = 1, Name = "P1", Price = 100M };
+            Product p2 = new Product { ProductID = 2, Name = "P2", Price = 50M };
+            // Arrange - create a new cart
+            Cart target = new Cart();
+            // Arrange - add some items
+            target.AddItem(p1, 1);
+            target.AddItem(p2, 1);
+
+            // Act - reset the cart
+            target.Clear();
+
+            // Assert
+            Assert.Equal(0, target.Lines.Count());
         }
     }
 }
