@@ -5,7 +5,7 @@ using SportsStore.Infrastructure;
 using SportsStore.Models;
 using SportsStore.Models.ViewModels;
 
-//Add Index() in CartController, which retrieves Cart object from session state by using GetCart(), and throw CartIndexViewModel object which contains Cart object and returnUrl to the Index view of CartController.
+//c Add Index() in CartController, which retrieves Cart object from session state by using GetCart(), and throw CartIndexViewModel object which contains Cart object and returnUrl to the Index view of CartController.
 
 namespace SportsStore.Controllers
 {
