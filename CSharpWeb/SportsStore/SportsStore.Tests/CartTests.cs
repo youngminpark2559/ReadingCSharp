@@ -8,6 +8,7 @@ using Xunit;
 
 //c Add unit test Can_Remove_Line() to test if I can remove certain product(in this case, p2) which is contained in CartLine from the Cart.
 
+//c Add unit test Calculate_Cart_Total() to test if target.ComputeTotalValue() works well.
 namespace SportsStore.Tests
 {
     public class CartTests
@@ -57,7 +58,7 @@ namespace SportsStore.Tests
         }
 
 
-        
+
         [Fact]
         public void Can_Remove_Line()
         {
@@ -79,6 +80,26 @@ namespace SportsStore.Tests
             // Assert
             Assert.Equal(0, target.Lines.Where(c => c.Product == p2).Count());
             Assert.Equal(2, target.Lines.Count());
+        }
+
+        
+        [Fact]
+        public void Calculate_Cart_Total()
+        {
+            // Arrange - create some test products
+            Product p1 = new Product { ProductID = 1, Name = "P1", Price = 100M };
+            Product p2 = new Product { ProductID = 2, Name = "P2", Price = 50M };
+            // Arrange - create a new cart
+            Cart target = new Cart();
+
+            // Act
+            target.AddItem(p1, 1);
+            target.AddItem(p2, 1);
+            target.AddItem(p1, 3);
+            decimal result = target.ComputeTotalValue();
+
+            // Assert
+            Assert.Equal(450M, result);
         }
     }
 }
