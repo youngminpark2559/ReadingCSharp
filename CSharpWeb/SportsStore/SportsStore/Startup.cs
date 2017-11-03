@@ -17,6 +17,8 @@ using Microsoft.AspNetCore.Identity;
 
 //c Update Startup.cs by registering services related to Identity.
 
+//c Update Startup.cs by adding middleware of UseAuthentication()
+
 namespace SportsStore
 {
     public class Startup
@@ -57,6 +59,7 @@ namespace SportsStore
             app.UseStatusCodePages();
             app.UseStaticFiles();
             app.UseSession();
+            app.UseAuthentication();
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
