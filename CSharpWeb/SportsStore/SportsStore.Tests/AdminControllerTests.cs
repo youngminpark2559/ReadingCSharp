@@ -5,6 +5,7 @@ using Moq;
 using SportsStore.Controllers;
 using SportsStore.Models;
 using Xunit;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
 
 //c Update AdminControllerTests.cs by adding Can_Delete_Valid_Products().
 
