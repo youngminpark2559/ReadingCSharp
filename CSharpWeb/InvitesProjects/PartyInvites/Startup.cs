@@ -6,6 +6,9 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
+using PartyInvites.Models;
+
+//c Update Startup.cs for configuring DI for IRepository/EFRepository.
 
 namespace PartyInvites
 {
@@ -13,10 +16,10 @@ namespace PartyInvites
     {
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddTransient<IRepository, EFRepository>();            
             services.AddMvc();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             app.UseDeveloperExceptionPage();
