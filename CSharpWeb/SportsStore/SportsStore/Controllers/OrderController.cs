@@ -1,6 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using SportsStore.Models;
 using System.Linq;
+
+//c Update OrderController by decorating [Authorize] on method which I want to restrict from acess of non-administrator.
 
 namespace SportsStore.Controllers
 {
@@ -16,10 +19,11 @@ namespace SportsStore.Controllers
 
         }
 
-
+        [Authorize]
         public ViewResult List() => View(repository.Orders.Where(o => !o.Shipped));
 
         [HttpPost]
+        [Authorize]
         public IActionResult MarkShipped(int orderID)
         {
             Order order = repository.Orders
@@ -59,5 +63,5 @@ namespace SportsStore.Controllers
             return View();
         }
 
-    }  
+    }
 }
