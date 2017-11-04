@@ -13,6 +13,7 @@ using ConfiguringApps.Infrastructure;
 //c Update Startup.cs by adding one middleware component app.UseMiddleware<ShortCircuitMiddleware>() which intercepts Http request from the client, and inspects HttpContext object if it contains "edge" in their Http request header and this either hands it to next middleware component or send 404 error contained in HttpContext.Response.StatusCode.
 //c Update Startup.cs by adding code to register app.UseMiddleware<BrowserTypeMiddleware>().
 //c Update Startup.cs by adding code to register app.UseMiddleware<ErrorMiddleware>().
+//c Update Startup.cs by adding code to register app.UseMvc() which sets the middleware components for MVC system, including routing system.
 
 namespace ConfiguringApps
 {
@@ -30,6 +31,12 @@ namespace ConfiguringApps
             app.UseMiddleware<BrowserTypeMiddleware>();
             app.UseMiddleware<ShortCircuitMiddleware>();
             app.UseMiddleware<ContentMiddleware>();
+
+            app.UseMvc(routes => {
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller=Home}/{action=Index}/{id?}");
+            });
         }
     }
 }
