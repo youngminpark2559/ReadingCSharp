@@ -9,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using ConfiguringApps.Infrastructure;
 
 //c Update Startup.cs by adding service UptimeService which starts Stopwatch when UptimeService class is instantiated and ends Stopwatch when the application is ended.
+//c Update Startup.cs by adding one middleware component app.UseMiddleware<ContentMiddleware>() to examine how middleware works.
 
 namespace ConfiguringApps
 {
@@ -21,7 +22,8 @@ namespace ConfiguringApps
         }
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            app.UseMvcWithDefaultRoute();
+            //app.UseMvcWithDefaultRoute();
+            app.UseMiddleware<ContentMiddleware>();
         }
     }
 }
