@@ -10,7 +10,7 @@ using ConfiguringApps.Infrastructure;
 
 //c Update Startup.cs by adding service UptimeService which starts Stopwatch when UptimeService class is instantiated and ends Stopwatch when the application is ended.
 //c Update Startup.cs by adding one middleware component app.UseMiddleware<ContentMiddleware>() to examine how middleware works.
-//c Update Startup.cs by adding one middleware component app.UseMiddleware<ShortCircuitMiddleware>() which intercepts Http request from the client, and re-sets HttpContext object and hands it to next middleware component.
+//c Update Startup.cs by adding one middleware component app.UseMiddleware<ShortCircuitMiddleware>() which intercepts Http request from the client, and inspects HttpContext object if it contains "edge" in their Http request header and this either hands it to next middleware component or send 404 error contained in HttpContext.Response.StatusCode.
 
 
 namespace ConfiguringApps
