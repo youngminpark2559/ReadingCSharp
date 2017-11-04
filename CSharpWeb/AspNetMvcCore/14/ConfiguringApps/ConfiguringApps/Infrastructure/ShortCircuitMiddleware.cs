@@ -14,8 +14,9 @@ namespace ConfiguringApps.Infrastructure
 
         public async Task Invoke(HttpContext httpContext)
         {
-            if (httpContext.Request.Headers["User-Agent"]
-                    .Any(h => h.ToLower().Contains("edge")))
+            if (httpContext.Request
+                .Headers["User-Agent"]
+                .Any(h => h.ToLower().Contains("edge")))
             {
                 httpContext.Response.StatusCode = 403;
             }
