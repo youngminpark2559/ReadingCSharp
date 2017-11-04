@@ -14,6 +14,7 @@ using ConfiguringApps.Infrastructure;
 //c Update Startup.cs by adding code to register app.UseMiddleware<BrowserTypeMiddleware>().
 //c Update Startup.cs by adding code to register app.UseMiddleware<ErrorMiddleware>().
 //c Update Startup.cs by adding code to register app.UseMvc() which sets the middleware components for MVC system, including routing system. To complete MVC system work well, not only are MVC middleware componenets needed, but also services for MVC system are needed. It can be resolved by adding services.AddMvc() in ConfigureService(IServiceCollection services).
+//c Update Startup.cs by removing middleware components which were used to examine middleware and adding exception-handling middlewares.
 
 namespace ConfiguringApps
 {
@@ -26,11 +27,15 @@ namespace ConfiguringApps
         }
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            //app.UseMvcWithDefaultRoute();
-            app.UseMiddleware<ErrorMiddleware>();
-            app.UseMiddleware<BrowserTypeMiddleware>();
-            app.UseMiddleware<ShortCircuitMiddleware>();
-            app.UseMiddleware<ContentMiddleware>();
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+                app.UseStatusCodePages();
+            }
+            else
+            {
+                app.UseExceptionHandler("/Home/Error");
+            }
 
             app.UseMvc(routes => {
                 routes.MapRoute(
