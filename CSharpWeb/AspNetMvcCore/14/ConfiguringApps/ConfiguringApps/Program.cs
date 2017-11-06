@@ -10,6 +10,7 @@ using Microsoft.Extensions.Logging;
 using System.Reflection;
 
 //c Add code for registering service provider functionality in Program.cs, which is used by DI feature configured in Startup.cs. The registered service provider is a built in one by ASP.NET Core. This feature is mostly enough in any project, but I can use other third party DI service provider.
+//c I set codes to configure the functionality dealing with complex configurations by using different external configuration files(in this case, it'll be appsettings.{env.EnvironmentName}.json file.). This is effective alternative way for setting same functionality in Startup.cs by using so many "if statement" whihc can cause bad readability and hard to change, prone to error.
 
 namespace ConfiguringApps
 {
@@ -26,7 +27,9 @@ namespace ConfiguringApps
                 .UseKestrel()
                 .UseContentRoot(Directory.GetCurrentDirectory())
                 .ConfigureAppConfiguration((hostingContext, config) => {
-                    config.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
+                    var env = hostingContext.HostingEnvironment;
+                    config.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+                    .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true, reloadOnChange: true);
                     config.AddEnvironmentVariables();
                     if (args != null)
                     {
