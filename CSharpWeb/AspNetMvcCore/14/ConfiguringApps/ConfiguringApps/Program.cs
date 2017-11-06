@@ -9,6 +9,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using System.Reflection;
 
+//c Add code for registering service provider functionality in Program.cs, which is used by DI feature configured in Startup.cs.
+
 namespace ConfiguringApps
 {
     public class Program
@@ -23,7 +25,24 @@ namespace ConfiguringApps
             return new WebHostBuilder()
                 .UseKestrel()
                 .UseContentRoot(Directory.GetCurrentDirectory())
+                .ConfigureAppConfiguration((hostingContext, config) => {
+                    config.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
+                    config.AddEnvironmentVariables();
+                    if (args != null)
+                    {
+                        config.AddCommandLine(args);
+                    }
+                })
+                .ConfigureLogging((hostingContext, logging) => {
+                    logging.AddConfiguration(hostingContext.Configuration.GetSection("Logging"));
+                    logging.AddConsole();
+                    logging.AddDebug();
+                })
                 .UseIISIntegration()
+                .UseDefaultServiceProvider((context, options) => {
+                    options.ValidateScopes =
+                        context.HostingEnvironment.IsDevelopment();
+                })
                 .UseStartup<Startup>()
                 .Build();
         }
