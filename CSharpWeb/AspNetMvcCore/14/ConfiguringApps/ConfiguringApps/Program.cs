@@ -9,7 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using System.Reflection;
 
-//c Add code for registering service provider functionality in Program.cs, which is used by DI feature configured in Startup.cs.
+//c Add code for registering service provider functionality in Program.cs, which is used by DI feature configured in Startup.cs. The registered service provider is a built in one by ASP.NET Core. This feature is mostly enough in any project, but I can use other third party DI service provider.
 
 namespace ConfiguringApps
 {

@@ -16,6 +16,8 @@ using Microsoft.Extensions.Configuration;
 //c Update Startup.cs by adding code to register app.UseMiddleware<ErrorMiddleware>().
 //c Update Startup.cs by adding code to register app.UseMvc() which sets the middleware components for MVC system, including routing system. To complete MVC system work well, not only are MVC middleware componenets needed, but also services for MVC system are needed. It can be resolved by adding services.AddMvc() in ConfigureService(IServiceCollection services).
 //c Update Startup.cs by removing middleware components which were used to examine middleware and adding exception-handling middlewares.
+//c I invoke AddMvcOptions() additionally after AddMvc(). This followed method can customize options in MVC by manipulating the default behavior of MVC which is acted by rules defined by AddMvc().
+
 
 namespace ConfiguringApps
 {
@@ -30,8 +32,11 @@ namespace ConfiguringApps
 
         public void ConfigureServices(IServiceCollection services)
         {
+
             services.AddSingleton<UptimeService>();
-            services.AddMvc();
+            services.AddMvc().AddMvcOptions(options => {
+                options.RespectBrowserAcceptHeader = true;
+            });
         }
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
