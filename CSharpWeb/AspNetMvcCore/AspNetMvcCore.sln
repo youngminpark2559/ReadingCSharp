@@ -5,6 +5,12 @@ VisualStudioVersion = 15.0.27004.2006
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UrlsAndRoutes", "15\UrlsAndRoutes\UrlsAndRoutes.csproj", "{18BEA1A0-6FF6-47D4-B45C-235A0FC1B5D2}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConfiguringApps", "14\ConfiguringApps\ConfiguringApps\ConfiguringApps.csproj", "{BF66E3F8-B935-4DA3-B9E0-5C69BABEB202}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "14", "14", "{30600741-6EFE-43E6-8161-CD0874E7EFDC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "15", "15", "{D9CC2945-0406-4B88-8807-CE9A10C086FE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,9 +21,17 @@ Global
 		{18BEA1A0-6FF6-47D4-B45C-235A0FC1B5D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{18BEA1A0-6FF6-47D4-B45C-235A0FC1B5D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{18BEA1A0-6FF6-47D4-B45C-235A0FC1B5D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF66E3F8-B935-4DA3-B9E0-5C69BABEB202}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF66E3F8-B935-4DA3-B9E0-5C69BABEB202}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF66E3F8-B935-4DA3-B9E0-5C69BABEB202}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF66E3F8-B935-4DA3-B9E0-5C69BABEB202}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{18BEA1A0-6FF6-47D4-B45C-235A0FC1B5D2} = {D9CC2945-0406-4B88-8807-CE9A10C086FE}
+		{BF66E3F8-B935-4DA3-B9E0-5C69BABEB202} = {30600741-6EFE-43E6-8161-CD0874E7EFDC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B4EC230D-4BBD-40F7-A5F7-0FE12345C470}
