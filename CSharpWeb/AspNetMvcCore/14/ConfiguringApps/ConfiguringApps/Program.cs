@@ -11,6 +11,7 @@ using System.Reflection;
 
 //c Add code for registering service provider functionality in Program.cs, which is used by DI feature configured in Startup.cs. The registered service provider is a built in one by ASP.NET Core. This feature is mostly enough in any project, but I can use other third party DI service provider.
 //c I set codes to configure the functionality dealing with complex configurations by using different external configuration files(in this case, it'll be appsettings.{env.EnvironmentName}.json file.). This is effective alternative way for setting same functionality in Startup.cs by using so many "if statement" whihc can cause bad readability and hard to change, prone to error.
+//c I add UseStartup(nameof(ConfiguringApps)) instead of UseStartup<Startup>. So, ASP.NET will look for a class whose name includes the hosting envirionment, for example, StartupEnvironment, StartupProduction, and use the regular Start.cs if there's no those classes containing envirionment information.
 
 namespace ConfiguringApps
 {
@@ -46,7 +47,9 @@ namespace ConfiguringApps
                     options.ValidateScopes =
                         context.HostingEnvironment.IsDevelopment();
                 })
-                .UseStartup<Startup>()
+
+  
+                .UseStartup(nameof(ConfiguringApps))
                 .Build();
         }
     }
