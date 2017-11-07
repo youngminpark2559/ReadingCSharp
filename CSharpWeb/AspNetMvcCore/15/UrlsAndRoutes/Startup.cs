@@ -19,6 +19,7 @@ using UrlsAndRoutes.Infrastructure;
 //c I constraint type of id segment to nullable int type.
 //c I specify the constraint outside of URL template pattern. In this version, I also should specify defaults argument.
 //c Apply the custom constraint for MapRoute()
+//c Using the custom constraint as inline version, by using ConfigureServices().
 
 namespace UrlsAndRoutes
 {
@@ -26,6 +27,8 @@ namespace UrlsAndRoutes
     {
         public void ConfigureServices(IServiceCollection services)
         {
+            services.Configure<RouteOptions>(options =>
+                options.ConstraintMap.Add("weekday", typeof(WeekDayConstraint)));
             services.AddMvc();
         }
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -35,9 +38,10 @@ namespace UrlsAndRoutes
             app.UseStaticFiles();
             app.UseMvc(routes => {
                 routes.MapRoute(name: "MyRoute",
-                   template: "{controller}/{action}/{id?}",
-                    defaults: new { controller = "Home", action = "Index" },
-                    constraints: new { id = new WeekDayConstraint() });
+                //template: "{controller}/{action}/{id?}",
+                // defaults: new { controller = "Home", action = "Index" },
+                // constraints: new { id = new WeekDayConstraint() });
+                template: "{controller=Home}/{action=Index}/{id:weekday?}");
             });
         }
     }
