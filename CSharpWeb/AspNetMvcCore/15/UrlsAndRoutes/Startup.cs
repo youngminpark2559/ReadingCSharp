@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 //c There are 2 ways to define default value for MapRoute(). One is using 3rd argument named default. The other one is inserting into 2nd argument named template.
 //c I add 2nd MapRoute. This route is using static segment named public.
 //c I add MapRoute whose template pattern defines static character(X) and dynamic controller. If I request with URL /xcustomer/index, this is mapped to CustomerController and Index().
+//c I made id segment an optional variable. There's nothing wrong when the clinet wouldn't supply id value in the URL, and when the client would supply id value in the URL.
 
 namespace UrlsAndRoutes
 {
@@ -27,7 +28,7 @@ namespace UrlsAndRoutes
             app.UseStaticFiles();
             app.UseMvc(routes => {
                 routes.MapRoute(name: "MyRoute",
-                    template: "{controller=Home}/{action=Index}/{id=DefaultId}");
+                    template: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }
