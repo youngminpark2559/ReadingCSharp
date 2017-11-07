@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Routing.Constraints;
 using Microsoft.AspNetCore.Routing;
+using UrlsAndRoutes.Infrastructure;
 
 //c I additionally pass 3rd parameter which is named defaults. With this configuration, when there is no specific action in URL, Index is used as default action method.
 //c There are 2 ways to define default value for MapRoute(). One is using 3rd argument named default. The other one is inserting into 2nd argument named template.
@@ -17,6 +18,7 @@ using Microsoft.AspNetCore.Routing;
 //c I add *catchall segment in the template of MapRoute(). With this configuration, any number of segment after id segment of URL can be mapped to catchall variable.
 //c I constraint type of id segment to nullable int type.
 //c I specify the constraint outside of URL template pattern. In this version, I also should specify defaults argument.
+//c Apply the custom constraint for MapRoute()
 
 namespace UrlsAndRoutes
 {
@@ -35,16 +37,8 @@ namespace UrlsAndRoutes
                 routes.MapRoute(name: "MyRoute",
                    template: "{controller}/{action}/{id?}",
                     defaults: new { controller = "Home", action = "Index" },
-                    constraints: new
-                    {
-                        id = new CompositeRouteConstraint(
-                            new IRouteConstraint[] {
-                                new AlphaRouteConstraint(),
-                                new MinLengthRouteConstraint(6)
-                            })
-                    });
+                    constraints: new { id = new WeekDayConstraint() });
             });
         }
     }
 }
-
