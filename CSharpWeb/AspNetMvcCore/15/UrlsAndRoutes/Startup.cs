@@ -13,6 +13,7 @@ using Microsoft.Extensions.DependencyInjection;
 //c I add MapRoute whose template pattern defines static character(X) and dynamic controller. If I request with URL /xcustomer/index, this is mapped to CustomerController and Index().
 //c I made id segment an optional variable. There's nothing wrong when the clinet wouldn't supply id value in the URL, and when the client would supply id value in the URL.
 //c I add *catchall segment in the template of MapRoute(). With this configuration, any number of segment after id segment of URL can be mapped to catchall variable.
+//c I constraint type of id segment to nullable int type.
 
 namespace UrlsAndRoutes
 {
@@ -29,8 +30,9 @@ namespace UrlsAndRoutes
             app.UseStaticFiles();
             app.UseMvc(routes => {
                 routes.MapRoute(name: "MyRoute",
-                    template: "{controller=Home}/{action=Index}/{id?}/{*catchall}");
+                    template: "{controller=Home}/{action=Index}/{id:int?}");
             });
         }
     }
 }
+
