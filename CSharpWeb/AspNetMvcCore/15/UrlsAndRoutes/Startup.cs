@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Routing.Constraints;
+using Microsoft.AspNetCore.Routing;
 
 //c I additionally pass 3rd parameter which is named defaults. With this configuration, when there is no specific action in URL, Index is used as default action method.
 //c There are 2 ways to define default value for MapRoute(). One is using 3rd argument named default. The other one is inserting into 2nd argument named template.
@@ -31,11 +32,17 @@ namespace UrlsAndRoutes
             app.UseStatusCodePages();
             app.UseStaticFiles();
             app.UseMvc(routes => {
-                routes.MapRoute(
-                   name: "MyRoute",
+                routes.MapRoute(name: "MyRoute",
                    template: "{controller}/{action}/{id?}",
-                   defaults: new { controller = "Home", action = "Index" },
-                   constraints: new { id = new IntRouteConstraint() });
+                    defaults: new { controller = "Home", action = "Index" },
+                    constraints: new
+                    {
+                        id = new CompositeRouteConstraint(
+                            new IRouteConstraint[] {
+                                new AlphaRouteConstraint(),
+                                new MinLengthRouteConstraint(6)
+                            })
+                    });
             });
         }
     }
