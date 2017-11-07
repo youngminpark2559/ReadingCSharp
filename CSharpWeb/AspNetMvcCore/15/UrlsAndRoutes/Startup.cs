@@ -20,7 +20,7 @@ using UrlsAndRoutes.Infrastructure;
 //c I specify the constraint outside of URL template pattern. In this version, I also should specify defaults argument.
 //c Apply the custom constraint for MapRoute()
 //c Using the custom constraint as inline version, by using ConfigureServices().
-
+//c I've seen so far convention-based routing. Now I'm going to examine attribute routing. To do this, first set app.UseMvcWithDefaultRoute() for using default route system. The default route system will match URL by using this pattern, {controller}/{action}/{id?}.
 namespace UrlsAndRoutes
 {
     public class Startup
@@ -36,13 +36,7 @@ namespace UrlsAndRoutes
             app.UseDeveloperExceptionPage();
             app.UseStatusCodePages();
             app.UseStaticFiles();
-            app.UseMvc(routes => {
-                routes.MapRoute(name: "MyRoute",
-                //template: "{controller}/{action}/{id?}",
-                // defaults: new { controller = "Home", action = "Index" },
-                // constraints: new { id = new WeekDayConstraint() });
-                template: "{controller=Home}/{action=Index}/{id:weekday?}");
-            });
+            app.UseMvcWithDefaultRoute();
         }
     }
 }
