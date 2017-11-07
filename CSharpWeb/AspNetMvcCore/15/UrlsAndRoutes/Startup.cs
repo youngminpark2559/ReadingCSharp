@@ -27,8 +27,11 @@ namespace UrlsAndRoutes
     {
         public void ConfigureServices(IServiceCollection services)
         {
-            services.Configure<RouteOptions>(options =>
-                options.ConstraintMap.Add("weekday", typeof(WeekDayConstraint)));
+            services.Configure<RouteOptions>(options => {
+                options.ConstraintMap.Add("weekday", typeof(WeekDayConstraint));
+                options.LowercaseUrls = true;
+                options.AppendTrailingSlash = true;
+            });
             services.AddMvc();
         }
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -36,7 +39,20 @@ namespace UrlsAndRoutes
             app.UseDeveloperExceptionPage();
             app.UseStatusCodePages();
             app.UseStaticFiles();
-            app.UseMvcWithDefaultRoute();
+            app.UseMvc(routes => {
+                //routes.MapRoute(
+                //    name: "NewRoute",
+                //    template: "App/Do{action}",
+                //    defaults: new { controller = "Home" });
+
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller=Home}/{action=Index}/{id?}");
+
+                routes.MapRoute(
+                    name: "out",
+                    template: "outbound/{controller=Home}/{action=Index}");
+            });
         }
     }
 }

@@ -7,10 +7,11 @@ using UrlsAndRoutes.Models;
 
 namespace UrlsAndRoutes.Controllers
 {
+    [Route("app/[controller]/actions/[action]/{id:weekday?}")]
     public class CustomerController : Controller
     {
         //[Route("myroute")]
-        [Route("[controller]/MyAction")]
+        //[Route("[controller]/MyAction")]
         public ViewResult Index() => View("Result",
             new Result
             {
