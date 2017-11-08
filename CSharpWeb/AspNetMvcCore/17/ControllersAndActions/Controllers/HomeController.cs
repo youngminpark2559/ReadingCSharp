@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Text;
 
 //c The first way of retrieving data from the form, by using HttpRequest.Form property.
 //c This is the second way of retrieving data from the form. MVC checks all context objects automatically such as Request.QueryString, Request.Form, RouteData.Value etc, and provides values for action method parameters. The names of the parameters are case-insensitive such as Request.Form[City] and string city.
+//c Write response by using properties of Response.
 
 namespace ControllersAndActions.Controllers
 {
@@ -16,7 +18,13 @@ namespace ControllersAndActions.Controllers
         //    return View("Result", $"{name} lives in {city}");
         //}
         
-        public ViewResult ReceiveForm(string name, string city)
-            => View("Result", $"{name} lives in {city}");
+        public void ReceiveForm(string name, string city)
+        {
+            Response.StatusCode = 200;
+            Response.ContentType = "text/html";
+            byte[] content = Encoding.ASCII
+                .GetBytes($"<html><body>{name} lives in {city}</body>");
+            Response.Body.WriteAsync(content, 0, content.Length);
+        }
     }
 }
