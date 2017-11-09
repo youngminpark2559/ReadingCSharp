@@ -10,6 +10,7 @@ using DependencyInjection.Infrastructure;
 using DependencyInjection.Models;
 
 //c Set TypeBroker's type by invoking SetRepositoryType<AlternateRepository>().
+//c Set DI by services.AddTransient<IRepository, MemoryRepository>().
 
 namespace DependencyInjection
 {
@@ -17,8 +18,7 @@ namespace DependencyInjection
     {
         public void ConfigureServices(IServiceCollection services)
         {
-            //TypeBroker.SetRepositoryType<MemoryRepository>();
-            TypeBroker.SetRepositoryType<AlternateRepository>();
+            services.AddTransient<IRepository, MemoryRepository>();
             services.AddMvc();
         }
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
