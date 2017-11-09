@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 using Moq;
 using Xunit;
 
+//c Update ControllerTest() by passing mock.Object.
+
 namespace Tests
 {
     public class DITests
@@ -17,7 +19,7 @@ namespace Tests
             var mock = new Mock<IRepository>();
             mock.SetupGet(m => m.Products).Returns(data);
             TypeBroker.SetTestObject(mock.Object);
-            HomeController controller = new HomeController();
+            HomeController controller = new HomeController(mock.Object);
 
             // Act
             ViewResult result = controller.Index();
