@@ -3,14 +3,17 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
+using System.Threading.Tasks;
 
 //c Add ViewResultDetailsAttribute.cs to examine the result filter underlying mechanism.
+//c Update ViewResultDetailsAttribute.cs to use asynchronous way for result filter. I should invoke ResultExecutionDelegate type delegate which is passed as an argument.
 
 namespace Filters.Infrastructure
 {
     public class ViewResultDetailsAttribute : ResultFilterAttribute
     {
-        public override void OnResultExecuting(ResultExecutingContext context)
+        public override async Task OnResultExecutionAsync(
+                ResultExecutingContext context, ResultExecutionDelegate next)
         {
             Dictionary<string, string> dict = new Dictionary<string, string>
             {
@@ -29,12 +32,14 @@ namespace Filters.Infrastructure
             context.Result = new ViewResult
             {
                 ViewName = "Message",
-                ViewData = new ViewDataDictionary( 
+                ViewData = new ViewDataDictionary(
                     new EmptyModelMetadataProvider(), new ModelStateDictionary())
                 {
                     Model = dict
                 }
             };
+
+            await next();
         }
     }
 }
