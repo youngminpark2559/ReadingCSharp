@@ -21,8 +21,7 @@ namespace Filters.Infrastructure
                         new EmptyModelMetadataProvider(),
                         new ModelStateDictionary())
                     {
-                        Model = @"The data received by the
-                                application cannot be processed"
+                        Model = @"The data received by the application cannot be processed"
                     }
                 };
             }
