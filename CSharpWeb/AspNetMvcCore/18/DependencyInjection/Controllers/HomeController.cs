@@ -2,7 +2,7 @@
 using DependencyInjection.Models;
 using Microsoft.AspNetCore.Mvc;
 
-//c Use dependancy injection in the way of "action injection" which is another way of DI with "constructor injection". Action injection is worked by model binding.
+//c Use dependancy injection in the way of "action injection" which is another way of DI with "constructor injection" and "property injection" . Action injection is worked by model binding.
 
 namespace DependencyInjection.Controllers
 {
