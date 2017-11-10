@@ -6,11 +6,12 @@ using Microsoft.AspNetCore.Mvc;
 //c Apply [RequireHttps] filter to action method.
 //c Apply [RequireHttps] filter to HomeController.
 //c Apply custom filter by decorating HomeController with [HttpsOnly].
-//c Appply custom action filter to HomeController. I can apply the action filter for action method and controller.
+//c Apply custom action filter to HomeController. I can apply the action filter for action method and controller.
+//c Apply a custom result filter to HomeController.
 
 namespace Filters.Controllers
 {
-    [Profile]
+    [ViewResultDetails]
     public class HomeController : Controller
     {
         public ViewResult Index() => View("Message", "This is the Index action on the Home controller");
