@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 //c Apply custom filter by decorating HomeController with [HttpsOnly].
 //c Apply custom action filter to HomeController. I can apply the action filter for action method and controller.
 //c Apply a custom result filter to HomeController.
+//c By applying [ViewResultDetails] result filter, I can add data into response object aside from string message(This is..).
 
 namespace Filters.Controllers
 {

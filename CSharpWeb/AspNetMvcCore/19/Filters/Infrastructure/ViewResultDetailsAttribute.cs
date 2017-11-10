@@ -29,9 +29,8 @@ namespace Filters.Infrastructure
             context.Result = new ViewResult
             {
                 ViewName = "Message",
-                ViewData = new ViewDataDictionary(
-                        new EmptyModelMetadataProvider(),
-                        new ModelStateDictionary())
+                ViewData = new ViewDataDictionary( 
+                    new EmptyModelMetadataProvider(), new ModelStateDictionary())
                 {
                     Model = dict
                 }
