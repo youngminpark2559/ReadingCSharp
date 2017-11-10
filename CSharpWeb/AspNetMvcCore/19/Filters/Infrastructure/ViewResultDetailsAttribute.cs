@@ -16,20 +16,25 @@ namespace Filters.Infrastructure
             {
                 ["Result Type"] = context.Result.GetType().Name,
             };
+
             ViewResult vr;
+
             if ((vr = context.Result as ViewResult) != null)
             {
                 dict["View Name"] = vr.ViewName;
                 dict["Model Type"] = vr.ViewData.Model.GetType().Name;
                 dict["Model Data"] = vr.ViewData.Model.ToString();
             }
+
             context.Result = new ViewResult
             {
                 ViewName = "Message",
                 ViewData = new ViewDataDictionary(
                         new EmptyModelMetadataProvider(),
                         new ModelStateDictionary())
-                { Model = dict }
+                {
+                    Model = dict
+                }
             };
         }
     }
