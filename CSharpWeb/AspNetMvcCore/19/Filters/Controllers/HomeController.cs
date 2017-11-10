@@ -2,22 +2,16 @@
 using Microsoft.AspNetCore.Mvc;
 
 //c I verify if the request is from https or not through Request.IsHttps.
+//c Apply [RequireHttps] filter to action method.
 
 namespace Filters.Controllers
 {
     public class HomeController : Controller
     {
-        
-        public IActionResult Index()
-        {
-            if (!Request.IsHttps)
-            {
-                return new StatusCodeResult(StatusCodes.Status403Forbidden);
-            }
-            else
-            {
-                return View("Message", "This is the Index action on the Home controller");
-            }
-        }
+        [RequireHttps]
+        public ViewResult Index() => View("Message", "This is the Index action on the Home controller");
+
+        [RequireHttps]
+        public ViewResult SecondAction() => View("Message", "This is the SecondAction action on the Home controller");
     }
 }
