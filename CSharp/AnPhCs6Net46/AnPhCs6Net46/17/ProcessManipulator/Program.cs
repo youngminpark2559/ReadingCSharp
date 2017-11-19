@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 //c Use GetSpecificProcess() method to examine a specific process object by specifying PID.
 //c Get a specific process by PID. Get a collection of threads executing in that process. Represent informations of each thread.
 //c Get a specific process by PID. Get a collection of modules. Print informations of each module.
-
+//c Start a process programatically. In that process, run the IE.exe and move to facebook.com. Kill the process by Kill() method on the specific process object.
 namespace ProcessManipulator
 {
     class Program
@@ -99,6 +99,34 @@ namespace ProcessManipulator
             }
             Console.WriteLine("************************************\n");
         }
+
+        static void StartAndKillProcess()
+        {
+            Process ieProc = null;
+
+            // Launch Internet Explorer, and go to facebook!
+            try
+            {
+                ieProc = Process.Start("IExplore.exe", "www.facebook.com");
+            }
+            catch (InvalidOperationException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            Console.Write("--> Hit enter to kill {0}...", ieProc.ProcessName);
+            Console.ReadLine();
+            
+            // Kill the iexplore.exe process.
+            try
+            {
+                ieProc.Kill();
+            }
+            catch (InvalidOperationException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
 
         static void Main(string[] args)
         {
