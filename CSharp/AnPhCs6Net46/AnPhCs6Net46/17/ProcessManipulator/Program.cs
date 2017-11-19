@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 //c Use GetProcesses() static method of Process class, to get a collection of process objects running in local computer. And order by ID of process.
 //c Use GetSpecificProcess() method to examine a specific process object by specifying PID.
 //c Get a specific process by PID. Get a collection of threads executing in that process. Represent informations of each thread.
+//c Get a specific process by PID. Get a collection of modules. Print informations of each module.
 
 namespace ProcessManipulator
 {
@@ -69,6 +70,31 @@ namespace ProcessManipulator
                 string info =
                 string.Format("-> Thread ID: {0}\tStart Time: {1}\tPriority: {2}",
                   pt.Id, pt.StartTime.ToShortTimeString(), pt.PriorityLevel);
+                Console.WriteLine(info);
+            }
+            Console.WriteLine("************************************\n");
+        }
+
+        static void EnumModsForPid(int pID)
+        {
+            Process theProc = null;
+            try
+            {
+                theProc = Process.GetProcessById(pID);
+            }
+            catch (ArgumentException ex)
+            {
+                Console.WriteLine(ex.Message);
+                return;
+            }
+
+            Console.WriteLine("Here are the loaded modules for: {0}",
+              theProc.ProcessName);
+            ProcessModuleCollection theMods = theProc.Modules;
+
+            foreach (ProcessModule pm in theMods)
+            {
+                string info = string.Format("-> Mod Name: {0}", pm.ModuleName);
                 Console.WriteLine(info);
             }
             Console.WriteLine("************************************\n");
