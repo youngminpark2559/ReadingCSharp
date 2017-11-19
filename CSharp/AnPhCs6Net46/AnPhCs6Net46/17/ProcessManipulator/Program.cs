@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 //c Use GetProcesses() static method of Process class, to get a collection of process objects running in local computer. And order by ID of process.
+//c Use GetSpecificProcess() method to examine a specific process object by specifying PID.
 
 namespace ProcessManipulator
 {
@@ -28,10 +29,27 @@ namespace ProcessManipulator
             Console.WriteLine("************************************\n");
         }
 
+
+        // If there is no process with the PID of 987, a
+        // runtime exception will be thrown.
+        static void GetSpecificProcess()
+        {
+            Process theProc = null;
+            try
+            {
+                theProc = Process.GetProcessById(987);
+            }
+            catch (ArgumentException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
         static void Main(string[] args)
         {
             Console.WriteLine("***** Fun with Processes *****\n");
-            ListAllRunningProcesses();
+            //ListAllRunningProcesses();
+            GetSpecificProcess();
             Console.ReadLine();
         }
     }
