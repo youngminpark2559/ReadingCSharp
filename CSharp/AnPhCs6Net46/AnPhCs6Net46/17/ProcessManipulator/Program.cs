@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 //c Use GetProcesses() static method of Process class, to get a collection of process objects running in local computer. And order by ID of process.
 //c Use GetSpecificProcess() method to examine a specific process object by specifying PID.
+//c Get a specific process by PID. Get a collection of threads executing in that process. Represent informations of each thread.
 
 namespace ProcessManipulator
 {
@@ -45,11 +46,50 @@ namespace ProcessManipulator
             }
         }
 
+        static void EnumThreadsForPid(int pID)
+        {
+            Process theProc = null;
+            try
+            {
+                theProc = Process.GetProcessById(pID);
+            }
+            catch (ArgumentException ex)
+            {
+                Console.WriteLine(ex.Message);
+                return;
+            }
+
+            // List out stats for each thread in the specified process.
+            Console.WriteLine("Here are the threads used by: {0}",
+              theProc.ProcessName);
+            ProcessThreadCollection theThreads = theProc.Threads;
+
+            foreach (ProcessThread pt in theThreads)
+            {
+                string info =
+                string.Format("-> Thread ID: {0}\tStart Time: {1}\tPriority: {2}",
+                  pt.Id, pt.StartTime.ToShortTimeString(), pt.PriorityLevel);
+                Console.WriteLine(info);
+            }
+            Console.WriteLine("************************************\n");
+        }
+
         static void Main(string[] args)
         {
             Console.WriteLine("***** Fun with Processes *****\n");
             //ListAllRunningProcesses();
-            GetSpecificProcess();
+            //GetSpecificProcess();
+
+
+
+            // Prompt user for a PID and print out the set of active threads.
+            Console.WriteLine("***** Enter PID of process to investigate *****");
+            Console.Write("PID: ");
+            string pID = Console.ReadLine();
+            int theProcID = int.Parse(pID);
+
+            EnumThreadsForPid(theProcID);
+
             Console.ReadLine();
         }
     }
