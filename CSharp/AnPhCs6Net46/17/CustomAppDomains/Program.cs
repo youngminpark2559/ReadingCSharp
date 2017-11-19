@@ -6,8 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 //c Get a current hosting application default AppDomain object. Get assemblies which have been loaded in this AppDomain. Print informations of each assembly. // Create a new AppDomain in the current process and give it a friendly name SecondAppDomain. And invoke ListAllAssembliesInAppDomain() method with passing this AppDomain object.
-
 //c Create a new AppDomain in the current process, assigning to the object. Load a custom library, CarLibrary.dll, into the newly created AppDomain.
+//c Create a new AppDomain. Load a assembly into the new AppDomain. Unload the newly create AppDomain from the process. Naturally, all assemblies loaded in the AppDomain are also torn down along with parent AppDomain.
 
 namespace CustomAppDomains
 {
@@ -18,6 +18,10 @@ namespace CustomAppDomains
         {
             // Make a new AppDomain in the current process.
             AppDomain newAD = AppDomain.CreateDomain("SecondAppDomain");
+            newAD.DomainUnload += (o, s) =>
+            {
+                Console.WriteLine("The second AppDomain has been unloaded!");
+            };
 
             try
             {
@@ -31,6 +35,11 @@ namespace CustomAppDomains
 
             // List all assemblies.
             ListAllAssembliesInAppDomain(newAD);
+
+            // Now tear down this AppDomain.
+            AppDomain.Unload(newAD);
+
+
         }
 
         static void ListAllAssembliesInAppDomain(AppDomain ad)
@@ -54,9 +63,17 @@ namespace CustomAppDomains
 
             // Show all loaded assemblies in default AppDomain.
             AppDomain defaultAD = AppDomain.CurrentDomain;
+            defaultAD.ProcessExit += (o, s) =>
+            {
+                Console.WriteLine("Default AD unloaded!");
+            };
+
             ListAllAssembliesInAppDomain(defaultAD);
-            // Make a new AppDomain.
+
             MakeNewAppDomain();
+
+
+
             Console.ReadLine();
         }
     }
