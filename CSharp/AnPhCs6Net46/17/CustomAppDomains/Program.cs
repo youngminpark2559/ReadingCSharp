@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 //c Get a current hosting application default AppDomain object. Get assemblies which have been loaded in this AppDomain. Print informations of each assembly. // Create a new AppDomain in the current process and give it a friendly name SecondAppDomain. And invoke ListAllAssembliesInAppDomain() method with passing this AppDomain object.
+
+//c Create a new AppDomain in the current process, assigning to the object. Load a custom library, CarLibrary.dll, into the newly created AppDomain.
 
 namespace CustomAppDomains
 {
@@ -13,9 +16,20 @@ namespace CustomAppDomains
 
         private static void MakeNewAppDomain()
         {
-            // Make a new AppDomain in the current process and
-            // list loaded assemblies.
+            // Make a new AppDomain in the current process.
             AppDomain newAD = AppDomain.CreateDomain("SecondAppDomain");
+
+            try
+            {
+                // Now load CarLibrary.dll into this new domain.
+                newAD.Load("CarLibrary");
+            }
+            catch (FileNotFoundException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            // List all assemblies.
             ListAllAssembliesInAppDomain(newAD);
         }
 
@@ -32,6 +46,7 @@ namespace CustomAppDomains
                 Console.WriteLine("-> Version: {0}\n", a.GetName().Version);
             }
         }
+
 
         static void Main(string[] args)
         {
