@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 //c Get a specific process by PID. Get a collection of threads executing in that process. Represent informations of each thread.
 //c Get a specific process by PID. Get a collection of modules. Print informations of each module.
 //c Start a process programatically. In that process, run the IE.exe and move to facebook.com. Kill the process by Kill() method on the specific process object.
+//c Use ProcessStartInfo type which has more feature than just a Process type. I can get a specific process and at the same time I can do additional tasks on a ProcessStartInfo object.
+
 namespace ProcessManipulator
 {
     class Program
@@ -104,10 +106,15 @@ namespace ProcessManipulator
         {
             Process ieProc = null;
 
-            // Launch Internet Explorer, and go to facebook!
+            // Launch Internet Explorer, and go to facebook,
+            // with maximized window.
             try
             {
-                ieProc = Process.Start("IExplore.exe", "www.facebook.com");
+                ProcessStartInfo startInfo = new
+      ProcessStartInfo("IExplore.exe", "www.facebook.com");
+                startInfo.WindowStyle = ProcessWindowStyle.Maximized;
+
+                ieProc = Process.Start(startInfo);
             }
             catch (InvalidOperationException ex)
             {
@@ -115,7 +122,7 @@ namespace ProcessManipulator
             }
             Console.Write("--> Hit enter to kill {0}...", ieProc.ProcessName);
             Console.ReadLine();
-            
+
             // Kill the iexplore.exe process.
             try
             {
