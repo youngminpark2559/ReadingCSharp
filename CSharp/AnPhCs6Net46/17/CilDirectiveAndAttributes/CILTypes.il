@@ -1,4 +1,4 @@
-﻿//c Add a reference for mscorlib.dll by using assembly directives. Since this is strongly type assembly located in GAC, you should add the publickeytoken. Actually, you can omit this reference for mscorlib.dll, because it's automaticall referenced.
+﻿//c Add a reference for mscorlib.dll by using assembly directives. Since this is strongly type assembly located in GAC, you should add the publickeytoken. Actually, you can omit this reference for mscorlib.dll, because it's automatically referenced.
 //c Use ver directives to specify version in the scope of assembly declaration.
 //c Use module directives to specify the assembly name to CILTypes.dll.
 //c Add a namespace by using namespace directives, with specifying its name.
@@ -6,6 +6,8 @@
 //c Add a class, MyBaseClass by using class directives in MyNamespace namespace. When you omit the base class, every class inherits from System.Object class.
 //c Add an interface, IMyInterface, by using class directives and interface attribute. MyBaseClass implements IMyInterface interface.
 //c Make an interface hierarchies. IMyOtherInterface implements IMyInterface.
+//c Add a structure. When you do this, you should inherits from System.ValueType class from mscorlib.dll and notate sealed to prevent other type from inheriting this structure. // When you want to declare a structure in simple way, you should use value attribute. And then this is automatically inherited by System.ValueType as a base class.
+
 .assembly extern mscorlib
 {
   .publickeytoken = (B7 7A 5C 56 19 34 E0 89 )
@@ -56,7 +58,18 @@
  
   // MyDerivedClass now implements IMyInterface,
   // and extends MyBaseClass.
-  .class public MyDerivedClass
-    extends MyNamespace.MyBaseClass
-    implements MyNamespace.IMyInterface {}
+  .class public MyDerivedClass extends MyNamespace.MyBaseClass implements MyNamespace.IMyInterface 
+	{
+	
+	}
 }
+
+
+// A structure definition is always sealed.
+//.class public sealed MyStruct extends [mscorlib]System.ValueType
+//{
+//
+//}
+
+// Shorthand notation for declaring a structure.
+.class public sealed value MyStruct{}
