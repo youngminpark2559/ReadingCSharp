@@ -8,7 +8,7 @@
 //c Make an interface hierarchies. IMyOtherInterface implements IMyInterface.
 //c Add a structure. When you do this, you should inherits from System.ValueType class from mscorlib.dll and notate sealed to prevent other type from inheriting this structure. // When you want to declare a structure in simple way, you should use value attribute. And then this is automatically inherited by System.ValueType as a base class.
 //c Add enum members by using field directives, literal, valuetype attributes.
-
+//c Update MyBaseClass, with adding field by private modifier.
 .assembly extern mscorlib
 {
   .publickeytoken = (B7 7A 5C 56 19 34 E0 89 )
@@ -55,7 +55,12 @@
   implements MyNamespace.IMyInterface {}
 
   // A simple base class.
-  .class public MyBaseClass {}
+
+  .class public MyBaseClass
+{
+  .field private string stringField = "hello!"
+  .field private int32 intField = int32(42)
+}
  
   // MyDerivedClass now implements IMyInterface,
   // and extends MyBaseClass.
