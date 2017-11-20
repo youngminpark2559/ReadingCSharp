@@ -5,7 +5,7 @@
 //c Add a nested namespace by adding a root namespace, MyCompany.
 //c Add a class, MyBaseClass by using class directives in MyNamespace namespace. When you omit the base class, every class inherits from System.Object class.
 //c Add an interface, IMyInterface, by using class directives and interface attribute. MyBaseClass implements IMyInterface interface.
-
+//c Make an interface hierarchies. IMyOtherInterface implements IMyInterface.
 .assembly extern mscorlib
 {
   .publickeytoken = (B7 7A 5C 56 19 34 E0 89 )
@@ -48,6 +48,9 @@
   // An interface definition.
   .class public interface IMyInterface {}
  
+ .class public interface IMyOtherInterface
+  implements MyNamespace.IMyInterface {}
+
   // A simple base class.
   .class public MyBaseClass {}
  
