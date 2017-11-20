@@ -1,5 +1,6 @@
 ﻿//c Add a reference for mscorlib.dll by using assembly directives. Since this is strongly type assembly located in GAC, you should add the publickeytoken. Actually, you can omit this reference for mscorlib.dll, because it's automaticall referenced.
 //c Use ver directives to specify version in the scope of assembly declaration.
+//c Use module directives to specify the assembly name to CILTypes.dll.
 
 .assembly extern mscorlib
 {
@@ -12,3 +13,6 @@
 {
   .ver 1:0:0:0
 }
+
+// The module of our single-file assembly.
+.module CILTypes.dll
