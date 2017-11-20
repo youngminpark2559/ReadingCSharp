@@ -73,3 +73,13 @@
 
 // Shorthand notation for declaring a structure.
 .class public sealed value MyStruct{}
+
+// An enum.
+//.class public sealed MyEnum extends [mscorlib]System.Enum
+//{
+//
+//}
+
+
+// Enum shorthand.
+.class public sealed enum MyEnum{}
