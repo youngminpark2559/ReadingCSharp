@@ -2,6 +2,8 @@
 using System.Runtime.Remoting.Contexts; // For Context type.
 using System.Threading;  // For Thread type.
 
+//c Add a SportsCar class which is not defined by any special object contextual boundary treatment. This class can generate an context-agile object in an ordinal object context, maybe by default default context. Get a current context object on which this object is allocated. And print name of all this context's properties.
+
 namespace ObjectContextApp
 {
     // SportsCar has no special contextual
@@ -19,6 +21,7 @@ namespace ObjectContextApp
                 Console.WriteLine("-> Ctx Prop: {0}", itfCtxProp.Name);
         }
     }
+
 
     // SportsCarTS demands to be loaded in
     // a synchronization context.
