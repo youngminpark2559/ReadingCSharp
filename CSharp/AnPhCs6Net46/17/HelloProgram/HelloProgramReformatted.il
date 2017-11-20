@@ -1,4 +1,5 @@
 ﻿//c Add external assembly to reference it. At this, you will use System.Windows.Forms library.
+//c Update Main() method to show the message by using Windows.Forms.MessageBox.
 
 // Referenced assemblies..
 .assembly extern mscorlib
@@ -33,19 +34,18 @@
   extends [mscorlib]System.Object
 {
   .method private hidebysig static void Main(string[] args) cil managed
-  {
-    // Marks this method as the entry point of the
-    // executable.
-    .entrypoint
-    .maxstack 8
-    IL_0000: nop
-	IL_0001: ldstr "Hello CIL code!"
-    IL_0006: call void [mscorlib]System.Console::WriteLine(string)
-    IL_000b: nop
-    IL_000c: call string [mscorlib]System.Console::ReadLine()
-    IL_0011: pop
-    IL_0012: ret
-  }
+{
+  .entrypoint
+  .maxstack 8
+ 
+  ldstr "CIL is way cool"
+  call valuetype [System.Windows.Forms]
+    System.Windows.Forms.DialogResult
+    [System.Windows.Forms]
+  System.Windows.Forms.MessageBox::Show(string)
+  pop
+  ret
+}
  
   // The default constructor.
   .method public hidebysig specialname rtspecialname
