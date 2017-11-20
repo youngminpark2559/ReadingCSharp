@@ -2,6 +2,7 @@
 //c Use ver directives to specify version in the scope of assembly declaration.
 //c Use module directives to specify the assembly name to CILTypes.dll.
 //c Add a namespace by using namespace directives, with specifying its name.
+//c Add a nested namespace by adding a root namespace, MyCompany.
 .assembly extern mscorlib
 {
   .publickeytoken = (B7 7A 5C 56 19 34 E0 89 )
@@ -18,5 +19,8 @@
 .module CILTypes.dll
 
 
-// Our assembly has a single namespace.
-.namespace MyNamespace {}
+
+.namespace MyCompany
+{
+  .namespace MyNamespace {}
+}
