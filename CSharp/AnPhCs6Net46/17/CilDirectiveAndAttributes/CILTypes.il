@@ -7,6 +7,7 @@
 //c Add an interface, IMyInterface, by using class directives and interface attribute. MyBaseClass implements IMyInterface interface.
 //c Make an interface hierarchies. IMyOtherInterface implements IMyInterface.
 //c Add a structure. When you do this, you should inherits from System.ValueType class from mscorlib.dll and notate sealed to prevent other type from inheriting this structure. // When you want to declare a structure in simple way, you should use value attribute. And then this is automatically inherited by System.ValueType as a base class.
+//c Add enum members by using field directives, literal, valuetype attributes.
 
 .assembly extern mscorlib
 {
@@ -62,7 +63,7 @@
 	{
 	
 	}
-}
+
 
 
 // A structure definition is always sealed.
@@ -82,7 +83,16 @@
 
 
 // Enum shorthand.
-.class public sealed enum MyEnum{}
+
+.class public sealed enum MyEnum
+{
+  .field public static literal valuetype
+   MyNamespace.MyEnum A = int32(0)
+  .field public static literal valuetype
+   MyNamespace.MyEnum B = int32(1)
+  .field public static literal valuetype
+   MyNamespace.MyEnum C = int32(2)
+}
 
 // In C#: List<int> myInts = new List<int>();
 newobj instance void class [mscorlib]System.Collections.Generic.List`1<int32>::.ctor()
@@ -95,4 +105,4 @@ newobj instance void class [mscorlib]System.Collections.Generic.Dictionary`2<str
 // In C#: List<List<int>> myInts = new List<List<int>>();
 newobj instance void class [mscorlib]System.Collections.Generic.List`1<class>[mscorlib]System.Collections.Generic.List`1<int32>>::.ctor()
 
-
+}
