@@ -1,10 +1,18 @@
-﻿// Referenced assemblies..
+﻿//c Add external assembly to reference it. At this, you will use System.Windows.Forms library.
+
+// Referenced assemblies..
 .assembly extern mscorlib
 {
   .publickeytoken = (B7 7A 5C 56 19 34 E0 89 )
   .ver 4:0:0:0
 }
  
+ .assembly extern System.Windows.Forms
+{
+  .publickeytoken = (B7 7A 5C 56 19 34 E0 89)
+  .ver 4:0:0:0
+}
+
 // Our assembly.
 .assembly HelloProgram
 {
