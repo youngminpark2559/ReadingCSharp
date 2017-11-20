@@ -83,3 +83,16 @@
 
 // Enum shorthand.
 .class public sealed enum MyEnum{}
+
+// In C#: List<int> myInts = new List<int>();
+newobj instance void class [mscorlib]System.Collections.Generic.List`1<int32>::.ctor()
+
+
+// In C#: Dictionary<string, int> d = new Dictionary<string, int>();
+newobj instance void class [mscorlib]System.Collections.Generic.Dictionary`2<string,int32>::.ctor()
+
+
+// In C#: List<List<int>> myInts = new List<List<int>>();
+newobj instance void class [mscorlib]System.Collections.Generic.List`1<class>[mscorlib]System.Collections.Generic.List`1<int32>>::.ctor()
+
+
