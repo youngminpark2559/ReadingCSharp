@@ -3,6 +3,7 @@
 //c Use module directives to specify the assembly name to CILTypes.dll.
 //c Add a namespace by using namespace directives, with specifying its name.
 //c Add a nested namespace by adding a root namespace, MyCompany.
+//c Add a class, MyBaseClass by using class directives in MyNamespace namespace. When you omit the base class, every class inherits from System.Object class.
 .assembly extern mscorlib
 {
   .publickeytoken = (B7 7A 5C 56 19 34 E0 89 )
@@ -23,4 +24,15 @@
 .namespace MyCompany
 {
   .namespace MyNamespace {}
+}
+
+
+// Defining a nested namespace.
+//.namespace MyCompany.MyNamespace {}
+
+
+.namespace MyNamespace
+{
+  // System.Object base class assumed.
+  .class public MyBaseClass {}
 }
