@@ -3,6 +3,7 @@ using System.Runtime.Remoting.Contexts; // For Context type.
 using System.Threading;  // For Thread type.
 
 //c Add a SportsCar class which is not defined by any special object contextual boundary treatment. This class can generate an context-agile object in an ordinal object context, maybe by default default context. Get a current context object on which this object is allocated. And print name of all this context's properties.
+//c Add a SportsCarTS class which is decorated by [Synchronization]. The class which is decorated by this attribute generates its object in special object context boundary which is thread safe. And by inheriting ContextBoundObject class as a base class, above object which is allocated in thread safe object context boundary can't be moved to thread unsafe object context boundary by the CLR.
 
 namespace ObjectContextApp
 {
@@ -21,6 +22,8 @@ namespace ObjectContextApp
                 Console.WriteLine("-> Ctx Prop: {0}", itfCtxProp.Name);
         }
     }
+
+
 
 
     // SportsCarTS demands to be loaded in
