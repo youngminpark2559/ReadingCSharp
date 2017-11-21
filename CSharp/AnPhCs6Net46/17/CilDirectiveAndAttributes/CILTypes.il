@@ -11,6 +11,7 @@
 //c Update MyBaseClass, with adding field by private modifier.
 //c Add a custom constructor by using ctor directives and instance attributes, which means this constructor is used within instance level, not the static level. static level constructor is decorated by cctor directives.
 //c Add a property in the class.
+//c Use method directives. Specify the parameter by int32 for inputInt. int32& means it's a "ref parameter" in int32 for refInt. class token means it's a "reference type parameter" and its type is System.Collections.ArrayList from mscorlib.dll for ar. For "out parameter", we also use "&" character like "ref parameter" and also use [out] token to indicate it's an "out parameter" for outputInt.
 
 .assembly extern mscorlib
 {
@@ -96,7 +97,22 @@
   }
 
 
+  //The mothod and its parameters and parameter type in C#, which I want to implement.
+public static void MyMethod(int inputInt,
+  ref int refInt, ArrayList ar, out int outputInt)
+{
+  outputInt = 0; // Just to satisfy the C# compiler...
+}
 
+
+
+.method public hidebysig static void MyMethod(int32 inputInt,
+  int32& refInt,
+  class [mscorlib]System.Collections.ArrayList ar,
+  [out] int32& outputInt) cil managed
+{
+  ...
+}
 
 
 }
