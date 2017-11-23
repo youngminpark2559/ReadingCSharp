@@ -25,6 +25,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "18", "18", "{18AC39B4-344F-
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DynamicAsmBuilder", "18\DynamicAsmBuilder\DynamicAsmBuilder.csproj", "{8D34B647-F364-4932-B56F-538DFD03671E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "19", "19", "{C5C79824-FE76-4DBC-996C-A9ED22A078E3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SyncDelegateReview", "19\SyncDelegateReview\SyncDelegateReview.csproj", "{69544596-B7EF-4F5E-9FA6-E36E854EBE0C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -67,6 +71,10 @@ Global
 		{8D34B647-F364-4932-B56F-538DFD03671E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8D34B647-F364-4932-B56F-538DFD03671E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8D34B647-F364-4932-B56F-538DFD03671E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69544596-B7EF-4F5E-9FA6-E36E854EBE0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69544596-B7EF-4F5E-9FA6-E36E854EBE0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69544596-B7EF-4F5E-9FA6-E36E854EBE0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69544596-B7EF-4F5E-9FA6-E36E854EBE0C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -81,6 +89,7 @@ Global
 		{C3DE904C-A9B1-4E4B-90B5-5C4B5BF2DF57} = {02809238-3F6B-466E-AFFA-F0E426DDFA0B}
 		{A137D07D-D15E-462C-B81E-7171FA47E00C} = {02809238-3F6B-466E-AFFA-F0E426DDFA0B}
 		{8D34B647-F364-4932-B56F-538DFD03671E} = {18AC39B4-344F-4833-84B2-7E18DF4889C3}
+		{69544596-B7EF-4F5E-9FA6-E36E854EBE0C} = {C5C79824-FE76-4DBC-996C-A9ED22A078E3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A2719945-F9D2-4AD1-A033-50C94AB8803C}
