@@ -31,6 +31,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SyncDelegateReview", "19\Sy
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsyncDelegate", "19\AsyncDelegate\AsyncDelegate.csproj", "{7AF2DBD2-E483-44DD-9D72-F756EE1B0586}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsyncCallbackDelegate", "19\AsyncCallbackDelegate\AsyncCallbackDelegate.csproj", "{47CAEA37-DB50-4224-8A87-EB28FB1BDFA7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -81,6 +83,10 @@ Global
 		{7AF2DBD2-E483-44DD-9D72-F756EE1B0586}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7AF2DBD2-E483-44DD-9D72-F756EE1B0586}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7AF2DBD2-E483-44DD-9D72-F756EE1B0586}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47CAEA37-DB50-4224-8A87-EB28FB1BDFA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47CAEA37-DB50-4224-8A87-EB28FB1BDFA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47CAEA37-DB50-4224-8A87-EB28FB1BDFA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47CAEA37-DB50-4224-8A87-EB28FB1BDFA7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -97,6 +103,7 @@ Global
 		{8D34B647-F364-4932-B56F-538DFD03671E} = {18AC39B4-344F-4833-84B2-7E18DF4889C3}
 		{69544596-B7EF-4F5E-9FA6-E36E854EBE0C} = {C5C79824-FE76-4DBC-996C-A9ED22A078E3}
 		{7AF2DBD2-E483-44DD-9D72-F756EE1B0586} = {C5C79824-FE76-4DBC-996C-A9ED22A078E3}
+		{47CAEA37-DB50-4224-8A87-EB28FB1BDFA7} = {C5C79824-FE76-4DBC-996C-A9ED22A078E3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A2719945-F9D2-4AD1-A033-50C94AB8803C}
