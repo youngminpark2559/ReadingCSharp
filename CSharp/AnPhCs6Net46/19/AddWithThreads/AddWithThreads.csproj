@@ -50,5 +50,11 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SimpleMultiThreadApp\SimpleMultiThreadApp.csproj">
+      <Project>{87B43553-CFB4-404C-9C70-2F74EC1BDF57}</Project>
+      <Name>SimpleMultiThreadApp</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

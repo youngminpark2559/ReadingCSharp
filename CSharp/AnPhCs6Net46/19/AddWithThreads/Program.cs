@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SimpleMultiThreadApp;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +10,7 @@ using System.Threading.Tasks;
 //c Add a AddParams class which contains data which will be passed into Add() method. Add Add(object data) static method which will be pass into the ParameterizedThreadStart delegate. 
 //c Use the WaitOne() method of AutoResetEvent class, to make the thread wait instead of using toggle logic or Thread.Sleep() method.
 //c Use the WaitOne() method of AutoResetEvent class, and apply for it in practical.
+//c Use a forground and background thread. I make a secondary thread for unit of work and on that thread I invoke PrintNumbers() method. But this thread will be the background thread by the configuration of bgroundThread.IsBackground=ture.
 
 namespace AddWithThreads
 {
@@ -48,18 +50,14 @@ namespace AddWithThreads
 
         static void Main(string[] args)
         {
-            Console.WriteLine("***** Adding with Thread objects *****");
-            Console.WriteLine("ID of thread in Main(): {0}",
-              Thread.CurrentThread.ManagedThreadId);
-            AddParams ap = new AddParams(10, 10);
-            Thread t = new Thread(new ParameterizedThreadStart(Add));
-            t.Start(ap);
+            Console.WriteLine("***** Background Threads *****\n");
+            Printer p = new Printer();
+            Thread bgroundThread =
+              new Thread(new ThreadStart(p.PrintNumbers));
 
-            // Wait here until you are notified!
-            waitHandle.WaitOne();
-            Console.WriteLine("Other thread is done!");
-
-            Console.ReadLine();
+            // This is now a background thread.
+            bgroundThread.IsBackground = true;
+            bgroundThread.Start();
         }
     }
 }
