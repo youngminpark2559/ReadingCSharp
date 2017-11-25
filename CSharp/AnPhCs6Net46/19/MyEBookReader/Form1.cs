@@ -11,6 +11,7 @@ using System.Windows.Forms;
 
 //c Implement btnDownload_Click() event handler method. I download text file asynchronously and when this task is completed, DownloadStringCompleted event is fired and event handler is invoked so downloaded text is assigned to theEBook variable and this variable is assigned ti text box.
 //c Implement functionalities but in a single thread and synchronous way.
+//c When I process heavy tasks by invoking FindLongestWord() and FindTenMostCommon() methods, I call these methods asynchronously and on the secondary thred in parallel way.
 
 namespace MyEBookReader
 {
@@ -37,16 +38,25 @@ namespace MyEBookReader
 
         private void btnGetStats_Click(object sender, EventArgs e)
         {
+
             // Get the words from the e-book.
-            string[] words = theEBook.Split(new char[]
-              { ' ', '\u000A', ',', '.', ';', ':', '-', '?', '/' },
+            string[] words = theEBook.Split(
+              new char[] { ' ', '\u000A', ',', '.', ';', ':', '-', '?', '/' },
               StringSplitOptions.RemoveEmptyEntries);
+            string[] tenMostCommon = null;
+            string longestWord = string.Empty;
 
-            // Now, find the ten most common words.
-            string[] tenMostCommon = FindTenMostCommon(words);
-            // Get the longest word.
-            string longestWord = FindLongestWord(words);
-
+            Parallel.Invoke(
+              () =>
+              {
+                  // Now, find the ten most common words.
+                  tenMostCommon = FindTenMostCommon(words);
+              },
+              () =>
+              {
+                  // Get the longest word.
+                  longestWord = FindLongestWord(words);
+              });
             // Now that all tasks are complete, build a string to show all
             // stats in a message box.
             StringBuilder bookStats = new StringBuilder("Ten Most Common Words are:\n");
