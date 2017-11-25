@@ -1,15 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
 //c Add a project MultiThreadedPrinting to examine the concurrency occurred when multiple threads attempt to manipulate a shared data.
 //c Use lock keyword to achieve the thread safe. All threads complete its task without being interfered by other thread's attempting to the shared data, one by one up to 10th thread.
+//c Use Synchronization attribute to make this object instantiated into the thread safe object contextual boundary. So that, all codes in this object are executed thread-safely without any explicit thread-safe code such as lock, monitor, and interlock.
 
 namespace MultiThreadedPrinting
 {
+
+    // All methods of Printer are now thread safe!
+    [Synchronization]
     public class Printer
     {
         // Lock token.
