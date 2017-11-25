@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 //c Do some foreach tasks on a single primary thread, so everything is hung because the primary thread is fully taken by the running task.
+//c Use Parallel.ForEach to process foreach task in parallel by using multiple processor of CPU. The logic is identical except that source is located in the first argument, and one unit from source is located in the second argument, and the logic is inside of Action delegate.
 
 namespace DataParallelismWithForEach
 {
@@ -34,8 +35,8 @@ namespace DataParallelismWithForEach
             string newDir = @"C:\ModifiedPictures";
             Directory.CreateDirectory(newDir);
 
-            // Process the image data in a blocking manner.
-            foreach (string currentFile in files)
+            // Process the image data in a parallel manner!
+            Parallel.ForEach(files, currentFile =>
             {
                 string filename = Path.GetFileName(currentFile);
 
@@ -44,11 +45,12 @@ namespace DataParallelismWithForEach
                     bitmap.RotateFlip(RotateFlipType.Rotate180FlipNone);
                     bitmap.Save(Path.Combine(newDir, filename));
 
-                    // Print out the ID of the thread processing the current image.
-                    this.Text = string.Format("Processing {0} on thread {1}", filename,
-                      Thread.CurrentThread.ManagedThreadId);
+                    // This code statement is now a problem! See next section.
+                    // this.Text = string.Format("Processing {0} on thread {1}", filename,
+                    // Thread.CurrentThread.ManagedThreadId);
                 }
             }
+            );
         }
     }
 }
