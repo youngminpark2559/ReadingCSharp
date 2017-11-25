@@ -14,6 +14,7 @@ using System.Windows.Forms;
 //c Use Parallel.ForEach to process foreach task in parallel by using multiple processor of CPU. The logic is identical except that source is located in the first argument, and one unit from source is located in the second argument, and the logic is inside of Action delegate.
 //c Use Task class. This class allows you to invoke a method on a secondary thread. And this class also can be used as an alternative to working with asynchronous delegate. By this code, ProcessFiles() method is invoke on the secondary thread.
 //c Add cancel token field which will be used for suspending parallel task in the middle of executing.
+//c Add btnCancel_Click() event handler method. When I click the cancel button, it leads to invoking Cancel() method on cancelToken object and this tells all the worker threads to stop.
 
 namespace DataParallelismWithForEach
 {
@@ -70,6 +71,12 @@ namespace DataParallelismWithForEach
                 }
             }
             );
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            // This will be used to tell all the worker threads to stop!
+            cancelToken.Cancel();
         }
     }
 }

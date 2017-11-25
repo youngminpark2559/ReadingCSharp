@@ -30,6 +30,7 @@
         {
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.btnProcessImages = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textBox1
@@ -50,11 +51,22 @@
             this.btnProcessImages.UseVisualStyleBackColor = true;
             this.btnProcessImages.Click += new System.EventHandler(this.btnProcessImages_Click);
             // 
+            // btnCancel
+            // 
+            this.btnCancel.Location = new System.Drawing.Point(119, 539);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.TabIndex = 2;
+            this.btnCancel.Text = "button1";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(702, 574);
+            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnProcessImages);
             this.Controls.Add(this.textBox1);
             this.Name = "MainForm";
@@ -68,6 +80,7 @@
 
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button btnProcessImages;
+        private System.Windows.Forms.Button btnCancel;
     }
 }
 
