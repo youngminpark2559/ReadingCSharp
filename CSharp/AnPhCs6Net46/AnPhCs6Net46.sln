@@ -39,6 +39,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleMultiThreadApp", "19\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AddWithThreads", "19\AddWithThreads\AddWithThreads.csproj", "{B26EE536-FF81-49CB-AD89-DB27E2DB7D1E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiThreadedPrinting", "19\MultiThreadedPrinting\MultiThreadedPrinting.csproj", "{CB1B05AA-96C5-400B-BD0A-43C65E65AB73}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -105,6 +107,10 @@ Global
 		{B26EE536-FF81-49CB-AD89-DB27E2DB7D1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B26EE536-FF81-49CB-AD89-DB27E2DB7D1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B26EE536-FF81-49CB-AD89-DB27E2DB7D1E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB1B05AA-96C5-400B-BD0A-43C65E65AB73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB1B05AA-96C5-400B-BD0A-43C65E65AB73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB1B05AA-96C5-400B-BD0A-43C65E65AB73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB1B05AA-96C5-400B-BD0A-43C65E65AB73}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -125,6 +131,7 @@ Global
 		{F4A2C93A-33DA-4214-AFE1-195EEBCDFAFD} = {C5C79824-FE76-4DBC-996C-A9ED22A078E3}
 		{87B43553-CFB4-404C-9C70-2F74EC1BDF57} = {C5C79824-FE76-4DBC-996C-A9ED22A078E3}
 		{B26EE536-FF81-49CB-AD89-DB27E2DB7D1E} = {C5C79824-FE76-4DBC-996C-A9ED22A078E3}
+		{CB1B05AA-96C5-400B-BD0A-43C65E65AB73} = {C5C79824-FE76-4DBC-996C-A9ED22A078E3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A2719945-F9D2-4AD1-A033-50C94AB8803C}
