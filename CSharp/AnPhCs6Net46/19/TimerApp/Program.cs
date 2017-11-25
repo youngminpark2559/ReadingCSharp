@@ -14,8 +14,8 @@ namespace TimerApp
     {
         static void PrintTime(object state)
         {
-            Console.WriteLine("Time is: {0}",
-              DateTime.Now.ToLongTimeString());
+            Console.WriteLine("Time is: {0}, Param is: {1}",
+    DateTime.Now.ToLongTimeString(), state.ToString());
         }
 
         static void Main(string[] args)
@@ -28,7 +28,7 @@ namespace TimerApp
             // Establish timer settings.
             Timer t = new Timer(
               timeCB,     // The TimerCallback delegate object.
-              null,       // Any info to pass into the called method (null for no info).
+              "Hello From Main",       // Any info to pass into the called method (null for no info).
               0,          // Amount of time to wait before starting (in milliseconds).
               1000);      // Interval of time between calls (in milliseconds).
 
