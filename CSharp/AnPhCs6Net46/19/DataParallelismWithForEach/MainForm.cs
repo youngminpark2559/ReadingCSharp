@@ -12,6 +12,7 @@ using System.Windows.Forms;
 
 //c Do some foreach tasks on a single primary thread, so everything is hung because the primary thread is fully taken by the running task.
 //c Use Parallel.ForEach to process foreach task in parallel by using multiple processor of CPU. The logic is identical except that source is located in the first argument, and one unit from source is located in the second argument, and the logic is inside of Action delegate.
+//c Use Task class. This class allows you to invoke a method on a secondary thread. And this class also can be used as an alternative to working with asynchronous delegate. By this code, ProcessFiles() method is invoke on the secondary thread.
 
 namespace DataParallelismWithForEach
 {
@@ -21,10 +22,14 @@ namespace DataParallelismWithForEach
         {
             InitializeComponent();
         }
-
+        
         private void btnProcessImages_Click(object sender, EventArgs e)
         {
-            ProcessFiles();
+            // Start a new "task" to process the files.
+            Task.Factory.StartNew(() =>
+            {
+                ProcessFiles();
+            });
         }
 
         private void ProcessFiles()
@@ -45,9 +50,18 @@ namespace DataParallelismWithForEach
                     bitmap.RotateFlip(RotateFlipType.Rotate180FlipNone);
                     bitmap.Save(Path.Combine(newDir, filename));
 
-                    // This code statement is now a problem! See next section.
-                    // this.Text = string.Format("Processing {0} on thread {1}", filename,
-                    // Thread.CurrentThread.ManagedThreadId);
+                    // Eek! This will not work anymore!
+                    //this.Text = string.Format("Processing {0} on thread {1}", filename,
+                    //  Thread.CurrentThread.ManagedThreadId);
+
+                    // Invoke on the Form object, to allow secondary threads to access controls
+                    // in a thread-safe manner.
+                    this.Invoke((Action)delegate
+                    {
+                        this.Text = string.Format("Processing {0} on thread {1}", filename,
+                                    Thread.CurrentThread.ManagedThreadId);
+                    }
+                    );
                 }
             }
             );
