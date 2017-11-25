@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 //c Add a project AddWithThreads to examine the feature of ParameterizedThreadStart delegate.
 //c Add a AddParams class which contains data which will be passed into Add() method. Add Add(object data) static method which will be pass into the ParameterizedThreadStart delegate. 
 //c Use the WaitOne() method of AutoResetEvent class, to make the thread wait instead of using toggle logic or Thread.Sleep() method.
+//c Use the WaitOne() method of AutoResetEvent class, and apply for it in practical.
 
 namespace AddWithThreads
 {
@@ -36,6 +37,9 @@ namespace AddWithThreads
                 AddParams ap = (AddParams)data;
                 Console.WriteLine("{0} + {1} is {2}", ap.a, ap.b, ap.a + ap.b);
             }
+            // Tell other thread we are done.
+            waitHandle.Set();
+
         }
 
 
