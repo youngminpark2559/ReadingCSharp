@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 //c Add a project AddWithThreads to examine the feature of ParameterizedThreadStart delegate.
 //c Add a AddParams class which contains data which will be passed into Add() method. Add Add(object data) static method which will be pass into the ParameterizedThreadStart delegate. 
+//c Use the WaitOne() method of AutoResetEvent class, to make the thread wait instead of using toggle logic or Thread.Sleep() method.
 
 namespace AddWithThreads
 {
@@ -37,18 +38,22 @@ namespace AddWithThreads
             }
         }
 
+
+
+        private static AutoResetEvent waitHandle = new AutoResetEvent(false);
+
         static void Main(string[] args)
         {
             Console.WriteLine("***** Adding with Thread objects *****");
             Console.WriteLine("ID of thread in Main(): {0}",
               Thread.CurrentThread.ManagedThreadId);
-
-            // Make an AddParams object to pass to the secondary thread.
             AddParams ap = new AddParams(10, 10);
             Thread t = new Thread(new ParameterizedThreadStart(Add));
             t.Start(ap);
-            // Force a wait to let other thread finish.
-            Thread.Sleep(3);
+
+            // Wait here until you are notified!
+            waitHandle.WaitOne();
+            Console.WriteLine("Other thread is done!");
 
             Console.ReadLine();
         }
