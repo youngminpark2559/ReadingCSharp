@@ -6,26 +6,33 @@ using System.Threading;
 using System.Threading.Tasks;
 
 //c Add a project MultiThreadedPrinting to examine the concurrency occurred when multiple threads attempt to manipulate a shared data.
+//c Use lock keyword to achieve the thread safe. All threads complete its task without being interfered by other thread's attempting to the shared data, one by one up to 10th thread.
 
 namespace MultiThreadedPrinting
 {
     public class Printer
     {
+        // Lock token.
+        private object threadLock = new object();
+
         public void PrintNumbers()
         {
-            // Display Thread info.
-            Console.WriteLine("-> {0} is executing PrintNumbers()",
-              Thread.CurrentThread.Name);
-
-            // Print out numbers.
-            for (int i = 0; i < 10; i++)
+            // Use the private object lock token.
+            lock (threadLock)
             {
-                // Put thread to sleep for a random amount of time.
-                Random r = new Random();
-                Thread.Sleep(1000 * r.Next(5));
-                Console.Write("{0}, ", i);
+                // Display Thread info.
+                Console.WriteLine("-> {0} is executing PrintNumbers()",
+                  Thread.CurrentThread.Name);
+                // Print out numbers.
+                Console.Write("Your numbers: ");
+                for (int i = 0; i < 10; i++)
+                {
+                    Random r = new Random();
+                    Thread.Sleep(1000 * r.Next(5));
+                    Console.Write("{0}, ", i);
+                }
+                Console.WriteLine();
             }
-            Console.WriteLine();
         }
     }
 
@@ -54,5 +61,4 @@ namespace MultiThreadedPrinting
 
 
     }
-}
 }
