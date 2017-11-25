@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 //c Do some foreach tasks on a single primary thread, so everything is hung because the primary thread is fully taken by the running task.
 //c Use Parallel.ForEach to process foreach task in parallel by using multiple processor of CPU. The logic is identical except that source is located in the first argument, and one unit from source is located in the second argument, and the logic is inside of Action delegate.
-//c Use Task class. This class allows you to invoke a method on a secondary thread. And this class also can be used as an alternative to working with asynchronous delegate. By this code, ProcessFiles() method is invoke on the secondary thread.
+//c Use Task class. This class allows you to invoke a method on a secondary thread. And this class also can be used as an alternative to working with asynchronous delegate. By this code, ProcessFiles() method is invoke on the secondary thread..
 
 namespace DataParallelismWithForEach
 {
