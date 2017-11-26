@@ -21,15 +21,21 @@ namespace FileStreamApp
               FileMode.Create))
             {
                 // Encode a string as an array of bytes.
-                string msg = "Hello!";
+                string msg = "Helloo";
                 byte[] msgAsByteArray = Encoding.Default.GetBytes(msg);
 
+                //int[] ints =new[] { 0, 7, 12, 3, 9, 30 };
+                //byte[] msgAsByteArray = ints.SelectMany(BitConverter.GetBytes).ToArray();
                 foreach (var a in msgAsByteArray)
                 {
                     Console.WriteLine($"a: {a}");
                 }
 
+                
 
+
+
+                //Your message as an array of bytes: 72101108108111111
 
                 // Write byte[] to file.
                 fStream.Write(msgAsByteArray, 0, msgAsByteArray.Length);
