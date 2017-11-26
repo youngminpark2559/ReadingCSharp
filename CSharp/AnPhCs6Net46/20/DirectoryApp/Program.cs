@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 //c Add a project DirectoryApp to examine DirectoryInfo class and its members.
 //c Use CreateSubdirectory() method of DirectoryInfo class, to create the folder(s).
+//c Use members of Directory class. The functionalities of members of Directory class is almost same with the ones of DirectoryInfo class. But Unlike the members of DirectoryInfo class return strongly typed objects, the members of Directory return just in string type. And to use DirectoryInfo, you should instatiate DirectoryInfo object first, but you can use Directory class by static way.
 
 namespace DirectoryApp
 {
@@ -17,7 +18,8 @@ namespace DirectoryApp
             Console.WriteLine("***** Fun with Directory(Info) *****\n");
             //ShowWindowsDirectoryInfo();
             //DisplayImageFiles();
-            ModifyAppDirectory();
+            //ModifyAppDirectory();
+            FunWithDirectoryType();
             Console.ReadLine();
         }
 
@@ -56,16 +58,55 @@ namespace DirectoryApp
             }
         }
 
-        
+
+        //static void ModifyAppDirectory()
+        //{
+        //    DirectoryInfo dir = new DirectoryInfo(@"C:\");
+
+        //    // Create \MyFolder off application directory.
+        //    dir.CreateSubdirectory("MyFolder");
+
+        //    // Create \MyFolder2\Data off application directory.
+        //    dir.CreateSubdirectory(@"MyFolder2\Data");
+        //}
+
         static void ModifyAppDirectory()
         {
-            DirectoryInfo dir = new DirectoryInfo(@"C:\");
+            DirectoryInfo dir = new DirectoryInfo(".");
 
-            // Create \MyFolder off application directory.
+            // Create \MyFolder off initial directory.
             dir.CreateSubdirectory("MyFolder");
 
-            // Create \MyFolder2\Data off application directory.
-            dir.CreateSubdirectory(@"MyFolder2\Data");
+            // Capture returned DirectoryInfo object.
+            DirectoryInfo myDataFolder = dir.CreateSubdirectory(@"MyFolder2\Data");
+
+            // Prints path to ..\MyFolder2\Data.
+            Console.WriteLine("New Folder is: {0}", myDataFolder);
+        }
+
+        static void FunWithDirectoryType()
+        {
+            // List all drives on current computer.
+            string[] drives = Directory.GetLogicalDrives();
+            Console.WriteLine("Here are your drives:");
+            foreach (string s in drives)
+                Console.WriteLine("--> {0} ", s);
+
+            // Delete what was created.
+            Console.WriteLine("Press Enter to delete directories");
+            Console.ReadLine();
+            try
+            {
+                Directory.Delete(@"C:\MyFolder");
+
+                // The second parameter specifies whether you
+                // wish to destroy any subdirectories.
+                Directory.Delete(@"C:\MyFolder2", true);
+            }
+            catch (IOException e)
+            {
+                Console.WriteLine(e.Message);
+            }
         }
     }
 }
