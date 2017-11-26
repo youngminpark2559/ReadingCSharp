@@ -70,6 +70,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileStreamApp", "20\FileStr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StreamWriterReaderApp", "20\StreamWriterReaderApp\StreamWriterReaderApp.csproj", "{F5CB236E-2B9A-4B74-8AD8-7D0C4216131E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringReaderWriterApp", "20\StringReaderWriterApp\StringReaderWriterApp.csproj", "{4C67CEAB-B802-4A36-8E47-ADF89CBA5EF1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -188,6 +190,10 @@ Global
 		{F5CB236E-2B9A-4B74-8AD8-7D0C4216131E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F5CB236E-2B9A-4B74-8AD8-7D0C4216131E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F5CB236E-2B9A-4B74-8AD8-7D0C4216131E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C67CEAB-B802-4A36-8E47-ADF89CBA5EF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C67CEAB-B802-4A36-8E47-ADF89CBA5EF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C67CEAB-B802-4A36-8E47-ADF89CBA5EF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C67CEAB-B802-4A36-8E47-ADF89CBA5EF1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -221,6 +227,7 @@ Global
 		{AE45FA70-BD4B-489F-9E9B-A2AE60229597} = {253214CC-2937-49F7-A69E-B75A67A86BE6}
 		{3BD57E39-7271-4F5D-AEAC-664A2C866AF8} = {253214CC-2937-49F7-A69E-B75A67A86BE6}
 		{F5CB236E-2B9A-4B74-8AD8-7D0C4216131E} = {253214CC-2937-49F7-A69E-B75A67A86BE6}
+		{4C67CEAB-B802-4A36-8E47-ADF89CBA5EF1} = {253214CC-2937-49F7-A69E-B75A67A86BE6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A2719945-F9D2-4AD1-A033-50C94AB8803C}
