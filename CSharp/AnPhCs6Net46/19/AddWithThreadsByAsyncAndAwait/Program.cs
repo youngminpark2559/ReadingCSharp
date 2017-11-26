@@ -23,8 +23,11 @@ namespace AddWithThreadsByAsyncAndAwait
     class Program
     {
         static void Main(string[] args)
+
         {
             AddAsync();
+            Console.WriteLine("ID of thread before ReadLine: {0}",
+    Thread.CurrentThread.ManagedThreadId);
             Console.ReadLine();
         }
 

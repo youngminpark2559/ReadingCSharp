@@ -58,6 +58,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunWithCSharpAsync", "19\Fu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AddWithThreadsByAsyncAndAwait", "19\AddWithThreadsByAsyncAndAwait\AddWithThreadsByAsyncAndAwait.csproj", "{F19445BB-BCB3-4613-88E0-95AD271548D6}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "20", "20", "{253214CC-2937-49F7-A69E-B75A67A86BE6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DirectoryApp", "20\DirectoryApp\DirectoryApp.csproj", "{7C31D08B-6654-47A8-BB44-B3E4E114E568}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -156,6 +160,10 @@ Global
 		{F19445BB-BCB3-4613-88E0-95AD271548D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F19445BB-BCB3-4613-88E0-95AD271548D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F19445BB-BCB3-4613-88E0-95AD271548D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C31D08B-6654-47A8-BB44-B3E4E114E568}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C31D08B-6654-47A8-BB44-B3E4E114E568}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C31D08B-6654-47A8-BB44-B3E4E114E568}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C31D08B-6654-47A8-BB44-B3E4E114E568}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -184,6 +192,7 @@ Global
 		{48D583CF-A020-4F7C-A51B-EF6553825019} = {C5C79824-FE76-4DBC-996C-A9ED22A078E3}
 		{4E122FFA-AED8-483A-BC42-A721F3FA0378} = {C5C79824-FE76-4DBC-996C-A9ED22A078E3}
 		{F19445BB-BCB3-4613-88E0-95AD271548D6} = {C5C79824-FE76-4DBC-996C-A9ED22A078E3}
+		{7C31D08B-6654-47A8-BB44-B3E4E114E568} = {253214CC-2937-49F7-A69E-B75A67A86BE6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A2719945-F9D2-4AD1-A033-50C94AB8803C}
