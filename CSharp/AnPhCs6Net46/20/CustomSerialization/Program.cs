@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 //c Create a project CustomSerialization to examine how to configure the process of a serialization by using ISerializable.
 //c Customize the serialization and save the serialized file in SOAP format. And see the result affected by the customized serialization.
+//c Add MoreData class and in this class, I use [OnDeserialized], [OnSerializing] on the corresponding methods.
 
 namespace CustomSerialization
 {
@@ -34,6 +35,29 @@ namespace CustomSerialization
             // Fill up the SerializationInfo object with the formatted data.
             info.AddValue("First_Item", dataItemOne.ToUpper());
             info.AddValue("dataItemTwo", dataItemTwo.ToUpper());
+        }
+    }
+
+    [Serializable]
+    class MoreData
+    {
+        private string dataItemOne = "First data block";
+        private string dataItemTwo = "More data";
+
+        [OnSerializing]
+        private void OnSerializing(StreamingContext context)
+        {
+            // Called during the serialization process.
+            dataItemOne = dataItemOne.ToUpper();
+            dataItemTwo = dataItemTwo.ToUpper();
+        }
+
+        [OnDeserialized]
+        private void OnDeserialized(StreamingContext context)
+        {
+            // Called when the deserialization process is complete.
+            dataItemOne = dataItemOne.ToLower();
+            dataItemTwo = dataItemTwo.ToLower();
         }
     }
 
