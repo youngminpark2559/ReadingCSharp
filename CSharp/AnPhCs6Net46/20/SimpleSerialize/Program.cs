@@ -6,6 +6,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.Runtime.Serialization.Formatters.Soap;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 //c Create a project SimpleSerialize. And add a Radio class which is marked with [Serializable] and one field, radioID, in the Radio class is marked with [NonSerialized].
 //c Add a Car class which is decorated by [Serializable].
@@ -13,6 +14,7 @@ using System.Threading.Tasks;
 //c Add a Person class to examine the exception for XML format serialization. When I serialize object graph, this ignores members which have a private access. When I need to include private member to serialization, I should use the public property which sets private fields.
 //c Manipulate JamesBondCar instance and serialize object graph and store it into a file named CarData.dat by using FileStream.
 //c Serialize the object graph into a SOAP format file by using SoapFormatter object and FileStream object.
+//c Serialize the object graph into a XML format file by using XmlSerializer object and FileStream object.
 
 namespace SimpleSerialize
 {
@@ -122,7 +124,19 @@ namespace SimpleSerialize
             }
             Console.WriteLine("=> Saved car in SOAP format!");
         }
+
+
+        static void SaveAsXmlFormat(object objGraph, string fileName)
+        {
+            // Save object to a file named CarData.xml in XML format.
+            XmlSerializer xmlFormat = new XmlSerializer(typeof(JamesBondCar));
+
+            using (Stream fStream = new FileStream(fileName,
+              FileMode.Create, FileAccess.Write, FileShare.None))
+            {
+                xmlFormat.Serialize(fStream, objGraph);
+            }
+            Console.WriteLine("=> Saved car in XML format!");
+        }
     }
-
-
 }
