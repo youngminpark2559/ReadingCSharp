@@ -15,6 +15,7 @@ using System.Xml.Serialization;
 //c Manipulate JamesBondCar instance and serialize object graph and store it into a file named CarData.dat by using FileStream.
 //c Serialize the object graph into a SOAP format file by using SoapFormatter object and FileStream object.
 //c Serialize the object graph into a XML format file by using XmlSerializer object and FileStream object.
+//c Update JamesBondCar class by adding custom constructor getting 2 arguments and default constructor which is required by XmlSerializer.
 
 namespace SimpleSerialize
 {
@@ -39,11 +40,20 @@ namespace SimpleSerialize
 
 
 
-    [Serializable]
+    [Serializable, XmlRoot(Namespace = "http://www.MyCompany.com")]
     public class JamesBondCar : Car
     {
         public bool canFly;
         public bool canSubmerge;
+
+        public JamesBondCar(bool skyWorthy, bool seaWorthy)
+        {
+            canFly = skyWorthy;
+            canSubmerge = seaWorthy;
+        }
+
+        // The XmlSerializer demands a default constructor!
+        public JamesBondCar() { }
     }
 
 
