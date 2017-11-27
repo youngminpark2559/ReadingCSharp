@@ -16,6 +16,7 @@ using System.Xml.Serialization;
 //c Serialize the object graph into a SOAP format file by using SoapFormatter object and FileStream object.
 //c Serialize the object graph into a XML format file by using XmlSerializer object and FileStream object.
 //c Update JamesBondCar class by adding custom constructor getting 2 arguments and default constructor which is required by XmlSerializer.
+//c Add SaveListOfCars() which serializes multiple JamesBondCar object by using custom constructor of JamesBondCar class into a XML format file.
 
 namespace SimpleSerialize
 {
@@ -147,6 +148,22 @@ namespace SimpleSerialize
                 xmlFormat.Serialize(fStream, objGraph);
             }
             Console.WriteLine("=> Saved car in XML format!");
+        }
+
+        static void SaveListOfCars()
+        {
+            // Now persist a List<T> of JamesBondCars.
+            List<JamesBondCar> myCars = new List<JamesBondCar>();
+            myCars.Add(new JamesBondCar(true, true));
+            myCars.Add(new JamesBondCar(true, false));
+            myCars.Add(new JamesBondCar(false, true));
+            myCars.Add(new JamesBondCar(false, false));
+            using (Stream fStream = new FileStream("CarCollection.xml", FileMode.Create, FileAccess.Write, FileShare.None))
+            {
+                XmlSerializer xmlFormat = new XmlSerializer(typeof(List<JamesBondCar>));
+                xmlFormat.Serialize(fStream, myCars);
+            }
+            Console.WriteLine("=> Saved list of cars!");
         }
     }
 }
