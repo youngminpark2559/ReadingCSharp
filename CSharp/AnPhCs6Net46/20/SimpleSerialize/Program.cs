@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Runtime.Serialization.Formatters.Soap;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,6 +12,7 @@ using System.Threading.Tasks;
 //c Add a JamesBondCar class which is decorated by [Serializable] and derived from Car base class.
 //c Add a Person class to examine the exception for XML format serialization. When I serialize object graph, this ignores members which have a private access. When I need to include private member to serialization, I should use the public property which sets private fields.
 //c Manipulate JamesBondCar instance and serialize object graph and store it into a file named CarData.dat by using FileStream.
+//c Serialize the object graph into a SOAP format file by using SoapFormatter object and FileStream object.
 
 namespace SimpleSerialize
 {
@@ -91,6 +93,34 @@ namespace SimpleSerialize
                 binFormat.Serialize(fStream, objGraph);
             }
             Console.WriteLine("=> Saved car in binary format!");
+        }
+
+        static void LoadFromBinaryFile(string fileName)
+        {
+            BinaryFormatter binFormat = new BinaryFormatter();
+
+            // Read the JamesBondCar from the binary file.
+            using (Stream fStream = File.OpenRead(fileName))
+            {
+                JamesBondCar carFromDisk =
+                  (JamesBondCar)binFormat.Deserialize(fStream);
+                Console.WriteLine("Can this car fly? : {0}", carFromDisk.canFly);
+            }
+        }
+
+        // Be sure to import System.Runtime.Serialization.Formatters.Soap
+        // and reference System.Runtime.Serialization.Formatters.Soap.dll.
+        static void SaveAsSoapFormat(object objGraph, string fileName)
+        {
+            // Save object to a file named CarData.soap in SOAP format.
+            SoapFormatter soapFormat = new SoapFormatter();
+
+            using (Stream fStream = new FileStream(fileName,
+              FileMode.Create, FileAccess.Write, FileShare.None))
+            {
+                soapFormat.Serialize(fStream, objGraph);
+            }
+            Console.WriteLine("=> Saved car in SOAP format!");
         }
     }
 
