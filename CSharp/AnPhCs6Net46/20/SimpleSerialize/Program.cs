@@ -158,6 +158,8 @@ namespace SimpleSerialize
             myCars.Add(new JamesBondCar(true, false));
             myCars.Add(new JamesBondCar(false, true));
             myCars.Add(new JamesBondCar(false, false));
+
+            //You use XmlSerializer here, so you are required to specify type information for each of the subobjects within the root object(List<JamesBondCar>, in this case).
             using (Stream fStream = new FileStream("CarCollection.xml", FileMode.Create, FileAccess.Write, FileShare.None))
             {
                 XmlSerializer xmlFormat = new XmlSerializer(typeof(List<JamesBondCar>));
