@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -8,6 +10,7 @@ using System.Threading.Tasks;
 //c Add a Car class which is decorated by [Serializable].
 //c Add a JamesBondCar class which is decorated by [Serializable] and derived from Car base class.
 //c Add a Person class to examine the exception for XML format serialization. When I serialize object graph, this ignores members which have a private access. When I need to include private member to serialization, I should use the public property which sets private fields.
+//c Manipulate JamesBondCar instance and serialize object graph and store it into a file named CarData.dat by using FileStream.
 
 namespace SimpleSerialize
 {
@@ -60,8 +63,36 @@ namespace SimpleSerialize
 
     class Program
     {
+        // Be sure to import the System.Runtime.Serialization.Formatters.Binary
+        // and System.IO namespaces.
         static void Main(string[] args)
         {
+            Console.WriteLine("***** Fun with Object Serialization *****\n");
+
+            // Make a JamesBondCar and set state.
+            JamesBondCar jbc = new JamesBondCar();
+            jbc.canFly = true;
+            jbc.canSubmerge = false;
+            jbc.theRadio.stationPresets = new double[] { 89.3, 105.1, 97.1 };
+            jbc.theRadio.hasTweeters = true;
+
+            // Now save the car to a specific file in a binary format.
+            SaveAsBinaryFormat(jbc, "CarData.dat");
+            Console.ReadLine();
+        }
+
+        static void SaveAsBinaryFormat(object objGraph, string fileName)
+        {
+            // Save object to a file named CarData.dat in binary.
+            BinaryFormatter binFormat = new BinaryFormatter();
+
+            using (Stream fStream = new FileStream(fileName, FileMode.Create, FileAccess.Write, FileShare.None))
+            {
+                binFormat.Serialize(fStream, objGraph);
+            }
+            Console.WriteLine("=> Saved car in binary format!");
         }
     }
+
+
 }
