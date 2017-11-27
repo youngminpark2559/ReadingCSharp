@@ -80,6 +80,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleSerialize", "20\Simpl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomSerialization", "20\CustomSerialization\CustomSerialization.csproj", "{88EB922D-DE71-4A48-8438-92EC301E53F0}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "13", "13", "{5DF760D4-4DA2-4A5D-A98C-67514A4CEB02}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleGC", "13\SimpleGC\SimpleGC.csproj", "{D2033E7A-A02E-42B6-A93F-6FBD8746096B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -218,6 +222,10 @@ Global
 		{88EB922D-DE71-4A48-8438-92EC301E53F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{88EB922D-DE71-4A48-8438-92EC301E53F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{88EB922D-DE71-4A48-8438-92EC301E53F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2033E7A-A02E-42B6-A93F-6FBD8746096B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2033E7A-A02E-42B6-A93F-6FBD8746096B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2033E7A-A02E-42B6-A93F-6FBD8746096B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2033E7A-A02E-42B6-A93F-6FBD8746096B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -256,6 +264,7 @@ Global
 		{A3524961-7311-4BC3-BF3F-423B834A7AA2} = {253214CC-2937-49F7-A69E-B75A67A86BE6}
 		{DDB42208-C511-4590-A599-6BBE6B9C0FD9} = {253214CC-2937-49F7-A69E-B75A67A86BE6}
 		{88EB922D-DE71-4A48-8438-92EC301E53F0} = {253214CC-2937-49F7-A69E-B75A67A86BE6}
+		{D2033E7A-A02E-42B6-A93F-6FBD8746096B} = {5DF760D4-4DA2-4A5D-A98C-67514A4CEB02}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A2719945-F9D2-4AD1-A033-50C94AB8803C}
