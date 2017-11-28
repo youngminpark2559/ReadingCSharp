@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 //c Create a project SimpleDispose.
 //c Add a MyResourceWrapper class and it implements IDisposable. Someone will use this class by instantiating this object and after using done he should invoke Dispose() to immediately clean up unmanaged resources and other contained disposable objects from the managed heap. With this Dispose() of IDisposable, I can clean without using Finalize() consuming time and resource of the system.
+//c Some base class libraries which implement IDisposable have alias name for Dispose(). It's Close(). It's identical in their functionality.
 
 namespace SimpleDispose
 {
@@ -28,6 +30,23 @@ namespace SimpleDispose
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("***** Fun with Dispose *****\n");
+            MyResourceWrapper rw = new MyResourceWrapper();
+            if (rw is IDisposable)
+                rw.Dispose();
+            Console.ReadLine();
+        }
+
+        // Assume you have imported
+        // the System.IO namespace...
+        static void DisposeFileStream()
+        {
+            FileStream fs = new FileStream("myFile.txt", FileMode.OpenOrCreate);
+
+            // Confusing, to say the least!
+            // These method calls do the same thing!
+            fs.Close();
+            fs.Dispose();
         }
     }
 }
