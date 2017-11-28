@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 //c Some base class libraries which implement IDisposable have alias name for Dispose(). It's Close(). It's identical in their functionality.
 //c Dispose() is often used with try catch clauses and Dispose() is located in finally block to ensure object must be cleaned no matter what in try block there is some exception or not.
 //c I can use same functionality with try catch finally and Dispose() by using using syntax. using syntax makes the use of try catch finally and Dispose() very simple and convinient. And this using syntax is converted to try catch finally and Dispose() syntax in CIL code after being compiled..
+//c I can insert multiple object in the using syntax. And I can use these object and then automatically these objects are cleaned on the managed heap.
 
 namespace SimpleDispose
 {
@@ -38,6 +39,9 @@ namespace SimpleDispose
             //    rw.Dispose();
 
 
+
+
+
             //Console.WriteLine("***** Fun with Dispose *****\n");
             //MyResourceWrapper rw = new MyResourceWrapper();
             //try
@@ -51,13 +55,33 @@ namespace SimpleDispose
             //    rw.Dispose();
             //}
 
+
+
+
+            //Console.WriteLine("***** Fun with Dispose *****\n");
+            //// Dispose() is called automatically when the
+            //// using scope exits.
+            //using (MyResourceWrapper rw = new MyResourceWrapper())
+            //{
+            //    // Use rw object.
+            //}
+
+
+
+
             Console.WriteLine("***** Fun with Dispose *****\n");
-            // Dispose() is called automatically when the
-            // using scope exits.
-            using (MyResourceWrapper rw = new MyResourceWrapper())
+
+            // Use a comma-delimited list to declare multiple objects to dispose.
+            using (MyResourceWrapper rw = new MyResourceWrapper(),
+                                    rw2 = new MyResourceWrapper())
             {
-                // Use rw object.
+                // Use rw and rw2 objects.
             }
+
+
+
+
+
 
 
             Console.ReadLine();
