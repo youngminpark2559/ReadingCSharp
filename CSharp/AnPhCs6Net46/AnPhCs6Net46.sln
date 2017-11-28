@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2009
+VisualStudioVersion = 15.0.27004.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProcessManipulator", "17\ProcessManipulator\ProcessManipulator.csproj", "{20E95310-030C-4CB0-B0A7-6ED0CEEB7FB7}"
 EndProject
@@ -89,6 +89,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleDispose", "13\SimpleDispose\SimpleDispose.csproj", "{E2BB4B40-045D-41FE-BDCB-49CFC3F29CD0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinalizableDisposableClass", "13\FinalizableDisposableClass\FinalizableDisposableClass.csproj", "{102C9647-2B6C-4994-96DF-A01F4C7701D5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LazyObjectInstantiation", "13\LazyObjectInstantiation\LazyObjectInstantiation.csproj", "{38F2D803-F647-4E7A-8868-314FCAB825A7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -244,6 +246,10 @@ Global
 		{102C9647-2B6C-4994-96DF-A01F4C7701D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{102C9647-2B6C-4994-96DF-A01F4C7701D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{102C9647-2B6C-4994-96DF-A01F4C7701D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38F2D803-F647-4E7A-8868-314FCAB825A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38F2D803-F647-4E7A-8868-314FCAB825A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38F2D803-F647-4E7A-8868-314FCAB825A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38F2D803-F647-4E7A-8868-314FCAB825A7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -286,6 +292,7 @@ Global
 		{38EF564A-C05A-4889-875A-7EC1386519B1} = {5DF760D4-4DA2-4A5D-A98C-67514A4CEB02}
 		{E2BB4B40-045D-41FE-BDCB-49CFC3F29CD0} = {5DF760D4-4DA2-4A5D-A98C-67514A4CEB02}
 		{102C9647-2B6C-4994-96DF-A01F4C7701D5} = {5DF760D4-4DA2-4A5D-A98C-67514A4CEB02}
+		{38F2D803-F647-4E7A-8868-314FCAB825A7} = {5DF760D4-4DA2-4A5D-A98C-67514A4CEB02}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A2719945-F9D2-4AD1-A033-50C94AB8803C}
