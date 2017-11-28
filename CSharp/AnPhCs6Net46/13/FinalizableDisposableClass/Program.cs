@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 //c Create a project FinalizableDisposableClass. A MyResourceWrapper class will use both of ways to clean object from the unmanaged heap. IDisposable and finalizer.
 //c Use IDisposable and finalizer by helper method.
+//c Use finalizer and IDisposable with Microsoft official best practice way.
 
 namespace FinalizableDisposableClass
 {
@@ -43,6 +44,7 @@ namespace FinalizableDisposableClass
         }
         ~MyResourceWrapper()
         {
+            Console.Beep();
             // Call our helper method.
             // Specifying "false" signifies that
             // the GC triggered the cleanup.
@@ -54,6 +56,14 @@ namespace FinalizableDisposableClass
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("***** Dispose() / Destructor Combo Platter *****");
+            // Call Dispose() manually. This will not call the finalizer.
+            MyResourceWrapper rw = new MyResourceWrapper();
+            rw.Dispose();
+
+            // Don't call Dispose(). This will trigger the finalizer
+            // and cause a beep.
+            MyResourceWrapper rw2 = new MyResourceWrapper();
         }
     }
 }
