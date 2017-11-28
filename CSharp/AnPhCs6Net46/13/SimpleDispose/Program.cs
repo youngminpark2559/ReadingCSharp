@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 //c Create a project SimpleDispose.
 //c Add a MyResourceWrapper class and it implements IDisposable. Someone will use this class by instantiating this object and after using done he should invoke Dispose() to immediately clean up unmanaged resources and other contained disposable objects from the managed heap. With this Dispose() of IDisposable, I can clean without using Finalize() consuming time and resource of the system.
 //c Some base class libraries which implement IDisposable have alias name for Dispose(). It's Close(). It's identical in their functionality.
+//c Dispose() is often used with try catch clauses and Dispose() is located in finally block to ensure object must be cleaned no matter what in try block there is some exception or not.
 
 namespace SimpleDispose
 {
@@ -30,10 +31,28 @@ namespace SimpleDispose
     {
         static void Main(string[] args)
         {
+            //Console.WriteLine("***** Fun with Dispose *****\n");
+            //MyResourceWrapper rw = new MyResourceWrapper();
+            //if (rw is IDisposable)
+            //    rw.Dispose();
+
+
             Console.WriteLine("***** Fun with Dispose *****\n");
             MyResourceWrapper rw = new MyResourceWrapper();
-            if (rw is IDisposable)
+            try
+            {
+                // Use the members of rw.
+            }
+
+            finally
+            {
+                // Always call Dispose(), error or not.
                 rw.Dispose();
+            }
+
+
+
+
             Console.ReadLine();
         }
 
