@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 //c Create a project SimpleGC and add a Car class.
 //c Instantiate Car object with passing 2 arguments and use that instantiated instance by using dot operator.
 //c Add methods to show the bytes on the heap and object generations and so on.
+//c Use GC.Collect() and GC.WaitForPendingFinalizers() to execute garbage collectioin immediately and suspend the calling thread for object which I want to delete. 
 
 namespace SimpleGC
 {
@@ -61,6 +62,17 @@ namespace SimpleGC
 
             // Print out generation of refToMyCar object.
             Console.WriteLine("Generation of refToMyCar is: {0}", GC.GetGeneration(refToMyCar));
+
+            // Force a garbage collection immediately.
+            GC.Collect();
+            // And wait for each object to be finalized.
+            // Using GC.WaitForPendingFinalizers() is mandatory when you use GC.Collect()
+            GC.WaitForPendingFinalizers();
+
+            // Only investigate generation 0 objects.
+            GC.Collect(0);
+            GC.WaitForPendingFinalizers();
+
             Console.ReadLine();
         }
 
