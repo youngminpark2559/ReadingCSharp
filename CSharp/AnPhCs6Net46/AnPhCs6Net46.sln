@@ -92,6 +92,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinalizableDisposableClass"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LazyObjectInstantiation", "13\LazyObjectInstantiation\LazyObjectInstantiation.csproj", "{38F2D803-F647-4E7A-8868-314FCAB825A7}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "14", "14", "{778E8201-0A8F-45B2-A5F0-E413EAB7D92E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomNamespaces", "14\CustomNamespaces\CustomNamespaces.csproj", "{FC09A080-AC35-4AA1-8A34-2A6D0D5130C3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -250,6 +254,10 @@ Global
 		{38F2D803-F647-4E7A-8868-314FCAB825A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{38F2D803-F647-4E7A-8868-314FCAB825A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{38F2D803-F647-4E7A-8868-314FCAB825A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC09A080-AC35-4AA1-8A34-2A6D0D5130C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC09A080-AC35-4AA1-8A34-2A6D0D5130C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC09A080-AC35-4AA1-8A34-2A6D0D5130C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC09A080-AC35-4AA1-8A34-2A6D0D5130C3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -293,6 +301,7 @@ Global
 		{E2BB4B40-045D-41FE-BDCB-49CFC3F29CD0} = {5DF760D4-4DA2-4A5D-A98C-67514A4CEB02}
 		{102C9647-2B6C-4994-96DF-A01F4C7701D5} = {5DF760D4-4DA2-4A5D-A98C-67514A4CEB02}
 		{38F2D803-F647-4E7A-8868-314FCAB825A7} = {5DF760D4-4DA2-4A5D-A98C-67514A4CEB02}
+		{FC09A080-AC35-4AA1-8A34-2A6D0D5130C3} = {778E8201-0A8F-45B2-A5F0-E413EAB7D92E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A2719945-F9D2-4AD1-A033-50C94AB8803C}
