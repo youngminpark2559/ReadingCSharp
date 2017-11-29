@@ -98,6 +98,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomNamespaces", "14\Cust
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarLibrary", "14\CarLibrary\CarLibrary.csproj", "{33EE7970-08F2-43E3-890D-5C24CFADF079}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpCarClient", "14\CSharpCarClient\CSharpCarClient.csproj", "{19EE64E6-80D3-438E-85C1-7B596F2481C2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -264,6 +266,10 @@ Global
 		{33EE7970-08F2-43E3-890D-5C24CFADF079}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{33EE7970-08F2-43E3-890D-5C24CFADF079}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{33EE7970-08F2-43E3-890D-5C24CFADF079}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19EE64E6-80D3-438E-85C1-7B596F2481C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19EE64E6-80D3-438E-85C1-7B596F2481C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19EE64E6-80D3-438E-85C1-7B596F2481C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19EE64E6-80D3-438E-85C1-7B596F2481C2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -309,6 +315,7 @@ Global
 		{38F2D803-F647-4E7A-8868-314FCAB825A7} = {5DF760D4-4DA2-4A5D-A98C-67514A4CEB02}
 		{FC09A080-AC35-4AA1-8A34-2A6D0D5130C3} = {778E8201-0A8F-45B2-A5F0-E413EAB7D92E}
 		{33EE7970-08F2-43E3-890D-5C24CFADF079} = {778E8201-0A8F-45B2-A5F0-E413EAB7D92E}
+		{19EE64E6-80D3-438E-85C1-7B596F2481C2} = {778E8201-0A8F-45B2-A5F0-E413EAB7D92E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A2719945-F9D2-4AD1-A033-50C94AB8803C}
