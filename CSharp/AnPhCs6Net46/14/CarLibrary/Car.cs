@@ -7,6 +7,8 @@ using System.Windows.Forms;
 
 //c Update MusicMedia enumeration type.
 //c Add a new method TurnOnRadio().
+//c Update constructors to show "this client is using 2.0.0.0 version CarLibrary assembly".
+
 namespace CarLibrary
 {
     // Which type of music player does this car have?
@@ -37,10 +39,13 @@ namespace CarLibrary
 
         public abstract void TurboBoost();
 
-        public Car() { }
-
+        public Car()
+        {
+            MessageBox.Show("CarLibrary Version 2.0!");
+        }
         public Car(string name, int maxSp, int currSp)
         {
+            MessageBox.Show("CarLibrary Version 2.0!");
             PetName = name; MaxSpeed = maxSp; CurrentSpeed = currSp;
         }
 
