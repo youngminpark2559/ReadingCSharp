@@ -94,11 +94,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LazyObjectInstantiation", "
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "14", "14", "{778E8201-0A8F-45B2-A5F0-E413EAB7D92E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomNamespaces", "14\CustomNamespaces\CustomNamespaces.csproj", "{FC09A080-AC35-4AA1-8A34-2A6D0D5130C3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomNamespaces", "14\CustomNamespaces\CustomNamespaces.csproj", "{FC09A080-AC35-4AA1-8A34-2A6D0D5130C3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarLibrary", "14\CarLibrary\CarLibrary.csproj", "{33EE7970-08F2-43E3-890D-5C24CFADF079}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpCarClient", "14\CSharpCarClient\CSharpCarClient.csproj", "{19EE64E6-80D3-438E-85C1-7B596F2481C2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharedCarLibClient", "14\SharedCarLibClient\SharedCarLibClient.csproj", "{698BA8FC-019B-4226-BF73-35B745E3437D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -270,6 +272,10 @@ Global
 		{19EE64E6-80D3-438E-85C1-7B596F2481C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{19EE64E6-80D3-438E-85C1-7B596F2481C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{19EE64E6-80D3-438E-85C1-7B596F2481C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{698BA8FC-019B-4226-BF73-35B745E3437D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{698BA8FC-019B-4226-BF73-35B745E3437D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{698BA8FC-019B-4226-BF73-35B745E3437D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{698BA8FC-019B-4226-BF73-35B745E3437D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -316,6 +322,7 @@ Global
 		{FC09A080-AC35-4AA1-8A34-2A6D0D5130C3} = {778E8201-0A8F-45B2-A5F0-E413EAB7D92E}
 		{33EE7970-08F2-43E3-890D-5C24CFADF079} = {778E8201-0A8F-45B2-A5F0-E413EAB7D92E}
 		{19EE64E6-80D3-438E-85C1-7B596F2481C2} = {778E8201-0A8F-45B2-A5F0-E413EAB7D92E}
+		{698BA8FC-019B-4226-BF73-35B745E3437D} = {778E8201-0A8F-45B2-A5F0-E413EAB7D92E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A2719945-F9D2-4AD1-A033-50C94AB8803C}
