@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 //c Update MusicMedia enumeration type.
-
+//c Add a new method TurnOnRadio().
 namespace CarLibrary
 {
     // Which type of music player does this car have?
@@ -33,11 +34,22 @@ namespace CarLibrary
         {
             get { return egnState; }
         }
+
         public abstract void TurboBoost();
+
         public Car() { }
+
         public Car(string name, int maxSp, int currSp)
         {
             PetName = name; MaxSpeed = maxSp; CurrentSpeed = currSp;
+        }
+
+        public void TurnOnRadio(bool musicOn, MusicMedia mm)
+        {
+            if (musicOn)
+                MessageBox.Show(string.Format("Jamming {0}", mm));
+            else
+                MessageBox.Show("Quiet time...");
         }
     }
 }
