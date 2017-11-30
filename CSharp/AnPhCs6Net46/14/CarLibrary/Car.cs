@@ -4,8 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+//c Update MusicMedia enumeration type.
+
 namespace CarLibrary
 {
+    // Which type of music player does this car have?
+    public enum MusicMedia
+    {
+        musicCd,
+        musicTape,
+        musicRadio,
+        musicMp3
+    }
+
     // Represents the state of the engine.
     public enum EngineState
     { engineAlive, engineDead }
