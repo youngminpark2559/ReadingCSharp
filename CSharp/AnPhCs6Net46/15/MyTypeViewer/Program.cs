@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 //c Create a project MyTypeViewer to examine the reflection.
 //c Update ListMethods() to show the type of method's return and parameters.
+//c Update ListMethods() to retrieve a list of methods of a specific Type, and select them all as IEnumerable<MethodInfo> rather than selecting name property.
 
 namespace MyTypeViewer
 {
@@ -82,7 +83,14 @@ namespace MyTypeViewer
         //    Console.WriteLine();
         //}
 
-
+        //static void ListMethods(Type t)
+        //{
+        //    Console.WriteLine("***** Methods *****");
+        //    var methodNames = from n in t.GetMethods() select n;
+        //    foreach (var name in methodNames)
+        //        Console.WriteLine("->{0}", name);
+        //    Console.WriteLine();
+        //}
 
 
         // Display field names of type.
