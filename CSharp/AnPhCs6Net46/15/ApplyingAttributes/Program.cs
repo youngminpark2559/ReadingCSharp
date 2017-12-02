@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 //c Create a project ApplyingAttributes to examine how to use attribute feature.
 //c Add a class Motorcycle which is decorated by [Serializable] and some of its members are decorated by [NonSerialized].
+//c Add a class HorseAndBuggy which is decorated by [Serializable] and [Obsolete].
 
 namespace ApplyingAttributes
 {
@@ -23,6 +24,13 @@ namespace ApplyingAttributes
         bool hasSissyBar;
     }
 
+
+
+    [Serializable, Obsolete("Use another vehicle!")]
+    public class HorseAndBuggy
+    {
+        // ...
+    }
 
     class Program
     {
