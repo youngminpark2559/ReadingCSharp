@@ -78,5 +78,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CommonSnappableTypes\CommonSnappableTypes.csproj">
+      <Project>{6415F195-44B6-4104-B907-41BCC2868154}</Project>
+      <Name>CommonSnappableTypes</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
