@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 //c Create a project ApplyingAttributes to examine how to use attribute feature.
 //c Add a class Motorcycle which is decorated by [Serializable] and some of its members are decorated by [NonSerialized].
 //c Add a class HorseAndBuggy which is decorated by [Serializable] and [Obsolete].
+//c Instantiate HorseAndBuggy object and I compile and I get a warning message that I'm using obsolete members.
 
 namespace ApplyingAttributes
 {
@@ -36,6 +37,7 @@ namespace ApplyingAttributes
     {
         static void Main(string[] args)
         {
+            HorseAndBuggy mule = new HorseAndBuggy();
         }
     }
 }
