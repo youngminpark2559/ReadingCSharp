@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 //c Create a project LateBindingApp to examie how to load assembly without a reference, how to retrieve types from that assembly, all of them by using late binding technique.
+//c Update CreateUsingLateBinding() to instantiate type loaded by reflection by using Activator.CreateInstance() in late binding way.
 
 namespace LateBindingApp
 {
@@ -34,6 +35,7 @@ namespace LateBindingApp
             Console.ReadLine();
         }
 
+
         static void CreateUsingLateBinding(Assembly asm)
         {
             try
@@ -41,9 +43,14 @@ namespace LateBindingApp
                 // Get metadata for the Minivan type.
                 Type miniVan = asm.GetType("CarLibrary.MiniVan");
 
-                // Create a Minivan instance on the fly.
+                // Create the Minivan on the fly.
                 object obj = Activator.CreateInstance(miniVan);
                 Console.WriteLine("Created a {0} using late binding!", obj);
+                // Get info for TurboBoost.
+                MethodInfo mi = miniVan.GetMethod("TurboBoost");
+
+                // Invoke method ('null' for no parameters).
+                mi.Invoke(obj, null);
             }
             catch (Exception ex)
             {
