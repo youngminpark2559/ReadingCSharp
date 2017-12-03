@@ -6,9 +6,32 @@ using System.Text;
 using System.Threading.Tasks;
 
 //c Add ArrayListOfRandomObjects() to show that I can add any types into ArrayList because ArrayList members are prototyped to object type.
+//c Add a Person class.
 
 namespace IssuesWithNonGenericCollections
 {
+
+    public class Person
+    {
+        public int Age { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+
+        public Person() { }
+        public Person(string firstName, string lastName, int age)
+        {
+            Age = age;
+            FirstName = firstName;
+            LastName = lastName;
+        }
+
+        public override string ToString()
+        {
+            return string.Format("Name: {0} {1}, Age: {2}",
+              FirstName, LastName, Age);
+        }
+    }
+
     class Program
     {
         static void Main(string[] args)
