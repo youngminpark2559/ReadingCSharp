@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 //c Add ArrayListOfRandomObjects() to show that I can add any types into ArrayList because ArrayList members are prototyped to object type.
 //c Add a Person class.
 //c Add a PersonCollection class. Within this class, I instantiate one ArrayList and I put ArrayList members especially method into PersonCollection methods which get Person type argument with playing a role of like a filter.
+//c Add UseGenericList(). This is generic collection class. Within this class, I use generic List<Person> and List<int>.
 
 namespace IssuesWithNonGenericCollections
 {
@@ -99,6 +100,42 @@ namespace IssuesWithNonGenericCollections
             allMyObjects.Add(new OperatingSystem(PlatformID.MacOSX, new Version(10, 0)));
             allMyObjects.Add(66);
             allMyObjects.Add(3.14);
+        }
+
+        static void UsePersonCollection()
+        {
+            Console.WriteLine("***** Custom Person Collection *****\n");
+            PersonCollection myPeople = new PersonCollection();
+            myPeople.AddPerson(new Person("Homer", "Simpson", 40));
+            myPeople.AddPerson(new Person("Marge", "Simpson", 38));
+            myPeople.AddPerson(new Person("Lisa", "Simpson", 9));
+            myPeople.AddPerson(new Person("Bart", "Simpson", 7));
+            myPeople.AddPerson(new Person("Maggie", "Simpson", 2));
+
+            // This would be a compile-time error!
+            // myPeople.AddPerson(new Car());
+
+            foreach (Person p in myPeople)
+                Console.WriteLine(p);
+        }
+
+        static void UseGenericList()
+        {
+            Console.WriteLine("***** Fun with Generics *****\n");
+
+            // This List<> can hold only Person objects.
+            List<Person> morePeople = new List<Person>();
+            morePeople.Add(new Person("Frank", "Black", 50));
+            Console.WriteLine(morePeople[0]);
+            // This List<> can hold only integers.
+            List<int> moreInts = new List<int>();
+            moreInts.Add(10);
+            moreInts.Add(2);
+            int sum = moreInts[0] + moreInts[1];
+
+            // Compile-time error! Can't add Person object
+            // to a list of ints!
+            // moreInts.Add(new Person());
         }
     }
 }
