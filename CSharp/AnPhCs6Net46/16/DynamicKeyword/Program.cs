@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 //c Create a console application DynamicKeyword to examine "dynamic types" and "DLR(Dynamic Language Runtime). 
 //c Add InvokeMembersOnDynamicData() to examine the characteristic of dynamic type.
+//c Add comment for InvokeMembersOnDynamicData().
 
 namespace DynamicKeyword
 { 
@@ -22,7 +23,8 @@ namespace DynamicKeyword
         {
             //ChangeObjectDataType();
             //ChangeDynamicDataType();
-            UseObjectVarible();
+            //UseObjectVarible();
+            InvokeMembersOnDynamicData();
         }
 
         static void ImplicitlyTypedVariable()
@@ -72,7 +74,7 @@ namespace DynamicKeyword
         {
             //Now, t is strongly type by string.
             //var t = "Hello!";
-            Console.WriteLine("t is of type: {0}", t.GetType());
+            //Console.WriteLine("t is of type: {0}", t.GetType());
 
             ////I can't assign boolean type value into string type variable.
             ////Compile time error.
@@ -100,10 +102,12 @@ namespace DynamicKeyword
         static void InvokeMembersOnDynamicData()
         {
             dynamic textData1 = "Hello";
+            //ToUpper() is method of String type.
             Console.WriteLine(textData1.ToUpper());
 
             // You would expect compiler errors here!
             // But they compile just fine.
+            // Compile is possibe(ctrl shift b). Run is failed(click exe file.) 
             Console.WriteLine(textData1.toupper());
             Console.WriteLine(textData1.Foo(10, "ee", DateTime.Now));
         }
