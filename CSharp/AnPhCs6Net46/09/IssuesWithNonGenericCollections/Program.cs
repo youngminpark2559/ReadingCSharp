@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 //c Add ArrayListOfRandomObjects() to show that I can add any types into ArrayList because ArrayList members are prototyped to object type.
 //c Add a Person class.
+//c Add a PersonCollection class. Within this class, I instantiate one ArrayList and I put ArrayList members especially method into PersonCollection methods which get Person type argument with playing a role of like a filter.
 
 namespace IssuesWithNonGenericCollections
 {
@@ -30,6 +31,29 @@ namespace IssuesWithNonGenericCollections
             return string.Format("Name: {0} {1}, Age: {2}",
               FirstName, LastName, Age);
         }
+    }
+
+    public class PersonCollection : IEnumerable
+    {
+        private ArrayList arPeople = new ArrayList();
+
+        // Cast for caller.
+        public Person GetPerson(int pos)
+        { return (Person)arPeople[pos]; }
+
+        // Insert only Person objects.
+        public void AddPerson(Person p)
+        { arPeople.Add(p); }
+
+        public void ClearPeople()
+        { arPeople.Clear(); }
+
+        public int Count
+        { get { return arPeople.Count; } }
+
+        // Foreach enumeration support.
+        IEnumerator IEnumerable.GetEnumerator()
+        { return arPeople.GetEnumerator(); }
     }
 
     class Program
