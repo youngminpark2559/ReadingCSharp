@@ -144,6 +144,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "09", "09", "{2D2E7F5C-1DED-
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IssuesWithNonGenericCollections", "09\IssuesWithNonGenericCollections\IssuesWithNonGenericCollections.csproj", "{0012F810-8751-4C08-B3C4-0D1041B71027}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunWithGenericCollections", "09\FunWithGenericCollections\FunWithGenericCollections.csproj", "{0140B5FB-9A75-4DBB-B849-3A0F7D700B05}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -390,6 +392,10 @@ Global
 		{0012F810-8751-4C08-B3C4-0D1041B71027}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0012F810-8751-4C08-B3C4-0D1041B71027}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0012F810-8751-4C08-B3C4-0D1041B71027}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0140B5FB-9A75-4DBB-B849-3A0F7D700B05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0140B5FB-9A75-4DBB-B849-3A0F7D700B05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0140B5FB-9A75-4DBB-B849-3A0F7D700B05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0140B5FB-9A75-4DBB-B849-3A0F7D700B05}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -455,6 +461,7 @@ Global
 		{06AFB007-A689-4B88-9846-DE507D09D82A} = {BE6CF069-6727-4320-84FE-D7E34AA86BEB}
 		{7F647B9B-FD4E-4C17-A9C6-315272A84E3B} = {BE6CF069-6727-4320-84FE-D7E34AA86BEB}
 		{0012F810-8751-4C08-B3C4-0D1041B71027} = {2D2E7F5C-1DED-448E-B72B-180AA6BBE33E}
+		{0140B5FB-9A75-4DBB-B849-3A0F7D700B05} = {2D2E7F5C-1DED-448E-B72B-180AA6BBE33E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A2719945-F9D2-4AD1-A033-50C94AB8803C}
