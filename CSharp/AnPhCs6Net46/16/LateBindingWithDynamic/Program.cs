@@ -5,6 +5,8 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
+//c Create a class library and a console app to use dynamic type along with other techniques such as reflection, late-binding, dynamic loading. By using dynamic type when I do this kind of task, I can simplify codes especially when I invoke the method with parameters.
+
 namespace LateBindingWithDynamic
 {
     class Program
