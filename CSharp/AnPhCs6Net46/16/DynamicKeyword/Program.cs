@@ -7,9 +7,10 @@ using System.Threading.Tasks;
 //c Create a console application DynamicKeyword to examine "dynamic types" and "DLR(Dynamic Language Runtime). 
 //c Add InvokeMembersOnDynamicData() to examine the characteristic of dynamic type.
 //c Add comment for InvokeMembersOnDynamicData().
+//c Refactor InvokeMembersOnDynamicData() to catch exception by using RuntimeBinderException type when I invoke members dynamic data typed.
 
 namespace DynamicKeyword
-{ 
+{
     public class Person
     {
         public string FirstName { get; set; }
@@ -82,7 +83,7 @@ namespace DynamicKeyword
             //Console.WriteLine("t is of type: {0}", t.GetType());
 
             ////Compile time error.
-           var t = new List<int>();
+            var t = new List<int>();
             //Console.WriteLine("t is of type: {0}", t.GetType());
         }
 
@@ -98,18 +99,21 @@ namespace DynamicKeyword
             Console.WriteLine("t is of type: {0}", t.GetType());
 
         }
-
+        
         static void InvokeMembersOnDynamicData()
         {
             dynamic textData1 = "Hello";
-            //ToUpper() is method of String type.
-            Console.WriteLine(textData1.ToUpper());
 
-            // You would expect compiler errors here!
-            // But they compile just fine.
-            // Compile is possibe(ctrl shift b). Run is failed(click exe file.) 
-            Console.WriteLine(textData1.toupper());
-            Console.WriteLine(textData1.Foo(10, "ee", DateTime.Now));
+            try
+            {
+                Console.WriteLine(textData1.ToUpper());
+                Console.WriteLine(textData1.toupper());
+                Console.WriteLine(textData1.Foo(10, "ee", DateTime.Now));
+            }
+            catch (Microsoft.CSharp.RuntimeBinder.RuntimeBinderException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
     }
 }
