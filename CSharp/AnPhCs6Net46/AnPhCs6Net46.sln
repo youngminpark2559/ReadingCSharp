@@ -150,6 +150,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunWithObservableCollection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomGenericMethods", "09\CustomGenericMethods\CustomGenericMethods.csproj", "{ADB9E4C5-4A27-49D7-9219-3AF7777DF9E6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenericPoint", "09\GenericPoint\GenericPoint.csproj", "{43E16092-7730-4075-94A1-D3709B42D896}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -408,6 +410,10 @@ Global
 		{ADB9E4C5-4A27-49D7-9219-3AF7777DF9E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ADB9E4C5-4A27-49D7-9219-3AF7777DF9E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ADB9E4C5-4A27-49D7-9219-3AF7777DF9E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43E16092-7730-4075-94A1-D3709B42D896}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43E16092-7730-4075-94A1-D3709B42D896}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43E16092-7730-4075-94A1-D3709B42D896}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43E16092-7730-4075-94A1-D3709B42D896}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -476,6 +482,7 @@ Global
 		{0140B5FB-9A75-4DBB-B849-3A0F7D700B05} = {2D2E7F5C-1DED-448E-B72B-180AA6BBE33E}
 		{D84F7783-5B99-45B9-96BA-6AFFF6A95EA9} = {2D2E7F5C-1DED-448E-B72B-180AA6BBE33E}
 		{ADB9E4C5-4A27-49D7-9219-3AF7777DF9E6} = {2D2E7F5C-1DED-448E-B72B-180AA6BBE33E}
+		{43E16092-7730-4075-94A1-D3709B42D896} = {2D2E7F5C-1DED-448E-B72B-180AA6BBE33E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A2719945-F9D2-4AD1-A033-50C94AB8803C}
