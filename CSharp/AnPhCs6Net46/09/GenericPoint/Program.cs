@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 //c Add a generic structure Point<T>.
 //c Instantiate a generic structure Point<T> by specifying types and passing corresponding type values into the constructors.
 //c Update Main() to use default(T) syntax.
+//c Add a generic class BasicMath<T>. I use operators to type parameters and it makes a compile time error.
 
 namespace GenericPoint
 {
@@ -70,6 +71,20 @@ namespace GenericPoint
             p2.ResetPoint();
             Console.WriteLine("p2.ToString()={0}", p2.ToString());
             Console.ReadLine();
+
         }
+
+        // Compiler error! Cannot apply operators to type parameters!
+        //public class BasicMath<T>
+        //{
+        //    public T Add(T arg1, T arg2)
+        //    { return arg1 + arg2; }
+        //    public T Subtract(T arg1, T arg2)
+        //    { return arg1 - arg2; }
+        //    public T Multiply(T arg1, T arg2)
+        //    { return arg1 * arg2; }
+        //    public T Divide(T arg1, T arg2)
+        //    { return arg1 / arg2; }
+        //}
     }
 }
