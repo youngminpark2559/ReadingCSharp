@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 //c Create a console application FunWithGenericCollections to examine List<T>.
+//c Add GetCoffee() which gets Person object and within that Person object, retrieve FirstName value.
 
 namespace FunWithGenericCollections
 {
@@ -51,6 +52,11 @@ namespace FunWithGenericCollections
             {
                 Console.WriteLine("First Names: {0}", arrayOfPeople[i].FirstName);
             }
+        }
+
+        static void GetCoffee(Person p)
+        {
+            Console.WriteLine("{0} got coffee!", p.FirstName);
         }
     }
 }
