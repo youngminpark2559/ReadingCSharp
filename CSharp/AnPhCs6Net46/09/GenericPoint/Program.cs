@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 //c Instantiate a generic structure Point<T> by specifying types and passing corresponding type values into the constructors.
 //c Update Main() to use default(T) syntax.
 //c Add a generic class BasicMath<T>. I use operators to type parameters and it makes a compile time error.
+//c Update a generic class BasicMath<T> by using where keyword. But this is not possible under the current .NET version. Just get the idea from this. And the same functionality here can be implemented by using interface and constraints on it.
 
 namespace GenericPoint
 {
@@ -53,6 +54,32 @@ namespace GenericPoint
         }
     }
 
+    // Compiler error! Cannot apply operators to type parameters!
+    //public class BasicMath<T>
+    //{
+    //    public T Add(T arg1, T arg2)
+    //    { return arg1 + arg2; }
+    //    public T Subtract(T arg1, T arg2)
+    //    { return arg1 - arg2; }
+    //    public T Multiply(T arg1, T arg2)
+    //    { return arg1 * arg2; }
+    //    public T Divide(T arg1, T arg2)
+    //    { return arg1 / arg2; }
+    //}
+
+
+    //// Illustrative code only!
+    //public class BasicMath<T> where T : operator +,  operator -,  operator *, operator / 
+    //{
+    //    public T Add(T arg1, T arg2)
+    //    { return arg1 + arg2; }
+    //    public T Subtract(T arg1, T arg2)
+    //    { return arg1 - arg2; }
+    //    public T Multiply(T arg1, T arg2)
+    //    { return arg1 * arg2; }
+    //    public T Divide(T arg1, T arg2)
+    //    { return arg1 / arg2; }
+    //}
 
     class Program
     {
@@ -74,17 +101,6 @@ namespace GenericPoint
 
         }
 
-        // Compiler error! Cannot apply operators to type parameters!
-        //public class BasicMath<T>
-        //{
-        //    public T Add(T arg1, T arg2)
-        //    { return arg1 + arg2; }
-        //    public T Subtract(T arg1, T arg2)
-        //    { return arg1 - arg2; }
-        //    public T Multiply(T arg1, T arg2)
-        //    { return arg1 * arg2; }
-        //    public T Divide(T arg1, T arg2)
-        //    { return arg1 / arg2; }
-        //}
+
     }
 }
