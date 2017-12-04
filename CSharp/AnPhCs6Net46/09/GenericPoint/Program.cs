@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 //c Create a console application GenericPoint.
 //c Add a generic structure Point<T>.
 //c Instantiate a generic structure Point<T> by specifying types and passing corresponding type values into the constructors.
+//c Update Main() to use default(T) syntax.
 
 namespace GenericPoint
 {
@@ -56,11 +57,19 @@ namespace GenericPoint
     {
         static void Main(string[] args)
         {
-            // Point using ints.
+            // Point using ints.// Point using ints.
             Point<int> p = new Point<int>(10, 10);
+            Console.WriteLine("p.ToString()={0}", p.ToString());
+            p.ResetPoint();
+            Console.WriteLine("p.ToString()={0}", p.ToString());
+            Console.WriteLine();
 
             // Point using double.
             Point<double> p2 = new Point<double>(5.4, 3.3);
+            Console.WriteLine("p2.ToString()={0}", p2.ToString());
+            p2.ResetPoint();
+            Console.WriteLine("p2.ToString()={0}", p2.ToString());
+            Console.ReadLine();
         }
     }
 }
