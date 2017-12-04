@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 //c Create a console application GenericPoint.
 //c Add a generic structure Point<T>.
+//c Instantiate a generic structure Point<T> by specifying types and passing corresponding type values into the constructors.
 
 namespace GenericPoint
 {
@@ -50,10 +51,16 @@ namespace GenericPoint
         }
     }
 
+
     class Program
     {
         static void Main(string[] args)
         {
+            // Point using ints.
+            Point<int> p = new Point<int>(10, 10);
+
+            // Point using double.
+            Point<double> p2 = new Point<double>(5.4, 3.3);
         }
     }
 }
