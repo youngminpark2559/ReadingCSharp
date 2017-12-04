@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 //c Create a console application FunWithObservableCollection.
 //c Updata Main() to use ObservableCollection<>.
+//c Update people_CollectionChanged() to use NotifyCollectionChangedEventArgs object with retrieving Action, OldItems, NewItems.
 
 namespace FunWithObservableCollection
 {
@@ -33,10 +34,33 @@ namespace FunWithObservableCollection
             people.CollectionChanged += people_CollectionChanged;
         }
 
-        static void people_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        static void people_CollectionChanged(object sender,  System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
         {
-            throw new NotImplementedException();
+            // What was the action that caused the event?
+            Console.WriteLine("Action for this event: {0}", e.Action);
+
+            // They removed something.
+            if (e.Action == System.Collections.Specialized.NotifyCollectionChangedAction.Remove)
+            {
+                Console.WriteLine("Here are the OLD items:");
+                foreach (Person p in e.OldItems)
+                {
+                    Console.WriteLine(p.ToString());
+                }
+                Console.WriteLine();
+            }
+
+            // They added something.
+            if (e.Action == System.Collections.Specialized.NotifyCollectionChangedAction.Add)
+            {
+                // Now show the NEW items that were inserted.
+                Console.WriteLine("Here are the NEW items:");
+                foreach (Person p in e.NewItems)
+                {
+                    Console.WriteLine(p.ToString());
+                }
+            }
         }
     }
 }
-}
+
