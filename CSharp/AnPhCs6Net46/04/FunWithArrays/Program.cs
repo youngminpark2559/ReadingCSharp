@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 //c Update SimpleArrays(). I create 3 length int array and put the values into the array. And I print all value from myInts array source by using foreach looping.
 //c Add DeclareImplicitArrays() which uses implicitly typed local variable type by using var keyword for declaration of array.
 //c I can't mix data type for each item when especially using var keyword.
+//c Add ArrayOfObjects(). Within this method, I declare 4 lenght object data type array. In this array, any data type value item can be in. It's opposite to the restriction when you uses var keyword.
 
 namespace FunWithArrays
 {
@@ -59,6 +60,22 @@ namespace FunWithArrays
             Console.WriteLine();
         }
 
+        static void ArrayOfObjects()
+        {
+            Console.WriteLine("=> Array of Objects.");
 
+            // An array of objects can be anything at all.
+            object[] myObjects = new object[4];
+            myObjects[0] = 10;
+            myObjects[1] = false;
+            myObjects[2] = new DateTime(1969, 3, 24);
+            myObjects[3] = "Form & Void";
+            foreach (object obj in myObjects)
+            {
+                // Print the type and value for each item in array.
+                Console.WriteLine("Type: {0}, Value: {1}", obj.GetType(), obj);
+            }
+            Console.WriteLine();
+        }
     }
 }
