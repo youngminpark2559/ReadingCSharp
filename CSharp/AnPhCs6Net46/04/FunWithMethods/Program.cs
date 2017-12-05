@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 //c Add SwapStrings() which swaps 2 variable values by using ref parameter modifier, located in the place that this method is invoked.
 //c Update Main() to invoke SwapStrings().
 //c Add a CalculateAverage() which takes double[] argument decorated by params parameter modifier. By this, I can pass an array as argument.
+//c Invoke a CalculateAverage() by passing an array as an argument.
 
 namespace FunWithMethods
 {
@@ -49,6 +50,20 @@ namespace FunWithMethods
             Console.WriteLine("Before: {0}, {1} ", str1, str2);
             SwapStrings(ref str1, ref str2);
             Console.WriteLine("After: {0}, {1} ", str1, str2);
+
+            // Pass in a comma-delimited list of doubles…
+            double average;
+            average = CalculateAverage(4.0, 3.2, 5.7, 64.22, 87.2);
+            Console.WriteLine("Average of data is: {0}", average);
+
+            // …or pass an array of doubles.
+            double[] data = { 4.0, 3.2, 5.7 };
+            average = CalculateAverage(data);
+            Console.WriteLine("Average of data is: {0}", average);
+
+            // Average of 0 is 0!
+            Console.WriteLine("Average of data is: {0}", CalculateAverage());
+            Console.ReadLine();
 
             Console.ReadLine();
         }
