@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 //c Add a Add() and this method's parameters have no parameter modifiers. So when you invoke this method with passing arguments, the value of arguments is copied and goes into this method.
 //c Add an overriden Add() whose parameter modifier is out. With this feature I can change the variable which is located in the place where this method is invoked. Note that this method's return type is void.
 //c Add FillTheseValues(). By using out parameter modifier, I can get the similar effect that I can get multiple return values from the single method.
+//c Add ThisWontCompile(). When I use out parameter modifier, I must assign a value to a variable which will manipulate variable values located in method calling place.
 
 namespace FunWithMethods
 {
@@ -65,6 +66,11 @@ namespace FunWithMethods
             a = 9;
             b = "Enjoy your string.";
             c = true;
+        }
+
+        static void ThisWontCompile(out int a)
+        {
+            Console.WriteLine("Error! Forgot to assign output arg!");
         }
     }
 }
