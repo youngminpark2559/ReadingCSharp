@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 //c Create a console application FunWithMethods to examine parameter modifiers such none, out, ref, and param.
 //c Add a Add() and this method's parameters have no parameter modifiers. So when you invoke this method with passing arguments, the value of arguments is copied and goes into this method.
+//c Add an overriden Add() whose parameter modifier is out. With this feature I can change the variable which is located in the place where this method is invoked. Note that this method's return type is void.
 
 namespace FunWithMethods
 {
@@ -13,6 +14,14 @@ namespace FunWithMethods
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("***** Fun with Methods *****\n");
+
+            // Pass two variables in by value.
+            int x = 9, y = 10;
+            Console.WriteLine("Before call: X: {0}, Y: {1}", x, y);
+            Console.WriteLine("Answer is: {0}", Add(x, y));
+            Console.WriteLine("After call: X: {0}, Y: {1}", x, y);
+            Console.ReadLine();
         }
 
         // Arguments are passed by value by default.
@@ -25,6 +34,13 @@ namespace FunWithMethods
             x = 10000;
             y = 88888;
             return ans;
+        }
+
+
+        // Output parameters must be assigned by the called method.
+        static void Add(int x, int y, out int ans)
+        {
+            ans = x + y;
         }
     }
 }
