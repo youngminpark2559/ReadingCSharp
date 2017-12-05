@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 //c Update Main() to invoke SwapStrings().
 //c Add a CalculateAverage() which takes double[] argument decorated by params parameter modifier. By this, I can pass an array as argument.
 //c Invoke a CalculateAverage() by passing an array as an argument.
+//c Add EnterLogData() which has 2 parameters and one of them is optional parameter, which means if you don't pass argument for 2nd parameter default value which is specified in parameter declaration place will be passed into method.
 
 namespace FunWithMethods
 {
@@ -63,7 +64,6 @@ namespace FunWithMethods
 
             // Average of 0 is 0!
             Console.WriteLine("Average of data is: {0}", CalculateAverage());
-            Console.ReadLine();
 
             Console.ReadLine();
         }
@@ -120,6 +120,13 @@ namespace FunWithMethods
             for (int i = 0; i < values.Length; i++)
                 sum += values[i];
             return (sum / values.Length);
+        }
+
+        static void EnterLogData(string message, string owner = "Programmer")
+        {
+            Console.Beep();
+            Console.WriteLine("Error: {0}", message);
+            Console.WriteLine("Owner of Error: {0}", owner);
         }
     }
 }
