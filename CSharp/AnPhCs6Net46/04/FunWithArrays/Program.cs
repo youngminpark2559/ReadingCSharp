@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 //c Add SimpleArrays(). In this method, I create 3 length int array and 100 length string array.
 //c Update SimpleArrays(). I create 3 length int array and put the values into the array. And I print all value from myInts array source by using foreach looping.
 //c Add DeclareImplicitArrays() which uses implicitly typed local variable type by using var keyword for declaration of array.
+//c I can't mix data type for each item when especially using var keyword.
 
 namespace FunWithArrays
 {
@@ -51,7 +52,13 @@ namespace FunWithArrays
             // c is really string[].
             var c = new[] { "hello", null, "world" };
             Console.WriteLine("c is a: {0}", c.ToString());
+
+            // Error! Mixed types!
+            //var d = new[] { 1, "one", 2, "two", false };
+
             Console.WriteLine();
         }
+
+
     }
 }
