@@ -14,6 +14,7 @@ using System.Threading.Tasks;
 //c Add a CalculateAverage() which takes double[] argument decorated by params parameter modifier. By this, I can pass an array as argument.
 //c Invoke a CalculateAverage() by passing an array as an argument.
 //c Add EnterLogData() which has 2 parameters and one of them is optional parameter, which means if you don't pass argument for 2nd parameter default value which is specified in parameter declaration place will be passed into method.
+//c Invoke EnterLogData() with passing 1 or 2 arguments.
 
 namespace FunWithMethods
 {
@@ -64,6 +65,9 @@ namespace FunWithMethods
 
             // Average of 0 is 0!
             Console.WriteLine("Average of data is: {0}", CalculateAverage());
+
+            EnterLogData("Oh no! Grid can't find data");
+            EnterLogData("Oh no! I can't find the payroll data", "CFO");
 
             Console.ReadLine();
         }
