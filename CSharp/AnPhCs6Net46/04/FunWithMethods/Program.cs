@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 //c Add ThisWontCompile(). When I use out parameter modifier, I must assign a value to a variable which will manipulate variable values located in method calling place.
 //c Add SwapStrings() which swaps 2 variable values by using ref parameter modifier, located in the place that this method is invoked.
 //c Update Main() to invoke SwapStrings().
-
+//c Add a CalculateAverage() which takes double[] argument decorated by params parameter modifier. By this, I can pass an array as argument.
 
 namespace FunWithMethods
 {
@@ -92,6 +92,19 @@ namespace FunWithMethods
             string tempStr = s1;
             s1 = s2;
             s2 = tempStr;
+        }
+
+        // Return average of "some number" of doubles.
+        static double CalculateAverage(params double[] values)
+        {
+            Console.WriteLine("You sent me {0} doubles.", values.Length);
+
+            double sum = 0;
+            if (values.Length == 0)
+                return sum;
+            for (int i = 0; i < values.Length; i++)
+                sum += values[i];
+            return (sum / values.Length);
         }
     }
 }
