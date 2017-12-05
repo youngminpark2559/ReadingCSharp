@@ -164,6 +164,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TypeConversions", "03\TypeC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImplicitlyTypedLocalVars", "03\ImplicitlyTypedLocalVars\ImplicitlyTypedLocalVars.csproj", "{D70329FB-21FA-429D-85D8-386EB055ABF8}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04", "04", "{4D973AC7-FCC1-49A8-99DE-09970CD2AEC0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunWithMethods", "04\FunWithMethods\FunWithMethods.csproj", "{DEAC2296-8DA8-44F0-BFAA-149DB34AEEFC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -442,6 +446,10 @@ Global
 		{D70329FB-21FA-429D-85D8-386EB055ABF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D70329FB-21FA-429D-85D8-386EB055ABF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D70329FB-21FA-429D-85D8-386EB055ABF8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DEAC2296-8DA8-44F0-BFAA-149DB34AEEFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DEAC2296-8DA8-44F0-BFAA-149DB34AEEFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DEAC2296-8DA8-44F0-BFAA-149DB34AEEFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DEAC2296-8DA8-44F0-BFAA-149DB34AEEFC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -515,6 +523,7 @@ Global
 		{DD96AA15-0E4E-4285-AB84-4614CF823014} = {431E2C97-F15E-4472-ABBE-A766F3459284}
 		{5765BC1E-5468-456C-A1C9-AD9D6F77E1DF} = {431E2C97-F15E-4472-ABBE-A766F3459284}
 		{D70329FB-21FA-429D-85D8-386EB055ABF8} = {431E2C97-F15E-4472-ABBE-A766F3459284}
+		{DEAC2296-8DA8-44F0-BFAA-149DB34AEEFC} = {4D973AC7-FCC1-49A8-99DE-09970CD2AEC0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A2719945-F9D2-4AD1-A033-50C94AB8803C}
