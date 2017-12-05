@@ -17,6 +17,7 @@ using System.Threading.Tasks;
 //c Invoke EnterLogData() with passing 1 or 2 arguments.
 //c Update EnterLogData() which has optional parameter but one optional parameter is not fixed value and that will cause the compile time error.
 //c Add DisplayFancyMessage() which will be invoked with passing named arguments.
+//c Invoke DisplayFancyMessage() with passing named arguments to the method.
 
 namespace FunWithMethods
 {
@@ -70,6 +71,14 @@ namespace FunWithMethods
 
             EnterLogData("Oh no! Grid can't find data");
             EnterLogData("Oh no! I can't find the payroll data", "CFO");
+
+            DisplayFancyMessage(message: "Wow! Very Fancy indeed!",
+                                textColor: ConsoleColor.DarkRed,
+                                backgroundColor: ConsoleColor.White);
+
+            DisplayFancyMessage(backgroundColor: ConsoleColor.Green,
+              message: "Testing...",
+              textColor: ConsoleColor.DarkBlue);
 
             Console.ReadLine();
         }
