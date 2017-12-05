@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 //c Add an overriden Add() whose parameter modifier is out. With this feature I can change the variable which is located in the place where this method is invoked. Note that this method's return type is void.
 //c Add FillTheseValues(). By using out parameter modifier, I can get the similar effect that I can get multiple return values from the single method.
 //c Add ThisWontCompile(). When I use out parameter modifier, I must assign a value to a variable which will manipulate variable values located in method calling place.
+//c Add SwapStrings() which swaps 2 variable values by using ref parameter modifier, located in the place that this method is invoked.
 
 namespace FunWithMethods
 {
@@ -37,6 +38,11 @@ namespace FunWithMethods
             Console.WriteLine("Int is: {0}", i);
             Console.WriteLine("String is: {0}", str);
             Console.WriteLine("Boolean is: {0}", b);
+
+            //int var;
+            //ThisWontCompile(var);
+
+
 
             Console.ReadLine();
         }
@@ -68,9 +74,18 @@ namespace FunWithMethods
             c = true;
         }
 
-        static void ThisWontCompile(out int a)
+        //static void ThisWontCompile(out int a)
+        //{
+        //    Console.WriteLine("Error! Forgot to assign output arg!");
+        //}
+
+
+        // Reference parameters.
+        public static void SwapStrings(ref string s1, ref string s2)
         {
-            Console.WriteLine("Error! Forgot to assign output arg!");
+            string tempStr = s1;
+            s1 = s2;
+            s2 = tempStr;
         }
     }
 }
