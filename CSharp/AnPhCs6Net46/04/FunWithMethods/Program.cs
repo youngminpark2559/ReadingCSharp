@@ -16,6 +16,7 @@ using System.Threading.Tasks;
 //c Add EnterLogData() which has 2 parameters and one of them is optional parameter, which means if you don't pass argument for 2nd parameter default value which is specified in parameter declaration place will be passed into method.
 //c Invoke EnterLogData() with passing 1 or 2 arguments.
 //c Update EnterLogData() which has optional parameter but one optional parameter is not fixed value and that will cause the compile time error.
+//c Add DisplayFancyMessage() which will be invoked with passing named arguments.
 
 namespace FunWithMethods
 {
@@ -143,5 +144,22 @@ namespace FunWithMethods
         //    Console.WriteLine("Owner of Error: {0}", owner);
         //    Console.WriteLine("Time of Error: {0}", timeStamp);
         //}
+
+        static void DisplayFancyMessage(ConsoleColor textColor,
+            ConsoleColor backgroundColor, string message)
+        {
+            // Store old colors to restore after message is printed.
+            ConsoleColor oldTextColor = Console.ForegroundColor;
+            ConsoleColor oldbackgroundColor = Console.BackgroundColor;
+
+            // Set new colors and print message.
+            Console.ForegroundColor = textColor;
+            Console.BackgroundColor = backgroundColor;
+            Console.WriteLine(message);
+
+            // Restore previous colors.
+            Console.ForegroundColor = oldTextColor;
+            Console.BackgroundColor = oldbackgroundColor;
+        }
     }
 }
