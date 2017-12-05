@@ -15,6 +15,7 @@ using System.Threading.Tasks;
 //c Invoke a CalculateAverage() by passing an array as an argument.
 //c Add EnterLogData() which has 2 parameters and one of them is optional parameter, which means if you don't pass argument for 2nd parameter default value which is specified in parameter declaration place will be passed into method.
 //c Invoke EnterLogData() with passing 1 or 2 arguments.
+//c Update EnterLogData() which has optional parameter but one optional parameter is not fixed value and that will cause the compile time error.
 
 namespace FunWithMethods
 {
@@ -132,5 +133,15 @@ namespace FunWithMethods
             Console.WriteLine("Error: {0}", message);
             Console.WriteLine("Owner of Error: {0}", owner);
         }
+
+        // Compile time error! The default value for an optional arg must be known
+        // at compile time!
+        //static void EnterLogData(string message, string owner = "Programmer", DateTime timeStamp = DateTime.Now)
+        //{
+        //    Console.Beep();
+        //    Console.WriteLine("Error: {0}", message);
+        //    Console.WriteLine("Owner of Error: {0}", owner);
+        //    Console.WriteLine("Time of Error: {0}", timeStamp);
+        //}
     }
 }
