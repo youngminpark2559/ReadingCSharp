@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 //c Add StringConcatenation() to examine string concatenation.
+//c Update StringConcatenation() to use directly String.Concat() to concatenate 2 string type values instead of using + operator which is finally converted to String.Concat() by C# compiler.
 
 namespace FunWithStrings
 {
@@ -28,14 +29,19 @@ namespace FunWithStrings
             Console.WriteLine();
         }
 
+
         static void StringConcatenation()
         {
             Console.WriteLine("=> String concatenation:");
             string s1 = "Programming the ";
             string s2 = "PsychoDrill (PTP)";
-            string s3 = s1 + s2;
+            //string s3 = s1 + s2;
+            string s3 = String.Concat(s1, s2);
             Console.WriteLine(s3);
             Console.WriteLine();
         }
+
+
+
     }
 }
