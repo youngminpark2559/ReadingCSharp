@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 //c Create a console application MethodOverloading.
 //c Add 3 overloaded Add().
+//c Invoke Add() with passing various types of variable.
 
 namespace MethodOverloading
 {
@@ -13,6 +14,17 @@ namespace MethodOverloading
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("***** Fun with Method Overloading *****\n");
+
+            // Calls int version of Add()
+            Console.WriteLine(Add(10, 10));
+
+            // Calls long version of Add()
+            Console.WriteLine(Add(900000000000, 900000000000));
+            // Calls double version of Add()
+            Console.WriteLine(Add(4.3, 4.4));
+
+            Console.ReadLine();
         }
 
         // Overloaded Add() method.
