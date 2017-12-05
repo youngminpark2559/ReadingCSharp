@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+//c Add StringConcatenation() to examine string concatenation.
+
 namespace FunWithStrings
 {
     class Program
@@ -23,6 +25,16 @@ namespace FunWithStrings
             Console.WriteLine("firstName contains the letter y?: {0}",
               firstName.Contains("y"));
             Console.WriteLine("firstName after replace: {0}", firstName.Replace("dy", ""));
+            Console.WriteLine();
+        }
+
+        static void StringConcatenation()
+        {
+            Console.WriteLine("=> String concatenation:");
+            string s1 = "Programming the ";
+            string s2 = "PsychoDrill (PTP)";
+            string s3 = s1 + s2;
+            Console.WriteLine(s3);
             Console.WriteLine();
         }
     }
