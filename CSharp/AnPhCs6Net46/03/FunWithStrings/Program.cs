@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 //c Add StringConcatenation() to examine string concatenation.
 //c Update StringConcatenation() to use directly String.Concat() to concatenate 2 string type values instead of using + operator which is finally converted to String.Concat() by C# compiler.
+//c Add EscapeChars() to examine how to use escape characters.
 
 namespace FunWithStrings
 {
@@ -42,6 +43,18 @@ namespace FunWithStrings
         }
 
 
+        static void EscapeChars()
+        {
+            Console.WriteLine("=> Escape characters:\a");
+            string strWithTabs = "Model\tColor\tSpeed\tPet Name\a ";
+            Console.WriteLine(strWithTabs);
 
+            Console.WriteLine("Everyone loves \"Hello World\"\a ");
+            Console.WriteLine("C:\\MyApp\\bin\\Debug\a ");
+
+            // Adds a total of 4 blank lines (then beep again!).
+            Console.WriteLine("All finished.\n\n\n\a ");
+            Console.WriteLine();
+        }
     }
 }
