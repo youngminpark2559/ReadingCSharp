@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 //c Add FillTheseValues(). By using out parameter modifier, I can get the similar effect that I can get multiple return values from the single method.
 //c Add ThisWontCompile(). When I use out parameter modifier, I must assign a value to a variable which will manipulate variable values located in method calling place.
 //c Add SwapStrings() which swaps 2 variable values by using ref parameter modifier, located in the place that this method is invoked.
+//c Update Main() to invoke SwapStrings().
+
 
 namespace FunWithMethods
 {
@@ -42,7 +44,11 @@ namespace FunWithMethods
             //int var;
             //ThisWontCompile(var);
 
-
+            string str1 = "Flip";
+            string str2 = "Flop";
+            Console.WriteLine("Before: {0}, {1} ", str1, str2);
+            SwapStrings(ref str1, ref str2);
+            Console.WriteLine("After: {0}, {1} ", str1, str2);
 
             Console.ReadLine();
         }
