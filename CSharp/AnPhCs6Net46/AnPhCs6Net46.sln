@@ -172,6 +172,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MethodOverloading", "04\Met
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunWithArrays", "04\FunWithArrays\FunWithArrays.csproj", "{049E8AB3-9283-44E1-A7BC-B28596B63E63}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunWithEnums", "04\FunWithEnums\FunWithEnums.csproj", "{F545EBAF-8F70-4415-9B18-66AD7C37C08F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -462,6 +464,10 @@ Global
 		{049E8AB3-9283-44E1-A7BC-B28596B63E63}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{049E8AB3-9283-44E1-A7BC-B28596B63E63}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{049E8AB3-9283-44E1-A7BC-B28596B63E63}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F545EBAF-8F70-4415-9B18-66AD7C37C08F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F545EBAF-8F70-4415-9B18-66AD7C37C08F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F545EBAF-8F70-4415-9B18-66AD7C37C08F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F545EBAF-8F70-4415-9B18-66AD7C37C08F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -538,6 +544,7 @@ Global
 		{DEAC2296-8DA8-44F0-BFAA-149DB34AEEFC} = {4D973AC7-FCC1-49A8-99DE-09970CD2AEC0}
 		{5AB3A597-64F8-4C0E-B659-57144267A598} = {4D973AC7-FCC1-49A8-99DE-09970CD2AEC0}
 		{049E8AB3-9283-44E1-A7BC-B28596B63E63} = {4D973AC7-FCC1-49A8-99DE-09970CD2AEC0}
+		{F545EBAF-8F70-4415-9B18-66AD7C37C08F} = {4D973AC7-FCC1-49A8-99DE-09970CD2AEC0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A2719945-F9D2-4AD1-A033-50C94AB8803C}
