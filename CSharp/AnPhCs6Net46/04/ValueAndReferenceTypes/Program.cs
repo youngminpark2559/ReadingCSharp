@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 //c Add a class PointRef to compare the nature characteristics between value type and reference type.
 //c Add ReferenceTypeAssignment() which plays a same role with ValueTypeAssignment() except I'm dealing with data by reference type. With this, I have 2 PointRef(class) type local variables on the stack which store the reference address of the PointRef(class) type instance on the managed heap. Since 2 PointRef(class) type local variables on the stack are storing same reference address for the PointRef(class) type instance, changing instance can be seen by both variables.
 //c Add a class ShapeInfo and a struct Rectangle. Now, a Rectangle(struct) type is containing ShapeInfo(class) type field. We can examine a shallow copy by this codes.
+//c Add ValueTypeContainingRefType(). I create one Rectangle(struct) type instance and it's containing ShapeInfo(class) type filed, by invoking the custom constructor of Rectangle structure. Inside of this structure instance, I have a refernce address for the ShapeInfo(class) type instance, in the rectInfo field. And I copy r1 to r2. r2 is seeing same instance of what r1 is seeing.
 
 namespace ValueAndReferenceTypes
 {
@@ -150,6 +151,26 @@ namespace ValueAndReferenceTypes
             Console.WriteLine("\n=> Changed p1.X\n");
             p1.Display();
             p2.Display();
+        }
+
+        static void ValueTypeContainingRefType()
+        {
+            // Create the first Rectangle.
+            Console.WriteLine("-> Creating r1");
+            Rectangle r1 = new Rectangle("First Rect", 10, 10, 50, 50);
+
+            // Now assign a new Rectangle to r1.
+            Console.WriteLine("-> Assigning r2 to r1");
+            Rectangle r2 = r1;
+
+            // Change some values of r2.
+            Console.WriteLine("-> Changing values of r2");
+            r2.rectInfo.infoString = "This is new info!";
+            r2.rectBottom = 4444;
+
+            // Print values of both rectangles.
+            r1.Display();
+            r2.Display();
         }
     }
 }
