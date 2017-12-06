@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 //c When I create structure type variable, I can simply declare structure type variable. And I can access members through structure variable.
 //c I can create structure type variable by using new keyword with invoking default constructor of the structure. With this way, by default constructor, all fields are set to their data type's default values.
 //c Update a structure Point by adding a custom constructor. With this technique, I can set the fields when I create this structure type variable by invoking this custom constructor.
+//c I create a structure type variable by using a custom constructor of the structure Point. And with this variable, I invoke Display().
 
 namespace FunWithStructures
 {
@@ -79,6 +80,12 @@ namespace FunWithStructures
 
             // Prints X=0,Y=0.
             p1.Display();
+
+
+            // Call custom constructor.
+            Point p3 = new Point(50, 60);
+            // Prints X=50,Y=60.
+            p3.Display();
 
             Console.ReadLine();
         }
