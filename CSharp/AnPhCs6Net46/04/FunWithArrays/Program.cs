@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 //c Add RectMultidimensionalArray() which uses multidimensional array-rectangular array.
 //c Add JaggedMultidimensionalArray() which uses multidimensional array-jagged array.
 //c Add PrintArray() which has int type array parameter. In other word, I can pass array as an argument when I invoke the method.
+//c Add GetStringArray() which returns string type array.
 
 namespace FunWithArrays
 {
@@ -127,11 +128,16 @@ namespace FunWithArrays
             Console.WriteLine();
         }
 
-
         static void PrintArray(int[] myInts)
         {
             for (int i = 0; i < myInts.Length; i++)
                 Console.WriteLine("Item {0} is {1}", i, myInts[i]);
+        }
+
+        static string[] GetStringArray()
+        {
+            string[] theStrings = { "Hello", "from", "GetStringArray" };
+            return theStrings;
         }
     }
 }
