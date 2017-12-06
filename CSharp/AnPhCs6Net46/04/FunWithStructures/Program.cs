@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 //c I can create structure type variable by using new keyword with invoking default constructor of the structure. With this way, by default constructor, all fields are set to their data type's default values.
 //c Update a structure Point by adding a custom constructor. With this technique, I can set the fields when I create this structure type variable by invoking this custom constructor.
 //c I create a structure type variable by using a custom constructor of the structure Point. And with this variable, I invoke Display().
+//c Add LocalValueTypes() which contains int data type local variable and structure type local variable. And the values which are assigned to these local variable are on the stack and removed immediately when the scope of this method is ended.
 
 namespace FunWithStructures
 {
@@ -89,5 +90,16 @@ namespace FunWithStructures
 
             Console.ReadLine();
         }
+
+        // Local structures are popped off
+        // the stack when a method returns.
+        static void LocalValueTypes()
+        {
+            // Recall! "int" is really a System.Int32 structure.
+            int i = 0;
+
+            // Recall! Point is a structure type.
+            Point p = new Point();
+        } // "i" and "p" popped off the stack here!
     }
 }
