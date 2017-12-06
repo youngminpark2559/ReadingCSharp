@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 //c Add ArrayOfObjects(). Within this method, I declare 4 lenght object data type array. In this array, any data type value item can be in. It's opposite to the restriction when you uses var keyword.
 //c Add RectMultidimensionalArray() which uses multidimensional array-rectangular array.
 //c Add JaggedMultidimensionalArray() which uses multidimensional array-jagged array.
+//c Add PrintArray() which has int type array parameter. In other word, I can pass array as an argument when I invoke the method.
 
 namespace FunWithArrays
 {
@@ -104,7 +105,7 @@ namespace FunWithArrays
             }
             Console.WriteLine();
         }
-        
+
         static void JaggedMultidimensionalArray()
         {
             Console.WriteLine("=> Jagged multidimensional array.");
@@ -124,6 +125,13 @@ namespace FunWithArrays
                 Console.WriteLine();
             }
             Console.WriteLine();
+        }
+
+
+        static void PrintArray(int[] myInts)
+        {
+            for (int i = 0; i < myInts.Length; i++)
+                Console.WriteLine("Item {0} is {1}", i, myInts[i]);
         }
     }
 }
