@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 //c Add ValueTypeAssignment() which declares 2 Point(struct) type local variable on the stack and I assign created Point(struct) type into p1. And I assign p1 to p2 variable. Now, I have 2 Point(struct) type local variables on the stack which stores same Point(struct) type holding 10, 10 to x, y fields.
 //c Add a class PointRef to compare the nature characteristics between value type and reference type.
 //c Add ReferenceTypeAssignment() which plays a same role with ValueTypeAssignment() except I'm dealing with data by reference type. With this, I have 2 PointRef(class) type local variables on the stack which store the reference address of the PointRef(class) type instance on the managed heap. Since 2 PointRef(class) type local variables on the stack are storing same reference address for the PointRef(class) type instance, changing instance can be seen by both variables.
+//c Add a class ShapeInfo and a struct Rectangle. Now, a Rectangle(struct) type is containing ShapeInfo(class) type field. We can examine a shallow copy by this codes.
 
 namespace ValueAndReferenceTypes
 {
@@ -73,6 +74,38 @@ namespace ValueAndReferenceTypes
             Console.WriteLine("X = {0}, Y = {1}", X, Y);
         }
     }
+
+    class ShapeInfo
+    {
+        public string infoString;
+        public ShapeInfo(string info)
+        {
+            infoString = info;
+        }
+    }
+
+    struct Rectangle
+    {
+        // The Rectangle structure contains a reference type member.
+        public ShapeInfo rectInfo;
+
+        public int rectTop, rectLeft, rectBottom, rectRight;
+
+        public Rectangle(string info, int top, int left, int bottom, int right)
+        {
+            rectInfo = new ShapeInfo(info);
+            rectTop = top; rectBottom = bottom;
+            rectLeft = left; rectRight = right;
+        }
+
+        public void Display()
+        {
+            Console.WriteLine("String = {0}, Top = {1}, Bottom = {2}, " +
+              "Left = {3}, Right = {4}",
+              rectInfo.infoString, rectTop, rectBottom, rectLeft, rectRight);
+        }
+    }
+
 
     class Program
     {
