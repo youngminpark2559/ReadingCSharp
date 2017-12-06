@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 //c Add ValueTypeAssignment() which declares 2 Point(struct) type local variable on the stack and I assign created Point(struct) type into p1. And I assign p1 to p2 variable. Now, I have 2 Point(struct) type local variables on the stack which stores same Point(struct) type holding 10, 10 to x, y fields.
 //c Add a class PointRef to compare the nature characteristics between value type and reference type.
+//c Add ReferenceTypeAssignment() which plays a same role with ValueTypeAssignment() except I'm dealing with data by reference type. With this, I have 2 PointRef(class) type local variables on the stack which store the reference address of the PointRef(class) type instance on the managed heap. Since 2 PointRef(class) type local variables on the stack are storing same reference address for the PointRef(class) type instance, changing instance can be seen by both variables.
 
 namespace ValueAndReferenceTypes
 {
@@ -94,6 +95,24 @@ namespace ValueAndReferenceTypes
             p2.Display();
 
             // Change p1.X and print again. p2.X is not changed.
+            p1.X = 100;
+            Console.WriteLine("\n=> Changed p1.X\n");
+            p1.Display();
+            p2.Display();
+        }
+
+
+        static void ReferenceTypeAssignment()
+        {
+            Console.WriteLine("Assigning reference types\n");
+            PointRef p1 = new PointRef(10, 10);
+            PointRef p2 = p1;
+
+            // Print both point refs.
+            p1.Display();
+            p2.Display();
+
+            // Change p1.X and print again.
             p1.X = 100;
             Console.WriteLine("\n=> Changed p1.X\n");
             p1.Display();
