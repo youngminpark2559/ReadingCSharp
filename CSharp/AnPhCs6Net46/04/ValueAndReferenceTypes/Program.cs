@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 //c Add ValueTypeAssignment() which declares 2 Point(struct) type local variable on the stack and I assign created Point(struct) type into p1. And I assign p1 to p2 variable. Now, I have 2 Point(struct) type local variables on the stack which stores same Point(struct) type holding 10, 10 to x, y fields.
+//c Add a class PointRef to compare the nature characteristics between value type and reference type.
 
 namespace ValueAndReferenceTypes
 {
@@ -40,10 +41,43 @@ namespace ValueAndReferenceTypes
         }
     }
 
+    class PointRef
+    {
+        // Fields of the structure.
+        public int X;
+        public int Y;
+
+        // A custom constructor.
+        public PointRef(int XPos, int YPos)
+        {
+            X = XPos;
+            Y = YPos;
+        }
+
+        // Add 1 to the (X, Y) position.
+        public void Increment()
+        {
+            X++; Y++;
+        }
+
+        // Subtract 1 from the (X, Y) position.
+        public void Decrement()
+        {
+            X--; Y--;
+        }
+
+        // Display the current position.
+        public void Display()
+        {
+            Console.WriteLine("X = {0}, Y = {1}", X, Y);
+        }
+    }
+
     class Program
     {
         static void Main(string[] args)
         {
+            ValueTypeAssignment();
         }
 
         // Assigning two intrinsic value types results in
