@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 //c Add a structure Point. This struct contains fields, methods.
 //c Update Main(). In this method, I use the members of the Point struct.
+//c When I create structure type variable, I can simply declare structure type variable. And I can access members through structure variable.
 
 namespace FunWithStructures
 {
@@ -48,6 +49,21 @@ namespace FunWithStructures
             // Adjust the X and Y values.
             myPoint.Increment();
             myPoint.Display();
+
+            //->
+            //// Error! Did not assign Y value.
+            //Point p1;
+            //p1.X = 10;
+            //p1.Display();
+
+            // OK! Both fields assigned before use.
+            Point p2;
+            p2.X = 10;
+            p2.Y = 10;
+            p2.Display();
+            //<-
+
+
             Console.ReadLine();
         }
     }
