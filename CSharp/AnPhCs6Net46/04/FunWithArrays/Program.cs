@@ -14,6 +14,7 @@ using System.Threading.Tasks;
 //c Add JaggedMultidimensionalArray() which uses multidimensional array-jagged array.
 //c Add PrintArray() which has int type array parameter. In other word, I can pass array as an argument when I invoke the method.
 //c Add GetStringArray() which returns string type array.
+//c Add PassAndReceiveArrays() which invokes PrintArray() and GetStringArray() with passing int type array and being returned string type array.
 
 namespace FunWithArrays
 {
@@ -138,6 +139,21 @@ namespace FunWithArrays
         {
             string[] theStrings = { "Hello", "from", "GetStringArray" };
             return theStrings;
+        }
+
+        static void PassAndReceiveArrays()
+        {
+            Console.WriteLine("=> Arrays as params and return values.");
+            // Pass array as parameter.
+            int[] ages = { 20, 22, 23, 0 };
+            PrintArray(ages);
+
+            // Get array as return value.
+            string[] strs = GetStringArray();
+            foreach (string s in strs)
+                Console.WriteLine(s);
+
+            Console.WriteLine();
         }
     }
 }
