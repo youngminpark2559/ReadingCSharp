@@ -18,6 +18,7 @@ using System.Threading.Tasks;
 //c Updata Main() to retrieve a specific name from the enum by using Enum.ToString().
 //c Update Main() to retrieve a specific value from the enum by using explicit data type case syntax on enum variable.
 //c Add EvaluateEnum(). This method will print out the details of any enum. Especially note the Enum.GetValues(). This method creates the corresponding array from the specific enum type.
+//c Updata Main(). I create EmpType enum type local variable. I assign the value for the EmpType.Contractor to the e2 local variable. And I pass it into the EvaluateEnum() as an argument.
 
 namespace FunWithEnums
 {
@@ -41,6 +42,7 @@ namespace FunWithEnums
             EmpType emp = EmpType.Contractor;
             AskForBonus(emp);
 
+
             // Print storage for the enum.
             Console.WriteLine("EmpType uses a {0} for storage",
               Enum.GetUnderlyingType(emp.GetType()));
@@ -52,8 +54,20 @@ namespace FunWithEnums
             // Prints out "emp is a Contractor".
             Console.WriteLine("emp is a {0}.", emp.ToString());
 
+
             // Prints out "Contractor = 100".
             Console.WriteLine("{0} name's value = {1}", emp.ToString(), (byte)emp);
+
+
+            EmpType e2 = EmpType.Contractor;
+
+            // These types are enums in the System namespace.
+            DayOfWeek day = DayOfWeek.Monday;
+            ConsoleColor cc = ConsoleColor.Gray;
+
+            EvaluateEnum(e2);
+            EvaluateEnum(day);
+            EvaluateEnum(cc);
 
             Console.ReadLine();
         }
