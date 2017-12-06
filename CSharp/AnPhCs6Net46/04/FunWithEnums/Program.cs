@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 //c Update EmpType. I can change the underlying data type (byte, short, int, or long) for numerical value mapped to the corresponding named constant.
 //c When I set underlying data type for numerical value in the way I like, I must follow the range of each data type. For example, When I use byte data type, I can't store 999 as a numerical value for the named constant VicePresident because 999 is out of range for the byte data type.
 //c Add AskForBonus() which uses EmpType enum type.
+//c Assign a specific value for Contractor of EmpType enum into EmpType type local variable. And I pass it into AskForBonus() and within it, I put that enum type value to the switch statement.
 
 namespace FunWithEnums
 {
@@ -57,4 +58,4 @@ namespace FunWithEnums
         }
     }
 }
-}
+
