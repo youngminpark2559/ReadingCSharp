@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 //c Add AskForBonus() which uses EmpType enum type.
 //c Assign a specific value for Contractor of EmpType enum into EmpType type local variable. And I pass it into AskForBonus() and within it, I put that enum type value to the switch statement.
 //c Add ThisMethodWillNotCompile(). This method can't be compiled because when I use enum type I can't assign a value which is not existing in the enum. In this case, the compile-time error happens. And when I don't specify a scope for the enum, I can't access any enum type so I get the compile-time error.
+//c Updata Main() to use Enum.GetUnderlyingType() which returns the underlying data type for the enum storage. In this case, we're now using byte data type.
 
 namespace FunWithEnums
 {
@@ -35,6 +36,11 @@ namespace FunWithEnums
             // Make an EmpType variable.
             EmpType emp = EmpType.Contractor;
             AskForBonus(emp);
+
+            // Print storage for the enum.
+            Console.WriteLine("EmpType uses a {0} for storage",
+              Enum.GetUnderlyingType(emp.GetType()));
+
             Console.ReadLine();
         }
 
