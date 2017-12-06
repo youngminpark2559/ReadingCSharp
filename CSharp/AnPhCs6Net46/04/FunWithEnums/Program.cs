@@ -6,17 +6,18 @@ using System.Threading.Tasks;
 
 //c Create a console application FunWithEnums to examine the enumeration type.
 //c Add enum EmpType holding 4 items.
+//c Update EmpType. I set 102 numerical value for Manager named constant. 
 
 namespace FunWithEnums
 {
 
-    // A custom enumeration.
+    // Begin with 102.
     enum EmpType
     {
-        Manager,      // = 0
-        Grunt,        // = 1
-        Contractor,   // = 2
-        VicePresident // = 3
+        Manager = 102,
+        Grunt,        // = 103
+        Contractor,   // = 104
+        VicePresident // = 105
     }
 
     class Program
