@@ -41,6 +41,14 @@ namespace RefTypeValTypeParams
             SendAPersonByValue(fred);
             Console.WriteLine("\nAfter by value call, Person is:");
             fred.Display();
+
+            Person mel = new Person("Mel", 23);
+            Console.WriteLine("Before by ref call, Person is:");
+            mel.Display();
+            SendAPersonByReference(ref mel);
+            Console.WriteLine("After by ref call, Person is:");
+            mel.Display();
+
             Console.ReadLine();
         }
 
