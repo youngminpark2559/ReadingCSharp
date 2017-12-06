@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 //c When I set underlying data type for numerical value in the way I like, I must follow the range of each data type. For example, When I use byte data type, I can't store 999 as a numerical value for the named constant VicePresident because 999 is out of range for the byte data type.
 //c Add AskForBonus() which uses EmpType enum type.
 //c Assign a specific value for Contractor of EmpType enum into EmpType type local variable. And I pass it into AskForBonus() and within it, I put that enum type value to the switch statement.
+//c Add ThisMethodWillNotCompile(). This method can't be compiled because when I use enum type I can't assign a value which is not existing in the enum. In this case, the compile-time error happens. And when I don't specify a scope for the enum, I can't access any enum type so I get the compile-time error.
 
 namespace FunWithEnums
 {
@@ -56,6 +57,16 @@ namespace FunWithEnums
                     break;
             }
         }
+
+
+        //static void ThisMethodWillNotCompile()
+        //{
+        //    // Error! SalesManager is not in the EmpType enum!
+        //    EmpType emp = EmpType.SalesManager;
+
+        //    // Error! Forgot to scope Grunt value to EmpType enum!
+        //    emp = Grunt;
+        //}
     }
 }
 
