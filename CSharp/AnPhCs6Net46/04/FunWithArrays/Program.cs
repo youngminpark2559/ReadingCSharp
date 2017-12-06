@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 //c I can't mix data type for each item when especially using var keyword.
 //c Add ArrayOfObjects(). Within this method, I declare 4 lenght object data type array. In this array, any data type value item can be in. It's opposite to the restriction when you uses var keyword.
 //c Add RectMultidimensionalArray() which uses multidimensional array-rectangular array.
+//c Add JaggedMultidimensionalArray() which uses multidimensional array-jagged array.
 
 namespace FunWithArrays
 {
@@ -99,6 +100,27 @@ namespace FunWithArrays
 
                 for (int j = 0; j < 4; j++)
                     Console.Write(myMatrix[i, j] + "\t");
+                Console.WriteLine();
+            }
+            Console.WriteLine();
+        }
+        
+        static void JaggedMultidimensionalArray()
+        {
+            Console.WriteLine("=> Jagged multidimensional array.");
+            // A jagged MD array (i.e., an array of arrays).
+            // Here we have an array of 5 different arrays.
+            int[][] myJagArray = new int[5][];
+
+            // Create the jagged array.
+            for (int i = 0; i < myJagArray.Length; i++)
+                myJagArray[i] = new int[i + 7];
+
+            // Print each row (remember, each element is defaulted to zero!).
+            for (int i = 0; i < 5; i++)
+            {
+                for (int j = 0; j < myJagArray[i].Length; j++)
+                    Console.Write(myJagArray[i][j] + " ");
                 Console.WriteLine();
             }
             Console.WriteLine();
