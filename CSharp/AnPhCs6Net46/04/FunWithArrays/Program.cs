@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 //c Add DeclareImplicitArrays() which uses implicitly typed local variable type by using var keyword for declaration of array.
 //c I can't mix data type for each item when especially using var keyword.
 //c Add ArrayOfObjects(). Within this method, I declare 4 lenght object data type array. In this array, any data type value item can be in. It's opposite to the restriction when you uses var keyword.
+//c Add RectMultidimensionalArray() which uses multidimensional array-rectangular array.
 
 namespace FunWithArrays
 {
@@ -18,7 +19,9 @@ namespace FunWithArrays
         static void Main(string[] args)
         {
             Console.WriteLine("***** Fun with Arrays *****");
-            SimpleArrays();
+            //SimpleArrays();
+            ArrayOfObjects();
+
             Console.ReadLine();
         }
 
@@ -74,6 +77,29 @@ namespace FunWithArrays
             {
                 // Print the type and value for each item in array.
                 Console.WriteLine("Type: {0}, Value: {1}", obj.GetType(), obj);
+            }
+            Console.WriteLine();
+        }
+
+        static void RectMultidimensionalArray()
+        {
+            Console.WriteLine("=> Rectangular multidimensional array.");
+            // A rectangular MD array.
+            int[,] myMatrix;
+            myMatrix = new int[3, 4];
+
+            // Populate (3 * 4) array.
+            for (int i = 0; i < 3; i++)
+                for (int j = 0; j < 4; j++)
+                    myMatrix[i, j] = i * j;
+
+            // Print (3 * 4) array.
+            for (int i = 0; i < 3; i++)
+            {
+
+                for (int j = 0; j < 4; j++)
+                    Console.Write(myMatrix[i, j] + "\t");
+                Console.WriteLine();
             }
             Console.WriteLine();
         }
