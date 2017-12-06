@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 //c Add a structure Point. This struct contains fields, methods.
 //c Update Main(). In this method, I use the members of the Point struct.
 //c When I create structure type variable, I can simply declare structure type variable. And I can access members through structure variable.
+//c I can create structure type variable by using new keyword with invoking default constructor of the structure. With this way, by default constructor, all fields are set to their data type's default values.
 
 namespace FunWithStructures
 {
@@ -50,7 +51,7 @@ namespace FunWithStructures
             myPoint.Increment();
             myPoint.Display();
 
-            //->
+
             //// Error! Did not assign Y value.
             //Point p1;
             //p1.X = 10;
@@ -61,8 +62,14 @@ namespace FunWithStructures
             p2.X = 10;
             p2.Y = 10;
             p2.Display();
-            //<-
 
+
+            // Set all fields to default values
+            // using the default constructor.
+            Point p1 = new Point();
+
+            // Prints X=0,Y=0.
+            p1.Display();
 
             Console.ReadLine();
         }
