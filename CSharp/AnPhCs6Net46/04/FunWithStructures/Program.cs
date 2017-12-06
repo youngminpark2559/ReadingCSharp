@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 //c Add a structure Point. This struct contains fields, methods.
+//c Update Main(). In this method, I use the members of the Point struct.
 
 namespace FunWithStructures
 {
@@ -36,6 +37,18 @@ namespace FunWithStructures
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("***** A First Look at Structures *****\n");
+
+            // Create an initial Point.
+            Point myPoint;
+            myPoint.X = 349;
+            myPoint.Y = 76;
+            myPoint.Display();
+
+            // Adjust the X and Y values.
+            myPoint.Increment();
+            myPoint.Display();
+            Console.ReadLine();
         }
     }
 }
