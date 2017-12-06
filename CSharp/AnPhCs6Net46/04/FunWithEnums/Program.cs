@@ -16,6 +16,7 @@ using System.Threading.Tasks;
 //c Updata Main() to use Enum.GetUnderlyingType() which returns the underlying data type for the enum storage. In this case, we're now using byte data type.
 //c Use typeof operator to get the type of the assembly. I can get the type from the assembly in 3 ways. 1st is to use Type class. 2nd is to use typeof operator. Both are using strongly typed name for the type what I want to know. 3rd is to use reflection. By 3rd way, I can get the metadata(ex. type information) at runtime, not compiletime by specifying just liter string for the type name what I want to know.
 //c Updata Main() to retrieve a specific name from the enum by using Enum.ToString().
+//c Update Main() to retrieve a specific value from the enum by using explicit data type case syntax on enum variable.
 
 namespace FunWithEnums
 {
@@ -49,6 +50,9 @@ namespace FunWithEnums
 
             // Prints out "emp is a Contractor".
             Console.WriteLine("emp is a {0}.", emp.ToString());
+
+            // Prints out "Contractor = 100".
+            Console.WriteLine("{0} name's value = {1}", emp.ToString(), (byte)emp);
 
             Console.ReadLine();
         }
