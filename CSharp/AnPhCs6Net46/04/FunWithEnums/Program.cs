@@ -17,6 +17,7 @@ using System.Threading.Tasks;
 //c Use typeof operator to get the type of the assembly. I can get the type from the assembly in 3 ways. 1st is to use Type class. 2nd is to use typeof operator. Both are using strongly typed name for the type what I want to know. 3rd is to use reflection. By 3rd way, I can get the metadata(ex. type information) at runtime, not compiletime by specifying just liter string for the type name what I want to know.
 //c Updata Main() to retrieve a specific name from the enum by using Enum.ToString().
 //c Update Main() to retrieve a specific value from the enum by using explicit data type case syntax on enum variable.
+//c Add EvaluateEnum(). This method will print out the details of any enum. Especially note the Enum.GetValues(). This method creates the corresponding array from the specific enum type.
 
 namespace FunWithEnums
 {
@@ -86,6 +87,28 @@ namespace FunWithEnums
         //    // Error! Forgot to scope Grunt value to EmpType enum!
         //    emp = Grunt;
         //}
+
+
+        static void EvaluateEnum(System.Enum e)
+        {
+            Console.WriteLine("=> Information about {0}", e.GetType().Name);
+
+            Console.WriteLine("Underlying storage type: {0}",
+              Enum.GetUnderlyingType(e.GetType()));
+
+            // Get all name/value pairs for incoming parameter.
+            Array enumData = Enum.GetValues(e.GetType());
+            Console.WriteLine("This enum has {0} members.", enumData.Length);
+
+            // Now show the string name and associated value, using the D format
+            // flag (see Chapter 3).
+            for (int i = 0; i < enumData.Length; i++)
+            {
+                Console.WriteLine("Name: {0}, Value: {0:D}",
+                  enumData.GetValue(i));
+            }
+            Console.WriteLine();
+        }
     }
 }
 
