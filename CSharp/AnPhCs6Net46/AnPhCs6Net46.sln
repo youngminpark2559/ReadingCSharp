@@ -174,6 +174,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunWithArrays", "04\FunWith
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunWithEnums", "04\FunWithEnums\FunWithEnums.csproj", "{F545EBAF-8F70-4415-9B18-66AD7C37C08F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunWithStructures", "04\FunWithStructures\FunWithStructures.csproj", "{9E710765-E379-43FB-B5D4-1AC3B1118215}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -468,6 +470,10 @@ Global
 		{F545EBAF-8F70-4415-9B18-66AD7C37C08F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F545EBAF-8F70-4415-9B18-66AD7C37C08F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F545EBAF-8F70-4415-9B18-66AD7C37C08F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E710765-E379-43FB-B5D4-1AC3B1118215}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E710765-E379-43FB-B5D4-1AC3B1118215}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E710765-E379-43FB-B5D4-1AC3B1118215}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E710765-E379-43FB-B5D4-1AC3B1118215}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -545,6 +551,7 @@ Global
 		{5AB3A597-64F8-4C0E-B659-57144267A598} = {4D973AC7-FCC1-49A8-99DE-09970CD2AEC0}
 		{049E8AB3-9283-44E1-A7BC-B28596B63E63} = {4D973AC7-FCC1-49A8-99DE-09970CD2AEC0}
 		{F545EBAF-8F70-4415-9B18-66AD7C37C08F} = {4D973AC7-FCC1-49A8-99DE-09970CD2AEC0}
+		{9E710765-E379-43FB-B5D4-1AC3B1118215} = {4D973AC7-FCC1-49A8-99DE-09970CD2AEC0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A2719945-F9D2-4AD1-A033-50C94AB8803C}
