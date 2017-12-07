@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 //c Update a method Main() by using null coalescing operator. If the value retrieved from GetIntFromDatabase() is not null, that value will be assigned to myData. And If the value retrieved from GetIntFromDatabase() is null, predefined data 100 will be assigned to myData.
 //c Updata a method Main() by implementing the same functionality of null coalescing operator by using if/else statement.
 //c Add a method TesterMethod() whic contains code to check if the incoming parameter is null or not. This is a traditional way for null check.
+//c Update a method Main() by invoking TesterMethod() with passing null.
 
 namespace NullableTypes
 {
@@ -68,6 +69,9 @@ namespace NullableTypes
             if (!moreData.HasValue)
                 moreData = 100;
             Console.WriteLine("Value of moreData: {0}", moreData);
+
+            Console.WriteLine($"I'm passing null:\n");
+            TesterMethod(null);
 
             Console.ReadLine();
         }
