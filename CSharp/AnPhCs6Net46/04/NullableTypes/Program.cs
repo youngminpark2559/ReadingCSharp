@@ -8,9 +8,24 @@ using System.Threading.Tasks;
 //c Updata Main() by declaring value data type local variables and assigning null to them. It's going to cause compile-time error. But when I declare string(class) data type local variables and assign null to it, that brings no issue.
 //c Add a method LocalNullableVariables(). Within this, I declare value type local variables (nullable) and assign null to one of them. But I can't declare reference type as nullable by appending ? symbol because reference type is by default nullable.
 //c Add a method LocalNullableVariablesUsingNullable(). Within this, I declare value type local variables (nullable) by using Nullable<T> syntax. This way is actually standard way to declare value type local variables (nullable). ? symbol for this is a shorthand for this one and it's actually converted to Nullable<T> syntax by C# compiler toward the CIL instruction in assembly.
+//c Add a class DatabaseReader which contains value type (int, bool) field (nullable) and methods whose return types are value type (int, bool) (nullable).
 
 namespace NullableTypes
 {
+    class DatabaseReader
+    {
+        // Nullable data field.
+        public int? numericValue = null;
+        public bool? boolValue = true;
+
+        // Note the nullable return type.
+        public int? GetIntFromDatabase()
+        { return numericValue; }
+        // Note the nullable return type.
+        public bool? GetBoolFromDatabase()
+        { return boolValue; }
+    }
+
     class Program
     {
         static void Main(string[] args)
