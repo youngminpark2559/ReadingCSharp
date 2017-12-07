@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 //c Add a method LocalNullableVariables(). Within this, I declare value type local variables (nullable) and assign null to one of them. But I can't declare reference type as nullable by appending ? symbol because reference type is by default nullable.
 //c Add a method LocalNullableVariablesUsingNullable(). Within this, I declare value type local variables (nullable) by using Nullable<T> syntax. This way is actually standard way to declare value type local variables (nullable). ? symbol for this is a shorthand for this one and it's actually converted to Nullable<T> syntax by C# compiler toward the CIL instruction in assembly.
 //c Add a class DatabaseReader which contains value type (int, bool) field (nullable) and methods whose return types are value type (int, bool) (nullable).
+//c Update a method Main() by using HasValue property to check local variable is assigned or not.
 
 namespace NullableTypes
 {
@@ -37,6 +38,23 @@ namespace NullableTypes
 
             // OK! Strings are reference types.
             string myString = null;
+
+            Console.WriteLine("***** Fun with Nullable Data *****\n");
+            DatabaseReader dr = new DatabaseReader();
+
+            // Get int from "database".
+            int? i = dr.GetIntFromDatabase();
+            if (i.HasValue)
+                Console.WriteLine("Value of 'i' is: {0}", i.Value);
+            else
+                Console.WriteLine("Value of 'i' is undefined.");
+            // Get bool from "database".
+            bool? b = dr.GetBoolFromDatabase();
+            if (b != null)
+                Console.WriteLine("Value of 'b' is: {0}", b.Value);
+            else
+                Console.WriteLine("Value of 'b' is undefined.");
+            Console.ReadLine();
         }
 
         static void LocalNullableVariables()
