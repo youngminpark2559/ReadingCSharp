@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 //c Create a console application SimpleUtilityClass.
 //c Add a staic class TimeUtilClass which contains 2 static methods.
+//c Update a method Main(). Within this, I invoke static methods by accessing directly them via TimeUtilClass. And if I create an object of this staic class, I get the compile-time error.
 
 namespace SimpleUtilityClass
 {
@@ -24,6 +25,16 @@ namespace SimpleUtilityClass
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("***** Fun with Static Classes *****\n");
+
+            // This is just fine.
+            TimeUtilClass.PrintDate();
+            TimeUtilClass.PrintTime();
+
+            // Compiler error! Can't create instance of static classes!
+            TimeUtilClass u = new TimeUtilClass();
+
+            Console.ReadLine();
         }
     }
 }
