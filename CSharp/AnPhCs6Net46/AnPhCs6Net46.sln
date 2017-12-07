@@ -188,6 +188,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleClassExample", "05\Si
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StaticDataAndMembers", "05\StaticDataAndMembers\StaticDataAndMembers.csproj", "{F4E69872-E667-4A46-B765-A5A9A1574BC1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleUtilityClass", "05\SimpleUtilityClass\SimpleUtilityClass.csproj", "{8D759C85-2386-44A4-BA81-D170182352F8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -506,6 +508,10 @@ Global
 		{F4E69872-E667-4A46-B765-A5A9A1574BC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F4E69872-E667-4A46-B765-A5A9A1574BC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F4E69872-E667-4A46-B765-A5A9A1574BC1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D759C85-2386-44A4-BA81-D170182352F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D759C85-2386-44A4-BA81-D170182352F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D759C85-2386-44A4-BA81-D170182352F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D759C85-2386-44A4-BA81-D170182352F8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -589,6 +595,7 @@ Global
 		{002031D3-B22A-4C1B-B26F-A84803D5D5BC} = {4D973AC7-FCC1-49A8-99DE-09970CD2AEC0}
 		{1999DF0C-F09B-45D5-887A-5FF01C9D6C7A} = {B2EFC743-4E15-4BAC-ACD2-3270C4F518ED}
 		{F4E69872-E667-4A46-B765-A5A9A1574BC1} = {B2EFC743-4E15-4BAC-ACD2-3270C4F518ED}
+		{8D759C85-2386-44A4-BA81-D170182352F8} = {B2EFC743-4E15-4BAC-ACD2-3270C4F518ED}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A2719945-F9D2-4AD1-A033-50C94AB8803C}
