@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 //c Create a console application NullableTypes.
 //c Updata Main() by declaring value data type local variables and assigning null to them. It's going to cause compile-time error. But when I declare string(class) data type local variables and assign null to it, that brings no issue.
 //c Add a method LocalNullableVariables(). Within this, I declare value type local variables (nullable) and assign null to one of them. But I can't declare reference type as nullable by appending ? symbol because reference type is by default nullable.
+//c Add a method LocalNullableVariablesUsingNullable(). Within this, I declare value type local variables (nullable) by using Nullable<T> syntax. This way is actually standard way to declare value type local variables (nullable). ? symbol for this is a shorthand for this one and it's actually converted to Nullable<T> syntax by C# compiler toward the CIL instruction in assembly.
 
 namespace NullableTypes
 {
@@ -34,6 +35,16 @@ namespace NullableTypes
 
             // Error! Strings are reference types!
             // string? s = "oops";
+        }
+
+        static void LocalNullableVariablesUsingNullable()
+        {
+            // Define some local nullable types using Nullable<T>.
+            Nullable<int> nullableInt = 10;
+            Nullable<double> nullableDouble = 3.14;
+            Nullable<bool> nullableBool = null;
+            Nullable<char> nullableChar = 'a';
+            Nullable<int>[] arrayOfNullableInts = new Nullable<int>[10];
         }
     }
 }
