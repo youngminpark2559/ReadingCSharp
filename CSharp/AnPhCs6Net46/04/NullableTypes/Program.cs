@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 //c Add a class DatabaseReader which contains value type (int, bool) field (nullable) and methods whose return types are value type (int, bool) (nullable).
 //c Update a method Main() by using HasValue property to check local variable is assigned or not.
 //c Update a method Main() by using null coalescing operator. If the value retrieved from GetIntFromDatabase() is not null, that value will be assigned to myData. And If the value retrieved from GetIntFromDatabase() is null, predefined data 100 will be assigned to myData.
+//c Updata a method Main() by implementing the same functionality of null coalescing operator by using if/else statement.
 
 namespace NullableTypes
 {
@@ -60,6 +61,12 @@ namespace NullableTypes
             // assign local variable to 100.
             int myData = dr.GetIntFromDatabase() ?? 100;
             Console.WriteLine("Value of myData: {0}", myData);
+
+            // Long-hand notation not using ?? syntax.
+            int? moreData = dr.GetIntFromDatabase();
+            if (!moreData.HasValue)
+                moreData = 100;
+            Console.WriteLine("Value of moreData: {0}", moreData);
 
             Console.ReadLine();
         }
