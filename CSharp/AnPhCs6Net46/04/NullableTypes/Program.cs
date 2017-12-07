@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 //c Add a method LocalNullableVariablesUsingNullable(). Within this, I declare value type local variables (nullable) by using Nullable<T> syntax. This way is actually standard way to declare value type local variables (nullable). ? symbol for this is a shorthand for this one and it's actually converted to Nullable<T> syntax by C# compiler toward the CIL instruction in assembly.
 //c Add a class DatabaseReader which contains value type (int, bool) field (nullable) and methods whose return types are value type (int, bool) (nullable).
 //c Update a method Main() by using HasValue property to check local variable is assigned or not.
+//c Update a method Main() by using null coalescing operator. If the value retrieved from GetIntFromDatabase() is not null, that value will be assigned to myData. And If the value retrieved from GetIntFromDatabase() is null, predefined data 100 will be assigned to myData.
 
 namespace NullableTypes
 {
@@ -54,6 +55,12 @@ namespace NullableTypes
                 Console.WriteLine("Value of 'b' is: {0}", b.Value);
             else
                 Console.WriteLine("Value of 'b' is undefined.");
+
+            // If the value from GetIntFromDatabase() is null,
+            // assign local variable to 100.
+            int myData = dr.GetIntFromDatabase() ?? 100;
+            Console.WriteLine("Value of myData: {0}", myData);
+
             Console.ReadLine();
         }
 
