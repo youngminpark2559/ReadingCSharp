@@ -18,10 +18,10 @@ namespace SimpleUtilityClass
     static class TimeUtilClass
     {
         public static void PrintTime()
-        { Console.WriteLine(DateTime.Now.ToShortTimeString()); }
+        { WriteLine(Now.ToShortTimeString()); }
 
         public static void PrintDate()
-        { Console.WriteLine(DateTime.Today.ToShortDateString()); }
+        { WriteLine(Today.ToShortDateString()); }
     }
 
     class Program
