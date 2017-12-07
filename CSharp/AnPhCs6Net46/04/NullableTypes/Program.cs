@@ -14,6 +14,7 @@ using System.Threading.Tasks;
 //c Updata a method Main() by implementing the same functionality of null coalescing operator by using if/else statement.
 //c Add a method TesterMethod() whic contains code to check if the incoming parameter is null or not. This is a traditional way for null check.
 //c Update a method Main() by invoking TesterMethod() with passing null.
+//c Add a method TesterMethodByUsingNullConditionalOperator() to use null conditional operator to check if the incoming parameter is null or not.
 
 namespace NullableTypes
 {
@@ -106,6 +107,12 @@ namespace NullableTypes
             {
                 Console.WriteLine($"You sent me {args.Length} arguments.");
             }
+        }
+
+        static void TesterMethodByUsingNullConditionalOperator(string[] args)
+        {
+            // We should check for null before accessing the array data!
+            Console.WriteLine($"You sent me {args?.Length} arguments.");
         }
     }
 }
