@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 //c Update a method Main() by using HasValue property to check local variable is assigned or not.
 //c Update a method Main() by using null coalescing operator. If the value retrieved from GetIntFromDatabase() is not null, that value will be assigned to myData. And If the value retrieved from GetIntFromDatabase() is null, predefined data 100 will be assigned to myData.
 //c Updata a method Main() by implementing the same functionality of null coalescing operator by using if/else statement.
+//c Add a method TesterMethod() whic contains code to check if the incoming parameter is null or not. This is a traditional way for null check.
 
 namespace NullableTypes
 {
@@ -92,6 +93,15 @@ namespace NullableTypes
             Nullable<bool> nullableBool = null;
             Nullable<char> nullableChar = 'a';
             Nullable<int>[] arrayOfNullableInts = new Nullable<int>[10];
+        }
+
+        static void TesterMethod(string[] args)
+        {
+            // We should check for null before accessing the array data!
+            if (args != null)
+            {
+                Console.WriteLine($"You sent me {args.Length} arguments.");
+            }
         }
     }
 }
