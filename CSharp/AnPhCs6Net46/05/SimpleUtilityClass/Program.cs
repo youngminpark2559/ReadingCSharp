@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+// Import the static members of Console and DateTime.
+using static System.Console;
+using static System.DateTime;
 
 //c Create a console application SimpleUtilityClass.
 //c Add a staic class TimeUtilClass which contains 2 static methods.
