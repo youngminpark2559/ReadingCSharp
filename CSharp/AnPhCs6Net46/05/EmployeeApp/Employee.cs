@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 //c Update DisplayStats(), a custom constructor by using constructor chaining, new private field empAge, Age property.
 //c Update a custom constructor Employee by writing validation logic isside of constructor. This is bad practice by generating duplicate codes located in property.
 //c Refactor a custom constructor Employee by isolating validation code towards properties.
+//c Add a private field empSSN and a get property SocialSecurityNumber.
 
 namespace EmployeeApp
 {
@@ -20,6 +21,7 @@ namespace EmployeeApp
         private int empID;
         private float currPay;
         private int empAge;
+        private string empSSN;
 
         // Constructors.
         public Employee() { }
@@ -75,6 +77,11 @@ namespace EmployeeApp
         {
             get { return currPay; }
             set { currPay = value; }
+        }
+
+        public string SocialSecurityNumber
+        {
+            get { return empSSN; }
         }
 
         // Accessor (get method).
