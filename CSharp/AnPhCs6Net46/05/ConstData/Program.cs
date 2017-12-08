@@ -8,12 +8,22 @@ using System.Threading.Tasks;
 //c Add a class MyMathClass which contains const double data type PI field which is assigned by 3.14 by initialization field on declaration syntaxt. In Main(), I try to manipulate PI but it causes compile time error because const is never changed after it is assigned.
 //c Add a static method LocalConstStringVariable() in which it declares const string data type local variable fixedStr and assign initial value to it.
 //c Update a class MyMathClass with trying to initialize const by constructor but it causes compile time error. const should be initialized on declaration by initialization field on declaration syntax.
+//c Update a class MyMathClass by adding readonly double data type field PI. readonly field can be assigned via the constructor but nowhere else.
 
 namespace ConstData
 {
     class MyMathClass
     {
-        public const double PI = 3.14;
+        //public const double PI = 3.14;
+
+        // Read-only fields can be assigned in ctors,
+        // but nowhere else.
+        public readonly double PI;
+
+        public MyMathClass()
+        {
+            PI = 3.14;
+        }
     }
 
     //class MyMathClass
@@ -33,7 +43,7 @@ namespace ConstData
         static void Main(string[] args)
         {
             Console.WriteLine("***** Fun with Const *****\n");
-            Console.WriteLine("The value of PI is: {0}", MyMathClass.PI);
+            //Console.WriteLine("The value of PI is: {0}", MyMathClass.PI);
             // Error! Can't change a constant!
             // MyMathClass.PI = 3.1444;
 
