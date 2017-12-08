@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 //c Create a console application ConstData.
 //c Add a class MyMathClass which contains const double data type PI field which is assigned by 3.14 by initialization field on declaration syntaxt. In Main(), I try to manipulate PI but it causes compile time error because const is never changed after it is assigned.
 //c Add a static method LocalConstStringVariable() in which it declares const string data type local variable fixedStr and assign initial value to it.
+//c Update a class MyMathClass with trying to initialize const by constructor but it causes compile time error. const should be initialized on declaration by initialization field on declaration syntax.
 
 namespace ConstData
 {
@@ -14,6 +15,18 @@ namespace ConstData
     {
         public const double PI = 3.14;
     }
+
+    //class MyMathClass
+    //{
+    //    // Try to set PI in ctor?
+    //    public const double PI;
+
+    //    public MyMathClass()
+    //    {
+    //        // Not possible- must assign at time of declaration.
+    //        PI = 3.14;
+    //    }
+    //}
 
     class Program
     {
