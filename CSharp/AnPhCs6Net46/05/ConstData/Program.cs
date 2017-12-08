@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 //c Add a static method LocalConstStringVariable() in which it declares const string data type local variable fixedStr and assign initial value to it.
 //c Update a class MyMathClass with trying to initialize const by constructor but it causes compile time error. const should be initialized on declaration by initialization field on declaration syntax.
 //c Update a class MyMathClass by adding readonly double data type field PI. readonly field can be assigned via the constructor but nowhere else.
+//c Attempting to manipulate readonly field from outside of constructor's scope causes compile time error.
 
 namespace ConstData
 {
@@ -24,6 +25,13 @@ namespace ConstData
         {
             PI = 3.14;
         }
+
+        
+        // Error!
+        //public void ChangePI()
+        //{
+        //    PI = 3.14444;
+        //}
     }
 
     //class MyMathClass
