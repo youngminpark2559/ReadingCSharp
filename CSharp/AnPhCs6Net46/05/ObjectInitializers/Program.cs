@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 //c Create a console application ObjectInitializers.
 //c Add a class Point.
 //c Update a method Main(). I instantiate Point(class) type 3 objects and initialize them all in 3 different ways. 1st: default constructor + set object state data via property by property. 2nd: use a custom constructor with passing values which I want to assign to the object state data(private field.) then inside of this custom constructor, it will assign them via property. 3rd: use object initialize syntax.
-
+//c Add a class Rectangle.
 namespace ObjectInitializers
 {
     enum PointColor
@@ -39,6 +39,30 @@ namespace ObjectInitializers
         {
             Console.WriteLine("[{0}, {1}]", X, Y);
             Console.WriteLine("Point is {0}", Color);
+        }
+    }
+
+    class Rectangle
+    {
+        private Point topLeft = new Point();
+        private Point bottomRight = new Point();
+
+        public Point TopLeft
+        {
+            get { return topLeft; }
+            set { topLeft = value; }
+        }
+        public Point BottomRight
+        {
+            get { return bottomRight; }
+            set { bottomRight = value; }
+        }
+
+        public void DisplayStats()
+        {
+            Console.WriteLine("[TopLeft: {0}, {1}, {2} BottomRight: {3}, {4}, {5}]",
+              topLeft.X, topLeft.Y, topLeft.Color,
+              bottomRight.X, bottomRight.Y, bottomRight.Color);
         }
     }
 
