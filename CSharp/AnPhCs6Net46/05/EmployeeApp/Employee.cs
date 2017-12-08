@@ -55,6 +55,11 @@ namespace EmployeeApp
         public Employee() { }
         public Employee(string name, int id, float pay)
         : this(name, 0, id, pay) { }
+        public Employee(string name ="Null", int id = 0, float pay=0.0F, int age=0)
+        {
+            empAge = age;
+        }
+
 
         // Accessor (get method).
         public string GetName()
