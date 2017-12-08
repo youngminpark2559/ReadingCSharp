@@ -196,6 +196,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoProps", "05\AutoProps\A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ObjectInitializers", "05\ObjectInitializers\ObjectInitializers.csproj", "{4E768B31-403A-497A-BC04-2155C6C2B571}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConstData", "05\ConstData\ConstData.csproj", "{2AE50A15-C90D-4769-8DAF-1D3911F60B1A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -530,6 +532,10 @@ Global
 		{4E768B31-403A-497A-BC04-2155C6C2B571}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4E768B31-403A-497A-BC04-2155C6C2B571}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4E768B31-403A-497A-BC04-2155C6C2B571}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2AE50A15-C90D-4769-8DAF-1D3911F60B1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2AE50A15-C90D-4769-8DAF-1D3911F60B1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2AE50A15-C90D-4769-8DAF-1D3911F60B1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2AE50A15-C90D-4769-8DAF-1D3911F60B1A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -617,6 +623,7 @@ Global
 		{89F97AF2-A4BF-4817-926B-1EF808EE2E18} = {B2EFC743-4E15-4BAC-ACD2-3270C4F518ED}
 		{2635C687-4F02-4964-B07A-4EC68B9157E8} = {B2EFC743-4E15-4BAC-ACD2-3270C4F518ED}
 		{4E768B31-403A-497A-BC04-2155C6C2B571} = {B2EFC743-4E15-4BAC-ACD2-3270C4F518ED}
+		{2AE50A15-C90D-4769-8DAF-1D3911F60B1A} = {B2EFC743-4E15-4BAC-ACD2-3270C4F518ED}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A2719945-F9D2-4AD1-A033-50C94AB8803C}
