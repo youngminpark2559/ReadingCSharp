@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 //c Interact with properties by assign data into backing fields of properties by using get/set property.
+//c Update Main(). Since the Car(class) type backing field for MyAuto is storing null, there is no object which this backing field is referencing. Given this condition, when I access to PetName property of Car object, I get runtime exception "null reference exception".
 
 namespace AutoProps
 {
@@ -43,6 +44,12 @@ namespace AutoProps
             Console.WriteLine("Your car is named {0}? That's odd...",
               c.PetName);
             c.DisplayStats();
+
+            Garage g = new Garage();
+            // 0OK, prints default value of zero.
+            Console.WriteLine("Number of Cars: {0}", g.NumberOfCars);
+            // Runtime error! Backing field is currently null!
+            Console.WriteLine(g.MyAuto.PetName);
 
             Console.ReadLine();
         }
