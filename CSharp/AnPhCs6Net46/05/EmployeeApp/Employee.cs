@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 //c Create a new cs file Employee.cs and add a class Employee. I add a private fields and a default constructor and a custom constructor and some methods manipulating data of fields.
 //c Add a pair of public method, GetName() and SetName(). They allow the object user to manipulate the data of private fields indirectly via these accessor/mutator (get/set method).
+//c Add some properties such as Name, ID, and Pay.
 
 namespace EmployeeApp
 {
@@ -15,6 +16,32 @@ namespace EmployeeApp
         private string empName;
         private int empID;
         private float currPay;
+
+        // Properties!
+        public string Name
+        {
+            get { return empName; }
+            set
+            {
+                if (value.Length > 15)
+                    Console.WriteLine("Error! Name length exceeds 15 characters!");
+                else
+                    empName = value;
+            }
+        }
+
+        // We could add additional business rules to the sets of these properties;
+        // however, there is no need to do so for this example.
+        public int ID
+        {
+            get { return empID; }
+            set { empID = value; }
+        }
+        public float Pay
+        {
+            get { return currPay; }
+            set { currPay = value; }
+        }
 
         // Constructors.
         public Employee() { }
