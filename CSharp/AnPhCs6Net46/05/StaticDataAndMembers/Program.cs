@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 //c Add a static property InterestRate which is a good alternative for get/set methods, playing same functionality with them.
+//c Update a method Main() by adding code for printing the current interest rate via static property.
 
 namespace StaticDataAndMembers
 {
@@ -74,6 +75,10 @@ namespace StaticDataAndMembers
 
             // Should print 0.08...right??
             Console.WriteLine("Interest Rate is: {0}", SavingsAccount.GetInterestRate());
+
+            // Print the current interest rate via static property.
+            Console.WriteLine("Interest Rate is: {0}", SavingsAccount.InterestRate);
+
             Console.ReadLine();
         }
     }
