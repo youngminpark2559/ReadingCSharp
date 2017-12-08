@@ -73,6 +73,25 @@ namespace EmployeeApp
                 empName = name;
         }
 
+
+        // Get/set method for private field empAge.
+        public int GetAge()
+        {
+            return empAge;
+        }
+
+        
+        public void SetAge(int age)
+        {
+            // Do a check on incoming value
+            // before making assignment.
+            if (age > 1000)
+                Console.WriteLine("Error! You put the age over 1000.");
+            else
+                empAge = age;
+        }
+
+
         // Methods.
         public void GiveBonus(float amount)
         {

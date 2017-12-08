@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 //c Updata a method Main() by using SetName().
 //c Update a method Main() by using SetName() but this time I'm trying to manipulate the data of private field with the data which is not allowed to be stored into the private field by the logic acting like a filter inside of SetName().
 //c Manipulate the data of private field empName by using set property and retrieve that data by using get property.
+//c Compare the use way between get/set method and property when I manipulate the data of private field. Property one is more simple and intuitive.
 
 namespace EmployeeApp
 {
@@ -34,6 +35,17 @@ namespace EmployeeApp
             // Reset and then get the Name property.
             emp.Name = "Marv";
             Console.WriteLine("Employee is named: {0}", emp.Name);
+
+            Employee joe = new Employee();
+            Console.WriteLine($"By get/set method and before: {joe.GetAge()}");
+            joe.SetAge(joe.GetAge() + 1);
+            Console.WriteLine($"By get/set method and after: {joe.GetAge()}");
+
+            Employee joe2 = new Employee();
+            Console.WriteLine($"By property and before: {joe.Age}");
+            joe2.Age++;
+            Console.WriteLine($"By property and after: {joe.Age}");
+
 
             Console.ReadLine();
         }
