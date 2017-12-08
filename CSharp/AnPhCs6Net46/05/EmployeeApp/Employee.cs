@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 //c Add some properties such as Name, ID, and Pay.
 //c Update DisplayStats(), a custom constructor by using constructor chaining, new private field empAge, Age property.
 //c Update a custom constructor Employee by writing validation logic isside of constructor. This is bad practice by generating duplicate codes located in property.
+//c Refactor a custom constructor Employee by isolating validation code towards properties.
 
 namespace EmployeeApp
 {
@@ -59,15 +60,12 @@ namespace EmployeeApp
 
         public Employee(string name, int age, int id, float pay)
         {
-            // Humm, this seems like a problem...
-            if (name.Length > 15)
-                Console.WriteLine("Error! Name length exceeds 15 characters!");
-            else
-                empName = name;
-
-            empID = id;
-            empAge = age;
-            currPay = pay;
+            // Better! Use properties when setting class data.
+            // This reduces the amount of duplicate error checks.
+            Name = name;
+            Age = age;
+            ID = id;
+            Pay = pay;
         }
 
 
@@ -112,16 +110,6 @@ namespace EmployeeApp
         {
             currPay += amount;
         }
-
-
-        public Employee(string name, int age, int id, float pay)
-        {
-            empName = name;
-            empID = id;
-            empAge = age;
-            currPay = pay;
-        }
-
 
         public void DisplayStats()
         {
