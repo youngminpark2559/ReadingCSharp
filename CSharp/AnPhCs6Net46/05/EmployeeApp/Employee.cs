@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 //c Create a new cs file Employee.cs and add a class Employee. I add a private fields and a default constructor and a custom constructor and some methods manipulating data of fields.
 //c Add a pair of public method, GetName() and SetName(). They allow the object user to manipulate the data of private fields indirectly via these accessor/mutator (get/set method).
 //c Add some properties such as Name, ID, and Pay.
+//c Update DisplayStats(), a custom constructor by using constructor chaining, new private field empAge, Age property.
 
 namespace EmployeeApp
 {
@@ -16,6 +17,7 @@ namespace EmployeeApp
         private string empName;
         private int empID;
         private float currPay;
+        private int empAge;
 
         // Properties!
         public string Name
@@ -28,6 +30,12 @@ namespace EmployeeApp
                 else
                     empName = value;
             }
+        }
+
+        public int Age
+        {
+            get { return empAge; }
+            set { empAge = value; }
         }
 
         // We could add additional business rules to the sets of these properties;
@@ -46,11 +54,7 @@ namespace EmployeeApp
         // Constructors.
         public Employee() { }
         public Employee(string name, int id, float pay)
-        {
-            empName = name;
-            empID = id;
-            currPay = pay;
-        }
+        : this(name, 0, id, pay) { }
 
         // Accessor (get method).
         public string GetName()
@@ -75,13 +79,22 @@ namespace EmployeeApp
             currPay += amount;
         }
 
+
+        public Employee(string name, int age, int id, float pay)
+        {
+            empName = name;
+            empID = id;
+            empAge = age;
+            currPay = pay;
+        }
+
+
         public void DisplayStats()
         {
             Console.WriteLine("Name: {0}", empName);
             Console.WriteLine("ID: {0}", empID);
+            Console.WriteLine("Age: {0}", empAge);
             Console.WriteLine("Pay: {0}", currPay);
         }
     }
-
-
 }
