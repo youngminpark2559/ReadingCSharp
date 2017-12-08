@@ -21,6 +21,30 @@ namespace EmployeeApp
         private float currPay;
         private int empAge;
 
+        // Constructors.
+        public Employee() { }
+        public Employee(string name, int id, float pay)
+          : this(name, 0, id, pay) { }
+        public Employee(string name, int age, int id, float pay)
+        {
+            Name = name;
+            Age = age;
+            ID = id;
+            Pay = pay;
+        }
+
+        // Methods.
+        public void GiveBonus(float amount)
+        { Pay += amount; }
+
+        public void DisplayStats()
+        {
+            Console.WriteLine("Name: {0}", Name);
+            Console.WriteLine("ID: {0}", ID);
+            Console.WriteLine("Age: {0}", Age);
+            Console.WriteLine("Pay: {0}", Pay);
+        }
+
         // Properties!
         public string Name
         {
@@ -53,28 +77,11 @@ namespace EmployeeApp
             set { currPay = value; }
         }
 
-        // Constructors.
-        public Employee() { }
-        public Employee(string name, int id, float pay)
-        : this(name, 0, id, pay) { }
-
-        public Employee(string name, int age, int id, float pay)
-        {
-            // Better! Use properties when setting class data.
-            // This reduces the amount of duplicate error checks.
-            Name = name;
-            Age = age;
-            ID = id;
-            Pay = pay;
-        }
-
-
         // Accessor (get method).
         public string GetName()
         {
             return empName;
         }
-
         // Mutator (set method).
         public void SetName(string name)
         {
@@ -86,14 +93,11 @@ namespace EmployeeApp
                 empName = name;
         }
 
-
         // Get/set method for private field empAge.
         public int GetAge()
         {
             return empAge;
         }
-
-
         public void SetAge(int age)
         {
             // Do a check on incoming value
@@ -102,21 +106,6 @@ namespace EmployeeApp
                 Console.WriteLine("Error! You put the age over 1000.");
             else
                 empAge = age;
-        }
-
-
-        // Methods.
-        public void GiveBonus(float amount)
-        {
-            currPay += amount;
-        }
-
-        public void DisplayStats()
-        {
-            Console.WriteLine("Name: {0}", empName);
-            Console.WriteLine("ID: {0}", empID);
-            Console.WriteLine("Age: {0}", empAge);
-            Console.WriteLine("Pay: {0}", currPay);
         }
     }
 }
