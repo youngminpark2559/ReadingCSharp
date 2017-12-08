@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 //c Add a pair of public method, GetName() and SetName(). They allow the object user to manipulate the data of private fields indirectly via these accessor/mutator (get/set method).
 //c Add some properties such as Name, ID, and Pay.
 //c Update DisplayStats(), a custom constructor by using constructor chaining, new private field empAge, Age property.
+//c Update a custom constructor Employee by writing validation logic isside of constructor. This is bad practice by generating duplicate codes located in property.
 
 namespace EmployeeApp
 {
@@ -55,9 +56,18 @@ namespace EmployeeApp
         public Employee() { }
         public Employee(string name, int id, float pay)
         : this(name, 0, id, pay) { }
-        public Employee(string name ="Null", int id = 0, float pay=0.0F, int age=0)
+
+        public Employee(string name, int age, int id, float pay)
         {
+            // Humm, this seems like a problem...
+            if (name.Length > 15)
+                Console.WriteLine("Error! Name length exceeds 15 characters!");
+            else
+                empName = name;
+
+            empID = id;
             empAge = age;
+            currPay = pay;
         }
 
 
@@ -85,7 +95,7 @@ namespace EmployeeApp
             return empAge;
         }
 
-        
+
         public void SetAge(int age)
         {
             // Do a check on incoming value
