@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+//c Add a static property InterestRate which is a good alternative for get/set methods, playing same functionality with them.
+
 namespace StaticDataAndMembers
 {
     // A simple savings account class.
@@ -40,6 +42,14 @@ namespace StaticDataAndMembers
 
         public static double GetInterestRate()
         { return currInterestRate; }
+
+        // A static property.
+        // This is good alternative for above get/set methods.
+        public static double InterestRate
+        {
+            get { return currInterestRate; }
+            set { currInterestRate = value; }
+        }
     }
 
 
