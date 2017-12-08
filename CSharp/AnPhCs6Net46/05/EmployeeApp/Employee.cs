@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 //c Update a custom constructor Employee by writing validation logic isside of constructor. This is bad practice by generating duplicate codes located in property.
 //c Refactor a custom constructor Employee by isolating validation code towards properties.
 //c Add a private field empSSN and a get property SocialSecurityNumber.
+//c Update a constructor Employee by adding empSSN = ssn which assign value which the object user put to the empSSN private field.
 
 namespace EmployeeApp
 {
@@ -22,17 +23,18 @@ namespace EmployeeApp
         private float currPay;
         private int empAge;
         private string empSSN;
-
+        
         // Constructors.
         public Employee() { }
-        public Employee(string name, int id, float pay)
-          : this(name, 0, id, pay) { }
-        public Employee(string name, int age, int id, float pay)
+        public Employee(string name, int id, float pay) { }
+        public Employee(string name, int age, int id, float pay, string ssn)
         {
             Name = name;
             Age = age;
             ID = id;
             Pay = pay;
+            // Check incoming ssn parameter as required and then set the value.
+            empSSN = ssn;
         }
 
         // Methods.
