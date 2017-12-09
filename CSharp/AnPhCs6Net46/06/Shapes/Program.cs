@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 //c Add an abstract class Shapes which contains one virtual method.
 //c Add 2 classes Circle and Hexagon which are derived from Shape base class. But Circle class is not overriding Draw() and Hexagon is overriding Draw() by its own logic.
+//c Update a class Shape to set Draw() from virtual method to abstract method. Now, all derived class must override Draw() in their class.
 
 namespace Shapes
 {
@@ -17,11 +18,14 @@ namespace Shapes
 
         public string PetName { get; set; }
 
-        // A single virtual method.
-        public virtual void Draw()
-        {
-            Console.WriteLine("Inside Shape.Draw()");
-        }
+        //// A single virtual method.
+        //public virtual void Draw()
+        //{
+        //    Console.WriteLine("Inside Shape.Draw()");
+        //}
+
+        // Force all child classes to define how to be rendered.
+        public abstract void Draw();
     }
 
     // Circle DOES NOT override Draw().
@@ -46,6 +50,14 @@ namespace Shapes
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("***** Fun with Polymorphism *****\n");
+
+            Hexagon hex = new Hexagon("Beth");
+            hex.Draw();
+            Circle cir = new Circle("Cindy");
+            // Calls base class implementation!
+            cir.Draw();
+            Console.ReadLine();
         }
     }
 }
