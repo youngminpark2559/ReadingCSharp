@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+//c Add a overriden method GiveBonus().
+
 namespace Employees
 {
     // Managers need to know their number of stock options.
@@ -23,5 +25,11 @@ namespace Employees
             StockOptions = numbOfOpts;
         }
 
+        public override void GiveBonus(float amount)
+        {
+            base.GiveBonus(amount);
+            Random r = new Random();
+            StockOptions += r.Next(500);
+        }
     }
 }
