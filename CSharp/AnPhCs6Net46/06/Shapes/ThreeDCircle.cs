@@ -5,10 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 
 //c Add a class ThreeDCircle with pretending I get this class from third-party.
+//c Inherit Circle class from ThreeDCircle.
 
 namespace Shapes
 {
-    class ThreeDCircle
+    class ThreeDCircle : Circle
     {
         public void Draw()
         {
