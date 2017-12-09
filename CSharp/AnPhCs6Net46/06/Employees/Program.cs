@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 //c Update a method Main() to use a nested BenefitPackageLevel(enum) type inside of a nested BenefitPackage(class) type of Employee(class) type.
 //c Update a method Main(). Via Manager(class) type object, I invoke a derived method GiveBonus() of Employee(class) type. I do same thing via SalesPerson(class) type object. Now the problem is I'm using same bonus logic for all employees such as Manager, SalesPerson, Part-time SalesPerson.
 //c Add a method CastingExamples() which stores Derived(class) type object reference into Base(class) type variable by "implicit type cast".
+//c Add a method GivePromotion() whose parameter type is Employee(class) type.
 
 namespace Employees
 {
@@ -64,6 +65,14 @@ namespace Employees
 
             // A PTSalesPerson "is-a" SalesPerson.
             SalesPerson jill = new PTSalesPerson("Jill", 834, 3002, 100000, "111-12-1119", 90);
+        }
+
+        static void GivePromotion(Employee emp)
+        {
+            // Increase pay...
+            // Give new parking space in company garage...
+
+            Console.WriteLine("{0} was promoted!", emp.Name);
         }
     }
 }
