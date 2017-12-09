@@ -4,11 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+//c Add a nested class BenefitPackage inside of Employee class.
+
 namespace Employees
 {
     abstract partial class Employee
     {
-        
+
         public class BenefitPackage
         {
             public enum BenefitPackageLevel
@@ -23,9 +25,9 @@ namespace Employees
                 return 125.0;
             }
         }
-        
 
-        
+
+
         public virtual void GiveBonus(float amount)
         { Pay += amount; }
 
@@ -37,9 +39,9 @@ namespace Employees
             Console.WriteLine("Pay: {0}", Pay);
             Console.WriteLine("SSN: {0}", SocialSecurityNumber);
         }
-        
 
-        
+
+
         // Accessor (get method)
         public string GetName()
         {
@@ -56,6 +58,6 @@ namespace Employees
             else
                 empName = name;
         }
-        
+
     }
 }
