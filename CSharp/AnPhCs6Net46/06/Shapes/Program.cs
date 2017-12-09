@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 //c Add 2 classes Circle and Hexagon which are derived from Shape base class. But Circle class is not overriding Draw() and Hexagon is overriding Draw() by its own logic.
 //c Update a class Shape to set Draw() from virtual method to abstract method. Now, all derived class must override Draw() in their class.
 //c Update a class Circle by overriding Draw() because Draw() abstract method in the base class Shape.
+//c Update a method Main(). I still can invoke base class member via derived type object, which is hidden from derived class.
 
 namespace Shapes
 {
@@ -59,7 +60,7 @@ namespace Shapes
             Console.WriteLine("***** Fun with Polymorphism *****\n");
 
             // Make an array of Shape-compatible objects.
-            Shape[] myShapes = {new Hexagon(), new Circle(), new Hexagon("Mick"), new Circle("Beth"), new Hexagon("Linda")};
+            Shape[] myShapes = { new Hexagon(), new Circle(), new Hexagon("Mick"), new Circle("Beth"), new Hexagon("Linda") };
 
             // Loop over each item and interact with the
             // polymorphic interface.
@@ -67,6 +68,14 @@ namespace Shapes
             {
                 s.Draw();
             }
+
+            // This calls the Draw() method of the ThreeDCircle.
+            ThreeDCircle o = new ThreeDCircle();
+            o.Draw();
+            // This calls the Draw() method of the parent!
+            ((Circle)o).Draw();
+            Console.ReadLine();
+
             Console.ReadLine();
         }
     }
