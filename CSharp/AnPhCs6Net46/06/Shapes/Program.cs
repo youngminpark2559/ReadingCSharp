@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 //c Add an abstract class Shapes which contains one virtual method.
 //c Add 2 classes Circle and Hexagon which are derived from Shape base class. But Circle class is not overriding Draw() and Hexagon is overriding Draw() by its own logic.
 //c Update a class Shape to set Draw() from virtual method to abstract method. Now, all derived class must override Draw() in their class.
+//c Update a class Circle by overriding Draw() because Draw() abstract method in the base class Shape.
 
 namespace Shapes
 {
@@ -28,11 +29,16 @@ namespace Shapes
         public abstract void Draw();
     }
 
-    // Circle DOES NOT override Draw().
+    // If we did not implement the abstract Draw() method, Circle would also be
+    // considered abstract, and would have to be marked abstract!
     class Circle : Shape
     {
         public Circle() { }
         public Circle(string name) : base(name) { }
+        public override void Draw()
+        {
+            Console.WriteLine("Drawing {0} the Circle", PetName);
+        }
     }
 
     // Hexagon DOES override Draw().
