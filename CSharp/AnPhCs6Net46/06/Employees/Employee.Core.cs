@@ -4,18 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+//c Update a class Employee to change access modifiers from private to protected for each fields. Now any derived classes from this base class Employee can access and use these fields' data without via public properties and public methods.
+
 namespace Employees
 {
     partial class Employee
     {
-        // Field data.
-        private string empName;
-        private int empID;
-        private float currPay;
-        private int empAge;
-        private string empSSN ="";
+        // Derived classes can now directly access this information.
+        protected string empName;
+        protected int empID;
+        protected float currPay;
+        protected int empAge;
+        protected string empSSN;
 
-        
+
         // Note use of constructor chaining.
         public Employee() { }
         public Employee(string name, int id, float pay)
@@ -30,11 +32,11 @@ namespace Employees
         }
 
         // Add to the Employee base class.
-        public Employee(string name, int age, int id, float pay, string ssn) :this(name, age, id, pay)
+        public Employee(string name, int age, int id, float pay, string ssn) : this(name, age, id, pay)
         {
             empSSN = ssn;
         }
-        
+
 
 
         // Properties!
@@ -72,7 +74,7 @@ namespace Employees
         {
             get { return empSSN; }
         }
-        
+
 
         // Contain a BenefitPackage object.
         protected BenefitPackage empBenefits = new BenefitPackage();
