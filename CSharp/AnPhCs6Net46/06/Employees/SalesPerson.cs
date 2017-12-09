@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 //c Add a sealed class PTSalesPerson derived from SalesPerson class.
 //c Update a class SalesPerson. I add a overriden method GiveBonus() from the base class.
 //c Override DisplayStats() by using VS.
+//c Add sealed keyword on an overriden GiveBonus() in SalesPerson class.
 
 namespace Employees
 {
@@ -39,7 +40,7 @@ namespace Employees
         }
 
         // A salesperson's bonus is influenced by the number of sales.
-        public override void GiveBonus(float amount)
+        public override sealed void GiveBonus(float amount)
         {
             int salesBonus = 0;
             if (SalesNumber >= 0 && SalesNumber <= 100)
