@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 //c Update a method Main(). Via Manager(class) type object, I invoke a derived method GiveBonus() of Employee(class) type. I do same thing via SalesPerson(class) type object. Now the problem is I'm using same bonus logic for all employees such as Manager, SalesPerson, Part-time SalesPerson.
 //c Add a method CastingExamples() which stores Derived(class) type object reference into Base(class) type variable by "implicit type cast".
 //c Add a method GivePromotion() whose parameter type is Employee(class) type.
+//c Updata a method CastingExamples() by invoking GivePromotion().
 
 namespace Employees
 {
@@ -62,9 +63,11 @@ namespace Employees
 
             // A Manager "is-an" Employee too.
             Employee moonUnit = new Manager("MoonUnit Zappa", 2, 3001, 20000, "101-11-1321", 1);
+            GivePromotion(moonUnit);
 
             // A PTSalesPerson "is-a" SalesPerson.
             SalesPerson jill = new PTSalesPerson("Jill", 834, 3002, 100000, "111-12-1119", 90);
+            GivePromotion(jill);
         }
 
         static void GivePromotion(Employee emp)
