@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 //c Add a nested class BenefitPackage inside of Employee class.
+//c Update a class Employee by changing GiveBonus() to virtual method. Now any derived class from Employee class can override this method in their class.
 
 namespace Employees
 {
@@ -26,10 +27,10 @@ namespace Employees
             }
         }
 
-
-
         public virtual void GiveBonus(float amount)
-        { Pay += amount; }
+        {
+            Pay += amount;
+        }
 
         public virtual void DisplayStats()
         {
