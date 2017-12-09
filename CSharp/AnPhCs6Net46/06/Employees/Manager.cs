@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 //c Add a overriden method GiveBonus().
+//c Add a overriden method DisplayStats(). This overriden method is partially use its base class' DisplayStats() logic and also has its own logic.
 
 namespace Employees
 {
@@ -18,7 +19,7 @@ namespace Employees
         public Manager() { }
 
         public Manager(string fullName, int age, int empID,
-               float currPay, string ssn, int numbOfOpts) 
+               float currPay, string ssn, int numbOfOpts)
             : base(fullName, age, empID, currPay, ssn)
         {
             // This property is defined by the Manager class.
@@ -30,6 +31,12 @@ namespace Employees
             base.GiveBonus(amount);
             Random r = new Random();
             StockOptions += r.Next(500);
+        }
+
+        public override void DisplayStats()
+        {
+            base.DisplayStats();
+            Console.WriteLine("Number of Stock Options: {0}", StockOptions);
         }
     }
 }
