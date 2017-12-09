@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 //c Update a class Employee to change access modifiers from private to protected for each fields. Now any derived classes from this base class Employee can access and use these fields' data without via public properties and public methods.
 //c Add a BenefitPackage(class) data type private field empBenefits and I initialize object of BenefitPackage on declaration.
+//c Add a method GetBenefitCost() which uses funtionality of BenefitPackage class (ComputePayDeduction()) and a property Benefits which returns BenefitPackage object and sets BenefitPackage object.
 
 namespace Employees
 {
@@ -77,9 +78,6 @@ namespace Employees
             get { return empSSN; }
         }
 
-
-        // Contain a BenefitPackage object.
-        protected BenefitPackage empBenefits = new BenefitPackage();
 
         // Expose certain benefit behaviors of object.
         public double GetBenefitCost()
