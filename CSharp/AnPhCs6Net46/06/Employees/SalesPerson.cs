@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 //c Add a sealed class PTSalesPerson derived from SalesPerson class.
 //c Update a class SalesPerson. I add a overriden method GiveBonus() from the base class.
+//c Override DisplayStats() by using VS.
 
 namespace Employees
 {
@@ -51,6 +52,11 @@ namespace Employees
                     salesBonus = 20;
             }
             base.GiveBonus(amount * salesBonus);
+        }
+
+        public override void DisplayStats()
+        {
+            base.DisplayStats();
         }
     }
 
