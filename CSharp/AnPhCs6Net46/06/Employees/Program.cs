@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 //c Create a console app Employees.
 //c It's still impossible for object user (from outside) to access to the protected field directly. protected fields can be accessed by the class defining it or derived class from the defining class.
+//c Update a method Main(). Via Manager(class) type object derived from Employee, I invoke GetBenefitCost() inherited from its base class Employee with using functionality of BenefitPackage class GetBenefitCost().
 
 namespace Employees
 {
@@ -28,6 +29,9 @@ namespace Employees
             // Error! Can't access protected data from client code.
             //Employee emp = new Employee();
             //emp.empName = "Fred";
+
+            double cost = chucky.GetBenefitCost();
+            Console.WriteLine($"cost: {cost}");
 
             Console.ReadLine();
         }
