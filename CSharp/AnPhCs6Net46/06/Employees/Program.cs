@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 //c Add a method CastingExamples() which stores Derived(class) type object reference into Base(class) type variable by "implicit type cast".
 //c Add a method GivePromotion() whose parameter type is Employee(class) type.
 //c Updata a method CastingExamples() by invoking GivePromotion().
+//c I get compile time error because I'm trying to pass Object(class) type object frank into Employee(class) type parameter. The implicit type cast doesn't happen.
 
 namespace Employees
 {
@@ -60,6 +61,7 @@ namespace Employees
             // A Manager "is-a" System.Object, so we can
             // store a Manager reference in an object variable just fine.
             object frank = new Manager("Frank Zappa", 9, 3000, 40000, "111-11-1111", 5);
+            //GivePromotion(frank);
 
             // A Manager "is-an" Employee too.
             Employee moonUnit = new Manager("MoonUnit Zappa", 2, 3001, 20000, "101-11-1321", 1);
