@@ -4,8 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+//c Add a sealed class PTSalesPerson derived from SalesPerson class.
+
 namespace Employees
 {
+    sealed class PTSalesPerson : SalesPerson
+    {
+        public PTSalesPerson(string fullName, int age, int empID,
+                             float currPay, string ssn, int numbOfSales)
+          : base(fullName, age, empID, currPay, ssn, numbOfSales)
+        {
+        }
+        // Assume other members here...
+    }
+
     // Salespeople need to know their number of sales.
     class SalesPerson : Employee
     {
@@ -24,4 +36,5 @@ namespace Employees
             SalesNumber = numbOfSales;
         }
     }
+
 }
