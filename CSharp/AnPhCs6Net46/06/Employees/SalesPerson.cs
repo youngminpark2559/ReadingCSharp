@@ -10,5 +10,18 @@ namespace Employees
     class SalesPerson : Employee
     {
         public int SalesNumber { get; set; }
+
+        // Add back the default ctor
+        // in the Manager class as well.
+        public SalesPerson() { }
+
+        // As a general rule, all subclasses should explicitly call an appropriate
+        // base class constructor.
+        public SalesPerson(string fullName, int age, int empID, float currPay, string ssn, int numbOfSales)
+          : base(fullName, age, empID, currPay, ssn)
+        {
+            // This belongs with us!
+            SalesNumber = numbOfSales;
+        }
     }
 }

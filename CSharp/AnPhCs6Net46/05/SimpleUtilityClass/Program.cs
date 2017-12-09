@@ -35,7 +35,7 @@ namespace SimpleUtilityClass
             TimeUtilClass.PrintTime();
 
             // Compiler error! Can't create instance of static classes!
-            TimeUtilClass u = new TimeUtilClass();
+            //TimeUtilClass u = new TimeUtilClass();
 
             Console.ReadLine();
         }

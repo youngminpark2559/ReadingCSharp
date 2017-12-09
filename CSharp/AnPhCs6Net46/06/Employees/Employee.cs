@@ -8,7 +8,7 @@ namespace Employees
 {
     abstract partial class Employee
     {
-        #region Nested benefit package
+        
         public class BenefitPackage
         {
             public enum BenefitPackageLevel
@@ -23,9 +23,9 @@ namespace Employees
                 return 125.0;
             }
         }
-        #endregion
+        
 
-        #region Class methods 
+        
         public virtual void GiveBonus(float amount)
         { Pay += amount; }
 
@@ -37,9 +37,9 @@ namespace Employees
             Console.WriteLine("Pay: {0}", Pay);
             Console.WriteLine("SSN: {0}", SocialSecurityNumber);
         }
-        #endregion
+        
 
-        #region Traditional Get / Set method
+        
         // Accessor (get method)
         public string GetName()
         {
@@ -56,6 +56,6 @@ namespace Employees
             else
                 empName = name;
         }
-        #endregion
+        
     }
 }

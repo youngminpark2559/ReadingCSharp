@@ -10,5 +10,18 @@ namespace Employees
     class Manager : Employee
     {
         public int StockOptions { get; set; }
+
+        // Add back the default ctor
+        // in the Manager class as well.
+        public Manager() { }
+
+        public Manager(string fullName, int age, int empID,
+               float currPay, string ssn, int numbOfOpts) 
+            : base(fullName, age, empID, currPay, ssn)
+        {
+            // This property is defined by the Manager class.
+            StockOptions = numbOfOpts;
+        }
+
     }
 }

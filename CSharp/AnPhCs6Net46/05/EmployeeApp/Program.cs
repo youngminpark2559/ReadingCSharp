@@ -37,16 +37,6 @@ namespace EmployeeApp
             emp.Name = "Marv";
             Console.WriteLine("Employee is named: {0}", emp.Name);
 
-            Employee joe = new Employee(age: 10);
-            Console.WriteLine($"By get/set method and before: {joe.GetAge()}");
-            joe.SetAge(joe.GetAge() + 1);
-            Console.WriteLine($"By get/set method and after: {joe.GetAge()}");
-
-            Employee joe2 = new Employee(age: 10);
-            Console.WriteLine($"By property and before: {joe2.Age}");
-            joe2.Age++;
-            Console.WriteLine($"By property and after: {joe2.Age}");
-
 
             Console.ReadLine();
         }

@@ -13,9 +13,9 @@ namespace Employees
         private int empID;
         private float currPay;
         private int empAge;
-        private string empSSN = "";
+        private string empSSN ="";
 
-        #region Ctors
+        
         // Note use of constructor chaining.
         public Employee() { }
         public Employee(string name, int id, float pay)
@@ -34,9 +34,9 @@ namespace Employees
         {
             empSSN = ssn;
         }
-        #endregion
+        
 
-        #region Properties 
+
         // Properties!
         public string Name
         {
@@ -72,7 +72,7 @@ namespace Employees
         {
             get { return empSSN; }
         }
-        #endregion
+        
 
         // Contain a BenefitPackage object.
         protected BenefitPackage empBenefits = new BenefitPackage();
