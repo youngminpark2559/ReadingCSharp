@@ -8,17 +8,22 @@ using System.Threading.Tasks;
 //c Update a class SalesPerson. I add a overriden method GiveBonus() from the base class.
 //c Override DisplayStats() by using VS.
 //c Add sealed keyword on an overriden GiveBonus() in SalesPerson class.
+//c I try to override GiveBonus() from Employee class but due to sealed keyword on an overriden GiveBonus() in SalesPerson class, this try causes compile time error. 
 
 namespace Employees
 {
     sealed class PTSalesPerson : SalesPerson
     {
-        public PTSalesPerson(string fullName, int age, int empID,
-                             float currPay, string ssn, int numbOfSales)
-          : base(fullName, age, empID, currPay, ssn, numbOfSales)
+        public PTSalesPerson(string fullName, int age, int empID, float currPay, string ssn, int numbOfSales)
+            : base(fullName, age, empID, currPay, ssn, numbOfSales)
         {
         }
-        // Assume other members here...
+
+        // Compiler error! Can't override this method
+        // in the PTSalesPerson class, as it was sealed.
+        //public override void GiveBonus(float amount)
+        //{
+        //}
     }
 
     // Salespeople need to know their number of sales.
