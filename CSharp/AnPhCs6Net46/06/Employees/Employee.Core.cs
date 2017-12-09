@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 //c Update a class Employee to change access modifiers from private to protected for each fields. Now any derived classes from this base class Employee can access and use these fields' data without via public properties and public methods.
+//c Add a BenefitPackage(class) data type private field empBenefits and I initialize object of BenefitPackage on declaration.
 
 namespace Employees
 {
@@ -16,7 +17,8 @@ namespace Employees
         protected float currPay;
         protected int empAge;
         protected string empSSN;
-
+        // Contain a BenefitPackage object.
+        protected BenefitPackage empBenefits = new BenefitPackage();
 
         // Note use of constructor chaining.
         public Employee() { }
