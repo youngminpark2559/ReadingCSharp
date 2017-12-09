@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 //c Create a console app Employees.
+//c It's still impossible for object user (from outside) to access to the protected field directly. protected fields can be accessed by the class defining it or derived class from the defining class.
 
 namespace Employees
 {
@@ -23,6 +24,10 @@ namespace Employees
             // (string fullName, int age, int empID, float currPay, string ssn, int numbOfOpts)
             Manager chucky = new Manager("Chucky", 50, 92, 100000, "333-23-2322", 9000);
             Console.WriteLine(chucky.Name);
+
+            // Error! Can't access protected data from client code.
+            //Employee emp = new Employee();
+            //emp.empName = "Fred";
 
             Console.ReadLine();
         }
