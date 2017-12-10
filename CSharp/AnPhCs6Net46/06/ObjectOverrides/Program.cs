@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 //c Add a class Person. Update a method Main(). In this method, I use overriden method ToString from Object class. And assign the reference value of p1 to p2 and assign assigned value to p2 to o and check object o referencing is the same with the object p1 referencing and do same thing for p2 and o.
 //c Override a virtual method ToString() from System.Object class in Person(class) type.
 //c Override a virtual method Equals() from System.Object class. In this class, I take Object(class) type argument and check if the type of obj is compatable to Person(class) type and check if obj is not null. If so, I explicit type cast obj to Person(class) type and compare the passed instance's FirstName's backing field data and this(class) type instance's FirstName's backing field data. And do the same thing for LastName and Age. If all instance state data between 2 instances are same, it returns ture.
+//c I can do same thing comparing 2 instances's state data by using ToString(). With this approach, I don't need to do explicit type case from the type of obj being passed as an argument to Person(class) type. By this default ToString() inherited from System.Object class, I get obj instance's fully qualified name and this class instance's fully qualified name and compare 2 string values I got by == operator.
 
 namespace ObjectOverrides
 {
@@ -34,26 +35,32 @@ namespace ObjectOverrides
             return myState;
         }
 
+        //public override bool Equals(object obj)
+        //{
+        //    if (obj is Person && obj != null)
+        //    {
+        //        Person temp;
+        //        temp = (Person)obj;
+        //        if (temp.FirstName == this.FirstName
+        //          && temp.LastName == this.LastName
+        //          && temp.Age == this.Age)
+        //        {
+        //            return true;
+        //        }
+        //        else
+        //        {
+        //            return false;
+        //        }
+        //    }
+        //    return false;
+        //}
+
         public override bool Equals(object obj)
         {
-            if (obj is Person && obj != null)
-            {
-                Person temp;
-                temp = (Person)obj;
-                if (temp.FirstName == this.FirstName
-                  && temp.LastName == this.LastName
-                  && temp.Age == this.Age)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            return false;
+            // No need to cast "obj" to a Person anymore,
+            // as everything has a ToString() method.
+            return obj.ToString() == this.ToString();
         }
-
     }
 
     class Program
