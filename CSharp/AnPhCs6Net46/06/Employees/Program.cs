@@ -18,6 +18,7 @@ using System.Threading.Tasks;
 //c Instatiate Manager(class) type object and do implicit type cast from Manager(class) type object to Object(class) type object. And I try to do explicit type cast from Object(class) type object frank to Hexagon(class) type object. This compile is fine. But the relationship between Manager and Hexagon is not fine. These 2 class type are not compatible to each other. There's no inheritance or anything between them.
 //c Catch a possible runtime exception which can be happened by invalid explicit type cast.
 //c Use as keyword to check the type compatability. If the types are compatability, the type of item is automatically explicit type casted to Hexagon unlike is keyword. If not, it returns null.
+//c Update a method GivePromotion() which uses is keyword to check if the type of emp and SalesPerson(class) type are compatable to each other. If not, "emp is SalesPerson" statement returns false. If so, I can do explicit type cast from emp type to SalesPerson(class) type inside of block of if statement.
 
 namespace Employees
 {
@@ -96,6 +97,9 @@ namespace Employees
                 }
             }
 
+
+
+
             Console.ReadLine();
         }
 
@@ -119,10 +123,20 @@ namespace Employees
 
         static void GivePromotion(Employee emp)
         {
-            // Increase pay...
-            // Give new parking space in company garage...
-
             Console.WriteLine("{0} was promoted!", emp.Name);
+
+            if (emp is SalesPerson)
+            {
+                Console.WriteLine("{0} made {1} sale(s)!", emp.Name,
+                  ((SalesPerson)emp).SalesNumber);
+                Console.WriteLine();
+            }
+            if (emp is Manager)
+            {
+                Console.WriteLine("{0} had {1} stock options...", emp.Name,
+                  ((Manager)emp).StockOptions);
+                Console.WriteLine();
+            }
         }
     }
 }
