@@ -12,6 +12,8 @@ using System.Threading.Tasks;
 //c Add a field string data type SSN.
 //c Override a virtual method GetHashCode() from System.Object class. When this method is invoked, get instance state data from backing field via SSN property, and on that type of data, invoke GetHashCode() to hash the value of SSN's backing field data.
 //c If you cannot find a single point of unique string data(SSN backing field data in this example) but you have overridden ToString(), call GetHashCode() on your own string representation like this this.ToString().GetHashCode();
+//c Updata a method Main(). I instantiate 2 instances which have same objest state data. On each instance, I call overridden ToString() to get a string value composed of each instance's object state data. And I compare those 2 instances by overridden Equals(). And I get hash code of each instance and compare if they're same. And then I change instance p2's Age backing field data from 50 to 45. Now the results of ToString() on p1, p2 are different. And p1 and p2 are not equal. And their hash code is not equal.
+
 namespace ObjectOverrides
 {
     // Remember! Person extends Object.
@@ -84,24 +86,29 @@ namespace ObjectOverrides
         static void Main(string[] args)
         {
             Console.WriteLine("***** Fun with System.Object *****\n");
-            Person p1 = new Person();
 
-            // Use inherited members of System.Object.
-            Console.WriteLine("ToString: {0}", p1.ToString());
-            Console.WriteLine("Hash code: {0}", p1.GetHashCode());
-            Console.WriteLine("Type: {0}", p1.GetType());
+            // NOTE: We want these to be identical to test
+            // the Equals() and GetHashCode() methods.
+            Person p1 = new Person("Homer", "Simpson", 50);
+            Person p2 = new Person("Homer", "Simpson", 50);
 
-            // Make some other references to p1.
-            Person p2 = p1;
-            object o = p2;
-            // Are the references pointing to the same object in memory?
-            if (o.Equals(p1) && p2.Equals(o))
-            {
-                Console.WriteLine("Same instance!");
-            }
+            // Get stringified version of objects.
+            Console.WriteLine("p1.ToString() = {0}", p1.ToString());
+            Console.WriteLine("p2.ToString() = {0}", p2.ToString());
+
+            // Test overridden Equals().
+            Console.WriteLine("p1 = p2?: {0}", p1.Equals(p2));
+
+            // Test hash codes.
+            Console.WriteLine("Same hash codes?: {0}", p1.GetHashCode() == p2.GetHashCode());
+            Console.WriteLine();
+            // Change age of p2 and test again.
+            p2.Age = 45;
+            Console.WriteLine("p1.ToString() = {0}", p1.ToString());
+            Console.WriteLine("p2.ToString() = {0}", p2.ToString());
+            Console.WriteLine("p1 = p2?: {0}", p1.Equals(p2));
+            Console.WriteLine("Same hash codes?: {0}", p1.GetHashCode() == p2.GetHashCode());
             Console.ReadLine();
         }
-
-
     }
 }
