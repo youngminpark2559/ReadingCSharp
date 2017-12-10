@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 //c Override a virtual method GetHashCode() from System.Object class. When this method is invoked, get instance state data from backing field via SSN property, and on that type of data, invoke GetHashCode() to hash the value of SSN's backing field data.
 //c If you cannot find a single point of unique string data(SSN backing field data in this example) but you have overridden ToString(), call GetHashCode() on your own string representation like this this.ToString().GetHashCode();
 //c Updata a method Main(). I instantiate 2 instances which have same objest state data. On each instance, I call overridden ToString() to get a string value composed of each instance's object state data. And I compare those 2 instances by overridden Equals(). And I get hash code of each instance and compare if they're same. And then I change instance p2's Age backing field data from 50 to 45. Now the results of ToString() on p1, p2 are different. And p1 and p2 are not equal. And their hash code is not equal.
+//c Add a static method StaticMembersOfObject() which uses static members Equals() and ReferenceEquals() of System.Object class.
 
 namespace ObjectOverrides
 {
@@ -79,6 +80,8 @@ namespace ObjectOverrides
         {
             return this.ToString().GetHashCode();
         }
+
+
     }
 
     class Program
@@ -108,7 +111,20 @@ namespace ObjectOverrides
             Console.WriteLine("p2.ToString() = {0}", p2.ToString());
             Console.WriteLine("p1 = p2?: {0}", p1.Equals(p2));
             Console.WriteLine("Same hash codes?: {0}", p1.GetHashCode() == p2.GetHashCode());
+            Console.WriteLine();
+
+            StaticMembersOfObject();
             Console.ReadLine();
+        }
+
+        static void StaticMembersOfObject()
+        {
+            // Static members of System.Object.
+            Person p3 = new Person("Sally", "Jones", 4);
+            Person p4 = new Person("Sally", "Jones", 4);
+            Console.WriteLine("P3 and P4 have same state: {0}", object.Equals(p3, p4));
+            Console.WriteLine("P3 and P4 are pointing to same object: {0}",
+              object.ReferenceEquals(p3, p4));
         }
     }
 }
