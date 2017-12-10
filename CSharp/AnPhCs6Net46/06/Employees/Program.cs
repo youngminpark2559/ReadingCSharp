@@ -15,6 +15,7 @@ using System.Threading.Tasks;
 //c I get compile time error because I'm trying to pass Object(class) type object frank into Employee(class) type parameter. The implicit type cast doesn't happen.
 //c Update a method CastingExamples(). I first do explicit type cast from Object(class) type object frank to Manager(class) type object frank. Since Manager(class) type is derived from Employee(class) type, I can pass Manager(class) type object frank into Employee(class) type parameter.
 //c Add a class Hexagon to test as keyword which checks the compatibility between 2 types.
+//c Instatiate Manager(class) type object and do implicit type cast from Manager(class) type object to Object(class) type object. And I try to do explicit type cast from Object(class) type object frank to Hexagon(class) type object. This compile is fine. But the relationship between Manager and Hexagon is not fine. These 2 class type are not compatible to each other. There's no inheritance or anything between them.
 
 namespace Employees
 {
@@ -60,6 +61,10 @@ namespace Employees
             SalesPerson fran = new SalesPerson("Fran", 43, 93, 3000, "932-32-3232", 31);
             fran.GiveBonus(200);
             fran.DisplayStats();
+
+            // Ack! You can't cast frank to a Hexagon, but this compiles fine!
+            object frank = new Manager();
+            Hexagon hex = (Hexagon)frank;
 
             Console.ReadLine();
         }
