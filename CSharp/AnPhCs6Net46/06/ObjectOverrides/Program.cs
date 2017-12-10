@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 //c Override a virtual method Equals() from System.Object class. In this class, I take Object(class) type argument and check if the type of obj is compatable to Person(class) type and check if obj is not null. If so, I explicit type cast obj to Person(class) type and compare the passed instance's FirstName's backing field data and this(class) type instance's FirstName's backing field data. And do the same thing for LastName and Age. If all instance state data between 2 instances are same, it returns ture.
 //c I can do same thing comparing 2 instances's state data by using ToString(). With this approach, I don't need to do explicit type case from the type of obj being passed as an argument to Person(class) type. By this default ToString() inherited from System.Object class, I get obj instance's fully qualified name and this class instance's fully qualified name and compare 2 string values I got by == operator.
 //c Add a field string data type SSN.
+//c Override a virtual method GetHashCode() from System.Object class. When this method is invoked, get instance state data from backing field via SSN property, and on that type of data, invoke GetHashCode() to hash the value of SSN's backing field data.
 
 namespace ObjectOverrides
 {
@@ -62,6 +63,12 @@ namespace ObjectOverrides
             // No need to cast "obj" to a Person anymore,
             // as everything has a ToString() method.
             return obj.ToString() == this.ToString();
+        }
+
+        // Return a hash code based on a point of unique string data.
+        public override int GetHashCode()
+        {
+            return SSN.GetHashCode();
         }
     }
 
