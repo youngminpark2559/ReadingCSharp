@@ -14,9 +14,16 @@ using System.Threading.Tasks;
 //c Updata a method CastingExamples() by invoking GivePromotion().
 //c I get compile time error because I'm trying to pass Object(class) type object frank into Employee(class) type parameter. The implicit type cast doesn't happen.
 //c Update a method CastingExamples(). I first do explicit type cast from Object(class) type object frank to Manager(class) type object frank. Since Manager(class) type is derived from Employee(class) type, I can pass Manager(class) type object frank into Employee(class) type parameter.
+//c Add a class Hexagon to test as keyword which checks the compatibility between 2 types.
 
 namespace Employees
 {
+
+    class Hexagon
+    {
+        public void Draw() { Console.WriteLine("Drawing a hexagon!"); }
+    }
+
     class Program
     {
         // Create a subclass object and access base class functionality.
