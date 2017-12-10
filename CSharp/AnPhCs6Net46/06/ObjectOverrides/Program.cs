@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 //c I can do same thing comparing 2 instances's state data by using ToString(). With this approach, I don't need to do explicit type case from the type of obj being passed as an argument to Person(class) type. By this default ToString() inherited from System.Object class, I get obj instance's fully qualified name and this class instance's fully qualified name and compare 2 string values I got by == operator.
 //c Add a field string data type SSN.
 //c Override a virtual method GetHashCode() from System.Object class. When this method is invoked, get instance state data from backing field via SSN property, and on that type of data, invoke GetHashCode() to hash the value of SSN's backing field data.
-
+//c If you cannot find a single point of unique string data(SSN backing field data in this example) but you have overridden ToString(), call GetHashCode() on your own string representation like this this.ToString().GetHashCode();
 namespace ObjectOverrides
 {
     // Remember! Person extends Object.
@@ -66,9 +66,16 @@ namespace ObjectOverrides
         }
 
         // Return a hash code based on a point of unique string data.
+        //public override int GetHashCode()
+        //{
+        //    return SSN.GetHashCode();
+        //}
+
+        // If you cannot find a single point of unique string data but you have overridden ToString(), call GetHashCode() on your own string representation:
+        // Return a hash code based on the person's ToString() value.
         public override int GetHashCode()
         {
-            return SSN.GetHashCode();
+            return this.ToString().GetHashCode();
         }
     }
 
