@@ -14,9 +14,10 @@ using System.Threading.Tasks;
 //c Updata a method CastingExamples() by invoking GivePromotion().
 //c I get compile time error because I'm trying to pass Object(class) type object frank into Employee(class) type parameter. The implicit type cast doesn't happen.
 //c Update a method CastingExamples(). I first do explicit type cast from Object(class) type object frank to Manager(class) type object frank. Since Manager(class) type is derived from Employee(class) type, I can pass Manager(class) type object frank into Employee(class) type parameter.
-//c Add a class Hexagon to test as keyword which checks the compatibility between 2 types.
+//c Add a class Hexagon to test as keyword which checks the compatability between 2 types.
 //c Instatiate Manager(class) type object and do implicit type cast from Manager(class) type object to Object(class) type object. And I try to do explicit type cast from Object(class) type object frank to Hexagon(class) type object. This compile is fine. But the relationship between Manager and Hexagon is not fine. These 2 class type are not compatible to each other. There's no inheritance or anything between them.
 //c Catch a possible runtime exception which can be happened by invalid explicit type cast.
+//c Use as keyword to check the type compatability. If the types are compatability, the type of item is automatically explicit type casted to Hexagon unlike is keyword. If not, it returns null.
 
 namespace Employees
 {
@@ -74,6 +75,25 @@ namespace Employees
             catch (InvalidCastException ex)
             {
                 Console.WriteLine(ex.Message);
+            }
+
+
+            // Use "as" to test compatability.
+            object[] things = new object[4];
+            things[0] = new Hexagon();
+            things[1] = false;
+            things[2] = new Manager();
+            things[3] = "Last thing";
+
+            foreach (object item in things)
+            {
+                Hexagon h = item as Hexagon;
+                if (h == null)
+                    Console.WriteLine("Item is not a hexagon");
+                else
+                {
+                    h.Draw();
+                }
             }
 
             Console.ReadLine();
