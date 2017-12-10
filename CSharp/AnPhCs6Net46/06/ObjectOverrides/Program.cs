@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 //c Create a console application ObjectOverrides to examine System.Object class, the top base class for all types.
 //c Add a class Person. Update a method Main(). In this method, I use overriden method ToString from Object class. And assign the reference value of p1 to p2 and assign assigned value to p2 to o and check object o referencing is the same with the object p1 referencing and do same thing for p2 and o.
+//c Override a virtual method ToString() from System.Object class in Person(class) type.
 
 namespace ObjectOverrides
 {
@@ -23,6 +24,14 @@ namespace ObjectOverrides
             Age = personAge;
         }
         public Person() { }
+
+        public override string ToString()
+        {
+            string myState;
+            myState = string.Format("[First Name: {0}; Last Name: {1}; Age: {2}]",
+              FirstName, LastName, Age);
+            return myState;
+        }
     }
 
     class Program
