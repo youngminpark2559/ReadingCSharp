@@ -26,23 +26,66 @@ namespace FunWithCSharpAsync
         private async void btnCallMethod_Click(object sender, EventArgs e)
         {
             this.Text = await DoWorkAsync();
+            for (int i = 1; i <= 2; i++)
+            {
+                MessageBox.Show($"Inside of btnCallMethod_Click() invoked after DoWorkAsync() finished: {i.ToString()}");
+                Thread.Sleep(1000);
+            }
         }
 
         private async void btnVoidMethodCall_Click(object sender, EventArgs e)
         {
-            await MethodReturningVoidAsync();
-            MessageBox.Show("Done!");
+            //await MethodReturningVoidAsync();
+            //MessageBox.Show("Done!");
+            await ForBy2ndButton();
+        }
+
+
+
+        //private async Task ForBy2ndButton()
+        //{
+        //    await Task.Run(() =>
+        //    {
+        //        for (int i = 1; i <= 2; i++)
+        //        {
+        //            MessageBox.Show($"Inside of ForBy2ndButton(): {i.ToString()}");
+        //            Thread.Sleep(1000);
+        //        }
+        //    });
+        //}
+
+        private async Task ForBy2ndButton()
+        {
+            for (int i = 1; i <= 2; i++)
+            {
+                MessageBox.Show($"Inside of ForBy2ndButton(): {i.ToString()}");
+                Thread.Sleep(1000);
+            }
         }
 
 
         // See below for code walkthrough...
         private async Task<string> DoWorkAsync()
         {
-            return await Task.Run(() =>
+            string varStr = await Task.Run(() =>
             {
                 Thread.Sleep(4000);
+
+                for (int i = 1; i <= 2; i++)
+                {
+                    MessageBox.Show($"Inside of Task.Run() of DoWorkAsync(): {i.ToString()}");
+                    Thread.Sleep(1000);
+                }
                 return "Done with work!";
             });
+
+            for (int i = 1; i <= 2; i++)
+            {
+                MessageBox.Show($"Inside of DoWorkAsync() invoked after Task.Run() finished: {i.ToString()}");
+                Thread.Sleep(1000);
+            }
+
+            return varStr;
         }
 
         private async Task MethodReturningVoidAsync()
