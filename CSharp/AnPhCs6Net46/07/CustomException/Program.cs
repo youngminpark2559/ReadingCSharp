@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -8,6 +9,7 @@ using System.Threading.Tasks;
 //c Update a method Accelerate(). I use a custom exception by CarIsDeadException rather than a built-in excetion by Exception class. But note that I also can use Exception class in catch clause.
 //c Update a method Main(). I instantiate Car instance and I invoke Accelerate() and if exception is occurred I use a custom exception CarIsDeadException exception I defined and put the invoking code in Accelerate().
 //c Update a class CarIsDeadException. I use a custom constructor to use detailed message for this exception by passing this string data type value message to the base class (ApplicationException(class) type)'s constructor. In this way, I don't need to have a property for the message(detailedMessage).
+//c Update a class CarIsDeadException by following .NET best practices which is recommended when I create a custom exception class.
 
 namespace CustomException
 {
@@ -75,21 +77,24 @@ namespace CustomException
         }
     }
 
+    [Serializable]
     public class CarIsDeadException : ApplicationException
     {
         public DateTime ErrorTimeStamp { get; set; }
         public string CauseOfError { get; set; }
 
         public CarIsDeadException() { }
-
-        // Feed message to parent constructor.
-        public CarIsDeadException(string message, string cause, DateTime time)
-          : base(message)
-        {
-            CauseOfError = cause;
-            ErrorTimeStamp = time;
-        }
+        public CarIsDeadException(string message) : base(message) { }
+        public CarIsDeadException(string message,
+                                  System.Exception inner)
+          : base(message, inner) { }
+        protected CarIsDeadException(
+          System.Runtime.Serialization.SerializationInfo info,
+          System.Runtime.Serialization.StreamingContext context)
+          : base(info, context) { }
+        // Any additional custom properties, constructors and data members...
     }
+
 
     class Program
     {
