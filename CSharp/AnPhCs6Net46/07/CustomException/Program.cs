@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 //c Add a class CarIsDeadException which will play a role of a custom exception. I can derive this class from ApplicationException class or simply Exception class to make this a custom exception. ApplicationException class contains simple constructor and by this class I can specify this exception is application exception not system exception thrown by CLR runtime.
+//c Update a method Accelerate(). I use a custom exception by CarIsDeadException rather than a built-in excetion by Exception class. But note that I also can use Exception class in catch clause.
 
 namespace CustomException
 {
@@ -58,10 +59,8 @@ namespace CustomException
                 {
                     carIsDead = true;
                     CurrentSpeed = 0;
-                    // We need to call the HelpLink property, thus we need to
-                    // create a local variable before throwing the Exception object.
-                    Exception ex =
-                      new Exception(string.Format("{0} has overheated!", PetName));
+
+                    CarIsDeadException ex = new CarIsDeadException(string.Format("{0} has overheated!", PetName), "You have a lead foot", DateTime.Now);
                     ex.HelpLink = "http://www.CarsRUs.com";
                     // Stuff in custom data regarding the error.
                     ex.Data.Add("TimeStamp", string.Format("The car exploded at {0}", DateTime.Now));
