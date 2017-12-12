@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 //c Create a console application ProcessMultipleExceptions.
+//c Add a method Accelerate(). I add new if conditional statement to check if delta is less than 0. If so, I throw an exception with predefined ArgumentOutOfRangeException(class) type object.
 
 namespace ProcessMultipleExceptions
 {
@@ -49,6 +50,10 @@ namespace ProcessMultipleExceptions
 
         public void Accelerate(int delta)
         {
+            if (delta < 0)
+                throw new
+                  ArgumentOutOfRangeException("delta", "Speed must be greater than zero!");
+
             if (carIsDead)
                 Console.WriteLine("{0} is out of order...", PetName);
             else
@@ -80,6 +85,7 @@ namespace ProcessMultipleExceptions
 
         public CarIsDeadException() { }
         public CarIsDeadException(string message) : base(message) { }
+        public CarIsDeadException(string message, string message2, DateTime dateTime) : base(message) { }
         public CarIsDeadException(string message,
                                   System.Exception inner)
           : base(message, inner) { }
