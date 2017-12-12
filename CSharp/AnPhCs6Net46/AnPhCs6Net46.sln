@@ -212,6 +212,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "07", "07", "{5AF7D5A3-ED3D-
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleException", "07\SimpleException\SimpleException.csproj", "{A364831A-8377-4834-8116-5D0B89EFEF39}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomException", "07\CustomException\CustomException.csproj", "{8056DB15-8B6A-46F0-AE35-E2F81B544794}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -570,6 +572,10 @@ Global
 		{A364831A-8377-4834-8116-5D0B89EFEF39}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A364831A-8377-4834-8116-5D0B89EFEF39}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A364831A-8377-4834-8116-5D0B89EFEF39}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8056DB15-8B6A-46F0-AE35-E2F81B544794}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8056DB15-8B6A-46F0-AE35-E2F81B544794}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8056DB15-8B6A-46F0-AE35-E2F81B544794}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8056DB15-8B6A-46F0-AE35-E2F81B544794}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -663,6 +669,7 @@ Global
 		{EF67D61A-39A4-4424-93BF-BF95C6AB5BCC} = {487DB9E1-E072-4C64-861B-70B1D6902CCF}
 		{9ECFAD9D-BA7E-4D08-8E50-1BD02D4322B0} = {487DB9E1-E072-4C64-861B-70B1D6902CCF}
 		{A364831A-8377-4834-8116-5D0B89EFEF39} = {5AF7D5A3-ED3D-4D42-B04C-DD0825E4828A}
+		{8056DB15-8B6A-46F0-AE35-E2F81B544794} = {5AF7D5A3-ED3D-4D42-B04C-DD0825E4828A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A2719945-F9D2-4AD1-A033-50C94AB8803C}
