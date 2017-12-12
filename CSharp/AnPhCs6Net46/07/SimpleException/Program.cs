@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 //c Add a class Radio. It has a method TurnOn() functioning depeding on a boolean data type argument.
 //c Add a class Car. This Car class has-a Radio class inside of it. The relationship between Car and Radio is Car has-a Radio(containment/delegation model, aggregation).
+//c Update a method Main(). I instantiate Car instance with passing 2 arguments. I increase CurrentSpeed property's backing field data by 10 points each iteration by for iteration statement.
 
 namespace SimpleException
 {
@@ -68,11 +69,18 @@ namespace SimpleException
         }
     }
 
-
     class Program
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("***** Simple Exception Example *****");
+            Console.WriteLine("=> Creating a car and stepping on it!");
+            Car myCar = new Car("Zippy", 20);
+            myCar.CrankTunes(true);
+
+            for (int i = 0; i < 10; i++)
+                myCar.Accelerate(10);
+            Console.ReadLine();
         }
     }
 }
