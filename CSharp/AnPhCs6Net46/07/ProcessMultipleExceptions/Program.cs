@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,6 +11,7 @@ using System.Threading.Tasks;
 //c Add a method Main(). I put code which is supposed to trigger an exception with ArgumentOutOfRangeException(class) type object. But this kind of exception also can be caught by an exception with System.Exception(class) type object so that below 2 catch codes become unreachable and it means this gets a compile time error.
 //c Update a method Main(). This time, I put specific catch clauses which contain specific kind of exception (as opposed to general kind of exception like System.Exception) in the top positions. So triggered exception by -10 will be caught catch clause containing exception with ArgumentOutOfRangeException(class) type object.
 //c Update a method Main(). I use throw keyword inside of CarIsDeadException catch block to rethrow exception with CarIsDeadException(class) type object to the Main() and Main() throws this exception to the CLR and CLR manages this exception by showing a system-supplied error message box.
+//c Update a method Main(). I use inner exception technique.
 
 namespace ProcessMultipleExceptions
 {
@@ -111,9 +113,11 @@ namespace ProcessMultipleExceptions
             {
                 // Trigger an argument out of range exception.
                 myCar.Accelerate(-10);
+                FileStream fs = File.Open(@"C:\carErrors.txt", FileMode.Open);
             }
             catch (CarIsDeadException e)
             {
+
                 // Do any partial processing of this error and pass the buck.
                 throw;
             }
@@ -124,9 +128,11 @@ namespace ProcessMultipleExceptions
             // This will catch any other exception
             // beyond CarIsDeadException or
             // ArgumentOutOfRangeException.
-            catch (Exception e)
+            catch (Exception e2)
             {
-                Console.WriteLine(e.Message);
+                // Throw an exception that records the new exception,
+                // as well as the message of the first exception.
+                throw new CarIsDeadException(e.Message, e2);
             }
             Console.ReadLine();
         }
