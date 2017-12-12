@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 //c Update a method Main(). This time, I put specific catch clauses which contain specific kind of exception (as opposed to general kind of exception like System.Exception) in the top positions. So triggered exception by -10 will be caught catch clause containing exception with ArgumentOutOfRangeException(class) type object.
 //c Update a method Main(). I use throw keyword inside of CarIsDeadException catch block to rethrow exception with CarIsDeadException(class) type object to the Main() and Main() throws this exception to the CLR and CLR manages this exception by showing a system-supplied error message box.
 //c Update a method Main(). I use inner exception technique.
+//c Update a method Main(). I use finally block which is always executed after catch block.
 
 namespace ProcessMultipleExceptions
 {
@@ -133,6 +134,11 @@ namespace ProcessMultipleExceptions
                 // Throw an exception that records the new exception,
                 // as well as the message of the first exception.
                 throw new CarIsDeadException(e.Message, e2);
+            }
+            finally
+            {
+                // This will always occur. Exception or not.
+                myCar.CrankTunes(false);
             }
             Console.ReadLine();
         }
