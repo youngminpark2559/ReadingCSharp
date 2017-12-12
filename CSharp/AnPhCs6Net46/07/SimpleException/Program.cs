@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 //c Update Accelerate(). If CurrentSpeed's backing field data is over MaxSpeed's backing field data, I throw exception with pre defined fortamt of massege composed of string data type literal.
 //c Update a method Main(). This time, I(user) use try/catch clause to handle exception which can be occurred in codes. And since the exception is an instance, I can retrieve data from that exception instance.
 //c Update a method Main(). I catch an exception and from exception instance I get TargetSite property which returns System.Reflection.MethodBase object. Anf from this System.Reflection.MethodBase instance I retrieve DeclaringType, MemberType informatioin related to this exception.
+//c Update a method Main(). I access to StackTrace property of this exception instance to retrieve string data type literal value related to this exception.
 
 namespace SimpleException
 {
@@ -101,6 +102,7 @@ namespace SimpleException
                 Console.WriteLine("Member type: {0}", e.TargetSite.MemberType);
                 Console.WriteLine("Message: {0}", e.Message);
                 Console.WriteLine("Source: {0}", e.Source);
+                Console.WriteLine("Stack: {0}", e.StackTrace);
             }
             Console.WriteLine("\n***** Out of exception logic *****");
             Console.ReadLine();
