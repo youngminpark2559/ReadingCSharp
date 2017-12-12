@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 //c Add a class Car. This Car class has-a Radio class inside of it. The relationship between Car and Radio is Car has-a Radio(containment/delegation model, aggregation).
 //c Update a method Main(). I instantiate Car instance with passing 2 arguments. I increase CurrentSpeed property's backing field data by 10 points each iteration by for iteration statement.
 //c Update Accelerate(). If CurrentSpeed's backing field data is over MaxSpeed's backing field data, I throw exception with pre defined fortamt of massege composed of string data type literal.
+//c Update a method Main(). This time, I(user) use try/catch clause to handle exception which can be occurred in codes. And since the exception is an instance, I can retrieve data from that exception instance.
 
 namespace SimpleException
 {
@@ -74,15 +75,30 @@ namespace SimpleException
 
     class Program
     {
+        // Handle the thrown exception.
         static void Main(string[] args)
         {
             Console.WriteLine("***** Simple Exception Example *****");
             Console.WriteLine("=> Creating a car and stepping on it!");
             Car myCar = new Car("Zippy", 20);
             myCar.CrankTunes(true);
+            // Speed up past the car's max speed to
+            // trigger the exception.
+            try
+            {
+                for (int i = 0; i < 10; i++)
+                    myCar.Accelerate(10);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("\n*** Error! ***");
+                Console.WriteLine("Method: {0}", e.TargetSite);
+                Console.WriteLine("Message: {0}", e.Message);
+                Console.WriteLine("Source: {0}", e.Source);
+            }
 
-            for (int i = 0; i < 10; i++)
-                myCar.Accelerate(10);
+            // The error has been handled, processing continues with the next statement.
+            Console.WriteLine("\n***** Out of exception logic *****");
             Console.ReadLine();
         }
     }
