@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 //c Update a method Main(). I catch an exception and from exception instance I get TargetSite property which returns System.Reflection.MethodBase object. Anf from this System.Reflection.MethodBase instance I retrieve DeclaringType, MemberType informatioin related to this exception.
 //c Update a method Main(). I access to StackTrace property of this exception instance to retrieve string data type literal value related to this exception.
 //c Update a method Accelerate(). To use HelpLink, I store a URL to this exception instance's HelpLink property's backing field. 
+//c Update a method Main(). I retrieve data stored in this instance's HelpLink's backing field.
 
 namespace SimpleException
 {
@@ -106,6 +107,7 @@ namespace SimpleException
                 Console.WriteLine("Message: {0}", e.Message);
                 Console.WriteLine("Source: {0}", e.Source);
                 Console.WriteLine("Stack: {0}", e.StackTrace);
+                Console.WriteLine("Help Link: {0}", e.HelpLink);
             }
             Console.WriteLine("\n***** Out of exception logic *****");
             Console.ReadLine();
