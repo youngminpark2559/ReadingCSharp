@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 //c Update a method Main(). This time, I(user) use try/catch clause to handle exception which can be occurred in codes. And since the exception is an instance, I can retrieve data from that exception instance.
 //c Update a method Main(). I catch an exception and from exception instance I get TargetSite property which returns System.Reflection.MethodBase object. Anf from this System.Reflection.MethodBase instance I retrieve DeclaringType, MemberType informatioin related to this exception.
 //c Update a method Main(). I access to StackTrace property of this exception instance to retrieve string data type literal value related to this exception.
+//c Update a method Accelerate(). To use HelpLink, I store a URL to this exception instance's HelpLink property's backing field. 
 
 namespace SimpleException
 {
@@ -53,7 +54,6 @@ namespace SimpleException
             theMusicBox.TurnOn(state);
         }
 
-        // This time, throw an exception if the user speeds up beyond MaxSpeed.
         public void Accelerate(int delta)
         {
             if (carIsDead)
@@ -65,9 +65,12 @@ namespace SimpleException
                 {
                     carIsDead = true;
                     CurrentSpeed = 0;
-
-                    // Use the "throw" keyword to raise an exception.
-                    throw new Exception(string.Format("{0} has overheated!", PetName));
+                    // We need to call the HelpLink property, thus we need to
+                    // create a local variable before throwing the Exception object.
+                    Exception ex =
+                      new Exception(string.Format("{0} has overheated!", PetName));
+                    ex.HelpLink = "http://www.CarsRUs.com";
+                    throw ex;
                 }
                 else
                     Console.WriteLine("=> CurrentSpeed = {0}", CurrentSpeed);
