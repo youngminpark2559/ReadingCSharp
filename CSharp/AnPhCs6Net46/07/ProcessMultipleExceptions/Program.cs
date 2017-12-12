@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 //c Update a method Main(). I pass -10 to Accelerate(). -10 means delta is less than 0 so it's supposed to trigger an exception with ArgumentOutOfRangeException(class) type object. And this exception is caught by catch clause which is using ArgumentOutOfRangeException(class) type as a parameter e.
 //c Add a method Main(). I put code which is supposed to trigger an exception with ArgumentOutOfRangeException(class) type object. But this kind of exception also can be caught by an exception with System.Exception(class) type object so that below 2 catch codes become unreachable and it means this gets a compile time error.
 //c Update a method Main(). This time, I put specific catch clauses which contain specific kind of exception (as opposed to general kind of exception like System.Exception) in the top positions. So triggered exception by -10 will be caught catch clause containing exception with ArgumentOutOfRangeException(class) type object.
+//c Update a method Main(). I use throw keyword inside of CarIsDeadException catch block to rethrow exception with CarIsDeadException(class) type object to the Main() and Main() throws this exception to the CLR and CLR manages this exception by showing a system-supplied error message box.
 
 namespace ProcessMultipleExceptions
 {
@@ -113,7 +114,8 @@ namespace ProcessMultipleExceptions
             }
             catch (CarIsDeadException e)
             {
-                Console.WriteLine(e.Message);
+                // Do any partial processing of this error and pass the buck.
+                throw;
             }
             catch (ArgumentOutOfRangeException e)
             {
