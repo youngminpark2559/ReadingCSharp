@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 //c Update a method Main(). I use throw keyword inside of CarIsDeadException catch block to rethrow exception with CarIsDeadException(class) type object to the Main() and Main() throws this exception to the CLR and CLR manages this exception by showing a system-supplied error message box.
 //c Update a method Main(). I use inner exception technique.
 //c Update a method Main(). I use finally block which is always executed after catch block.
+//c Update a class CarIsDeadException. I add a custom constructor which takes 3 parameters and 2 passed arguments are stored to properties' backing fields and 1 passed argument (message) is passed to the custom constructor of base class (ApplicationException(class) type).
 
 namespace ProcessMultipleExceptions
 {
@@ -87,12 +88,17 @@ namespace ProcessMultipleExceptions
     [Serializable]
     public class CarIsDeadException : ApplicationException
     {
+        // Custom members for our exception.
         public DateTime ErrorTimeStamp { get; set; }
         public string CauseOfError { get; set; }
 
         public CarIsDeadException() { }
         public CarIsDeadException(string message) : base(message) { }
-        public CarIsDeadException(string message, string message2, DateTime dateTime) : base(message) { }
+        public CarIsDeadException(string message, string cause, DateTime time) : base(message)
+        {
+            CauseOfError = cause;
+            ErrorTimeStamp = time;
+        }
         public CarIsDeadException(string message,
                                   System.Exception inner)
           : base(message, inner) { }
