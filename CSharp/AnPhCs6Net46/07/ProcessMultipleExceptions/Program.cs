@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 //c Create a console application ProcessMultipleExceptions.
 //c Add a method Accelerate(). I add new if conditional statement to check if delta is less than 0. If so, I throw an exception with predefined ArgumentOutOfRangeException(class) type object.
 //c Update a method Main(). I pass -10 to Accelerate(). -10 means delta is less than 0 so it's supposed to trigger an exception with ArgumentOutOfRangeException(class) type object. And this exception is caught by catch clause which is using ArgumentOutOfRangeException(class) type as a parameter e.
+//c Add a method Main(). I put code which is supposed to trigger an exception with ArgumentOutOfRangeException(class) type object. But this kind of exception also can be caught by an exception with System.Exception(class) type object so that below 2 catch codes become unreachable and it means this gets a compile time error.
 
 namespace ProcessMultipleExceptions
 {
@@ -99,14 +100,21 @@ namespace ProcessMultipleExceptions
 
     class Program
     {
+        // This code will not compile!
         static void Main(string[] args)
         {
             Console.WriteLine("***** Handling Multiple Exceptions *****\n");
             Car myCar = new Car("Rusty", 90);
+
             try
             {
-                // Trip Arg out of range exception.
+                // Trigger an argument out of range exception.
                 myCar.Accelerate(-10);
+            }
+            catch (Exception e)
+            {
+                // Process all other exceptions?
+                Console.WriteLine(e.Message);
             }
             catch (CarIsDeadException e)
             {
