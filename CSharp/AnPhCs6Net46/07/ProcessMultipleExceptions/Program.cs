@@ -14,6 +14,7 @@ using System.Threading.Tasks;
 //c Update a method Main(). I use inner exception technique.
 //c Update a method Main(). I use finally block which is always executed after catch block.
 //c Update a class CarIsDeadException. I add a custom constructor which takes 3 parameters and 2 passed arguments are stored to properties' backing fields and 1 passed argument (message) is passed to the custom constructor of base class (ApplicationException(class) type).
+//c Update a method Main(). I use an exception filter by using when keyword with making an optional when clause. Only if when clause returns true catch block logic is executed.
 
 namespace ProcessMultipleExceptions
 {
@@ -72,7 +73,11 @@ namespace ProcessMultipleExceptions
                     carIsDead = true;
                     CurrentSpeed = 0;
 
-                    CarIsDeadException ex = new CarIsDeadException(string.Format("{0} has overheated!", PetName), "You have a lead foot", DateTime.Now);
+                    CarIsDeadException ex = new CarIsDeadException(
+                        string.Format("{0} has overheated!", PetName),
+                         "You have a lead foot",
+                         DateTime.Now);
+
                     ex.HelpLink = "http://www.CarsRUs.com";
                     // Stuff in custom data regarding the error.
                     ex.Data.Add("TimeStamp", string.Format("The car exploded at {0}", DateTime.Now));
@@ -122,11 +127,13 @@ namespace ProcessMultipleExceptions
                 myCar.Accelerate(-10);
                 FileStream fs = File.Open(@"C:\carErrors.txt", FileMode.Open);
             }
-            catch (CarIsDeadException e)
-            {
 
-                // Do any partial processing of this error and pass the buck.
-                throw;
+            catch (CarIsDeadException e) when (e.ErrorTimeStamp.DayOfWeek != DayOfWeek.Friday)
+            {
+                // This new line will only print if the when clause evaluates to true.
+                Console.WriteLine("Catching car is dead!");
+
+                Console.WriteLine(e.Message);
             }
             catch (ArgumentOutOfRangeException e)
             {
