@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 //c Update a method Main(). I instantiate Car instance with passing 2 arguments. I increase CurrentSpeed property's backing field data by 10 points each iteration by for iteration statement.
 //c Update Accelerate(). If CurrentSpeed's backing field data is over MaxSpeed's backing field data, I throw exception with pre defined fortamt of massege composed of string data type literal.
 //c Update a method Main(). This time, I(user) use try/catch clause to handle exception which can be occurred in codes. And since the exception is an instance, I can retrieve data from that exception instance.
+//c Update a method Main(). I catch an exception and from exception instance I get TargetSite property which returns System.Reflection.MethodBase object. Anf from this System.Reflection.MethodBase instance I retrieve DeclaringType, MemberType informatioin related to this exception.
 
 namespace SimpleException
 {
@@ -89,15 +90,18 @@ namespace SimpleException
                 for (int i = 0; i < 10; i++)
                     myCar.Accelerate(10);
             }
+
+            // TargetSite actually returns a MethodBase object.
             catch (Exception e)
             {
                 Console.WriteLine("\n*** Error! ***");
-                Console.WriteLine("Method: {0}", e.TargetSite);
+                Console.WriteLine("Member name: {0}", e.TargetSite);
+                Console.WriteLine("Class defining member: {0}",
+                  e.TargetSite.DeclaringType);
+                Console.WriteLine("Member type: {0}", e.TargetSite.MemberType);
                 Console.WriteLine("Message: {0}", e.Message);
                 Console.WriteLine("Source: {0}", e.Source);
             }
-
-            // The error has been handled, processing continues with the next statement.
             Console.WriteLine("\n***** Out of exception logic *****");
             Console.ReadLine();
         }
