@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 //c Update a method Main(). I access to StackTrace property of this exception instance to retrieve string data type literal value related to this exception.
 //c Update a method Accelerate(). To use HelpLink, I store a URL to this exception instance's HelpLink property's backing field. 
 //c Update a method Main(). I retrieve data stored in this instance's HelpLink's backing field.
+//c Update a method Accelerate(). I set System.Exception.Data property by storing custom informations into the Data property's backing field.
 
 namespace SimpleException
 {
@@ -71,6 +72,9 @@ namespace SimpleException
                     Exception ex =
                       new Exception(string.Format("{0} has overheated!", PetName));
                     ex.HelpLink = "http://www.CarsRUs.com";
+                    // Stuff in custom data regarding the error.
+                    ex.Data.Add("TimeStamp", string.Format("The car exploded at {0}", DateTime.Now));
+                    ex.Data.Add("Cause", "You have a lead foot.");
                     throw ex;
                 }
                 else
