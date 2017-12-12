@@ -16,6 +16,7 @@ using System.Threading.Tasks;
 //c Update a method Main(). I retrieve data stored in this instance's HelpLink's backing field.
 //c Update a method Accelerate(). I set System.Exception.Data property by storing custom informations into the Data property's backing field.
 //c Update a method Main(). I retrieve a Dictionary data type collection from e.Data's backing field. I execute foreach iteration for this collection one by one with printing each item's key and value.
+//c Update a method Main(). I use NullReferenceException(class) type instance and try to check if NullReferenceException(class) type is compatable to SystemException(class) type.
 
 namespace SimpleException
 {
@@ -117,6 +118,11 @@ namespace SimpleException
                 Console.WriteLine("\n-> Custom Data:");
                 foreach (DictionaryEntry de in e.Data)
                     Console.WriteLine("-> {0}: {1}", de.Key, de.Value);
+
+                // True! NullReferenceException is-a SystemException.
+                NullReferenceException nullRefEx = new NullReferenceException();
+                Console.WriteLine("NullReferenceException is-a SystemException? : {0}",
+                                   nullRefEx is SystemException);
             }
             Console.WriteLine("\n***** Out of exception logic *****");
             Console.ReadLine();
