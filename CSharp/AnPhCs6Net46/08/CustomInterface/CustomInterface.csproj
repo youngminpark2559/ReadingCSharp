@@ -42,6 +42,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PitchFork.cs" />
+    <Compile Include="Knife.cs" />
+    <Compile Include="Fork.cs" />
     <Compile Include="Hexagon.cs" />
     <Compile Include="IDraw3D.cs" />
     <Compile Include="IPointy.cs" />

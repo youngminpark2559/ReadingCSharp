@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 //c Update a class Program by adding DrawIn3D() taking IDraw3D(interface) type object as an argument.
 //c Update a method Main() by using DrawIn3D().
 //c Add a method FindFirstPointyShape() taking Shape[](class) type object as an argument. And get the first item compatable to IPointy and explicit type cast that item's type to IPointy and return it to the caller.
+//c Use interface as type of array.
 
 namespace CustomInterface
 {
@@ -65,6 +66,13 @@ namespace CustomInterface
                     DrawIn3D((IDraw3D)myShapes[i]);
                 Console.WriteLine();
             }
+
+            // This array can only contain types that
+            // implement the IPointy interface.
+            IPointy[] myPointyObjects = { new Hexagon(), new Knife(), new Triangle(), new Fork(), new PitchFork() };
+
+            foreach (IPointy i in myPointyObjects)
+                Console.WriteLine("Object has {0} points.", i.Points);
 
             Console.ReadLine();
         }
