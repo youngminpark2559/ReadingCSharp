@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
-  <Class Name="CustomInterface.Circle" Collapsed="true">
-    <Position X="7.25" Y="3.25" Width="1.5" />
+  <Class Name="CustomInterface.Circle">
+    <Position X="7" Y="3.25" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Circle.cs</FileName>
@@ -23,7 +23,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="CustomInterface.ThreeDCircle">
-    <Position X="6.5" Y="4.5" Width="3" />
+    <Position X="6.5" Y="5.5" Width="3" />
     <TypeIdentifier>
       <HashCode>AAAAIAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ThreeDCircle.cs</FileName>
