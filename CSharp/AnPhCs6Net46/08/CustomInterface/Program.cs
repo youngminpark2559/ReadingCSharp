@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 //c Update a method Main(). I use is keyword to check if Hexagon, Circle, Triangle all located in Shape(class) data type array myShapes as an item are compatable to IPointy. If so, it returns true, and I explicit type cast from that type to IPointy(interface) type and access to Points property to get data from backing field of that property.
 //c Update a class Program by adding DrawIn3D() taking IDraw3D(interface) type object as an argument.
 //c Update a method Main() by using DrawIn3D().
+//c Add a method FindFirstPointyShape() taking Shape[](class) type object as an argument. And get the first item compatable to IPointy and explicit type cast that item's type to IPointy and return it to the caller.
 
 namespace CustomInterface
 {
@@ -73,6 +74,18 @@ namespace CustomInterface
         {
             Console.WriteLine("-> Drawing IDraw3D compatible type");
             itf3d.Draw3D();
+        }
+
+        // This method returns the first object in the
+        // array that implements IPointy.
+        static IPointy FindFirstPointyShape(Shape[] shapes)
+        {
+            foreach (Shape s in shapes)
+            {
+                if (s is IPointy)
+                    return s as IPointy;
+            }
+            return null;
         }
     }
 }
