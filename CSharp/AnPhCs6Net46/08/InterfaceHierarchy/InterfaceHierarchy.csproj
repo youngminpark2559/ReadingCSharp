@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="IAdvancedDraw.cs" />
     <Compile Include="IDrawable.cs" />
+    <Compile Include="BitmapImage.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
