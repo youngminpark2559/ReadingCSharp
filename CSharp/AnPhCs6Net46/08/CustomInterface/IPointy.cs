@@ -6,20 +6,19 @@ using System.Threading.Tasks;
 
 //c Add a interface IPointy which defines one unimplemented method GetNumberOfPoints().
 //c Update a interface IPointy to test what the interface type can't have. Interface type can't have field, can't have a constructor, can't have an implementation of interface's members.
+//c Update a interface IPointy. I add property member in interface IPointy. I can add property in various forms like a read-write property (get/set property), a write-only property (set property), and a read-only property (get property).
 
 namespace CustomInterface
 {
     // This interface defines the behavior of "having points."
-    // Ack! Errors abound!
     public interface IPointy
     {
-        // Error! Interfaces cannot have data fields!
-        public int numbOfPoints;
+        // A read-write property in an interface would look like:
+        // retType PropName { get; set; }
+        //
+        // while a write-only property in an interface would be:
+        // retType PropName { set; }
 
-        // Error! Interfaces do not have constructors!
-        public IPointy() { numbOfPoints = 0; }
-
-        // Error! Interfaces don't provide an implementation of members!
-        byte GetNumberOfPoints() { return numbOfPoints; }
+        byte Points { get; }
     }
 }
