@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 //c Update a method Main(). After printing hex.Points, I instantiate Circle instance c and I try to explicit type cast from Circle(class) type to IPointy(interface) type. But This try is not possible because IPointy and Circle have no relationship between them. In other words, they're not type compatable to each other. So this try will trigger the exception with InvalidCastException(class) type object and this instance is caught by catch clause and print the exception object's data as backing field of Message property.
 //c Update a method Main(). I use as keyword to check if Hexagon is compatable to IPointy. And if so, I store hex2 reference to IPointy(interface) type local variable itfPt2.
 //c Update a method Main(). I use is keyword to check if Hexagon, Circle, Triangle all located in Shape(class) data type array myShapes as an item are compatable to IPointy. If so, it returns true, and I explicit type cast from that type to IPointy(interface) type and access to Points property to get data from backing field of that property.
+//c Update a class Program by adding DrawIn3D() taking IDraw3D(interface) type object as an argument.
 
 namespace CustomInterface
 {
@@ -60,7 +61,16 @@ namespace CustomInterface
                 Console.WriteLine();
             }
 
+
+
             Console.ReadLine();
+        }
+
+        // I'll draw anyone supporting IDraw3D.
+        static void DrawIn3D(IDraw3D itf3d)
+        {
+            Console.WriteLine("-> Drawing IDraw3D compatible type");
+            itf3d.Draw3D();
         }
     }
 }
