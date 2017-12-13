@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 //c Update a method Main(). I use as keyword to check if Hexagon is compatable to IPointy. And if so, I store hex2 reference to IPointy(interface) type local variable itfPt2.
 //c Update a method Main(). I use is keyword to check if Hexagon, Circle, Triangle all located in Shape(class) data type array myShapes as an item are compatable to IPointy. If so, it returns true, and I explicit type cast from that type to IPointy(interface) type and access to Points property to get data from backing field of that property.
 //c Update a class Program by adding DrawIn3D() taking IDraw3D(interface) type object as an argument.
+//c Update a method Main() by using DrawIn3D().
 
 namespace CustomInterface
 {
@@ -46,8 +47,7 @@ namespace CustomInterface
 
             // Make an array of Shapes.
             Shape[] myShapes = { new Hexagon(), new Circle(),
-                        new Triangle("Joe"), new Circle("JoJo")};
-
+                        new Triangle("Joe"), new Circle("JoJo") };
             for (int i = 0; i < myShapes.Length; i++)
             {
                 // Recall the Shape base class defines an abstract Draw()
@@ -58,10 +58,12 @@ namespace CustomInterface
                     Console.WriteLine("-> Points: {0}", ((IPointy)myShapes[i]).Points);
                 else
                     Console.WriteLine("-> {0}\'s not pointy!", myShapes[i].PetName);
+
+                // Can I draw you in 3D?
+                if (myShapes[i] is IDraw3D)
+                    DrawIn3D((IDraw3D)myShapes[i]);
                 Console.WriteLine();
             }
-
-
 
             Console.ReadLine();
         }
