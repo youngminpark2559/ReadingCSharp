@@ -226,6 +226,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterfaceNameClash", "08\In
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterfaceHierarchy", "08\InterfaceHierarchy\InterfaceHierarchy.csproj", "{157502A1-C9C0-4549-B2F1-FB5F7E3AE60D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MIInterfaceHierarchy", "08\MIInterfaceHierarchy\MIInterfaceHierarchy.csproj", "{C7B0F716-2AA3-4B99-9711-49317B2A0CCC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -608,6 +610,10 @@ Global
 		{157502A1-C9C0-4549-B2F1-FB5F7E3AE60D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{157502A1-C9C0-4549-B2F1-FB5F7E3AE60D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{157502A1-C9C0-4549-B2F1-FB5F7E3AE60D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7B0F716-2AA3-4B99-9711-49317B2A0CCC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7B0F716-2AA3-4B99-9711-49317B2A0CCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7B0F716-2AA3-4B99-9711-49317B2A0CCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7B0F716-2AA3-4B99-9711-49317B2A0CCC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -707,6 +713,7 @@ Global
 		{81003603-E5F7-41C3-9778-7F8117B20E52} = {EA673D44-0A16-4CBD-9C55-3243011EE581}
 		{C3D6D7EB-03AF-4D9D-B4B8-67A6D7B7C4CA} = {EA673D44-0A16-4CBD-9C55-3243011EE581}
 		{157502A1-C9C0-4549-B2F1-FB5F7E3AE60D} = {EA673D44-0A16-4CBD-9C55-3243011EE581}
+		{C7B0F716-2AA3-4B99-9711-49317B2A0CCC} = {EA673D44-0A16-4CBD-9C55-3243011EE581}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A2719945-F9D2-4AD1-A033-50C94AB8803C}
