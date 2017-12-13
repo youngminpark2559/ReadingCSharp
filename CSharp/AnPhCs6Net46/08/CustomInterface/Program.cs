@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 //c Update a method Main(). I instantiate Hexagon instance hex and access to Points property.
 //c Update a method Main(). After printing hex.Points, I instantiate Circle instance c and I try to explicit type cast from Circle(class) type to IPointy(interface) type. But This try is not possible because IPointy and Circle have no relationship between them. In other words, they're not type compatable to each other. So this try will trigger the exception with InvalidCastException(class) type object and this instance is caught by catch clause and print the exception object's data as backing field of Message property.
 //c Update a method Main(). I use as keyword to check if Hexagon is compatable to IPointy. And if so, I store hex2 reference to IPointy(interface) type local variable itfPt2.
+//c Update a method Main(). I use is keyword to check if Hexagon, Circle, Triangle all located in Shape(class) data type array myShapes as an item are compatable to IPointy. If so, it returns true, and I explicit type cast from that type to IPointy(interface) type and access to Points property to get data from backing field of that property.
 
 namespace CustomInterface
 {
@@ -40,6 +41,24 @@ namespace CustomInterface
                 Console.WriteLine("Points: {0}", itfPt2.Points);
             else
                 Console.WriteLine("OOPS! Not pointy...");
+
+
+            // Make an array of Shapes.
+            Shape[] myShapes = { new Hexagon(), new Circle(),
+                        new Triangle("Joe"), new Circle("JoJo")};
+
+            for (int i = 0; i < myShapes.Length; i++)
+            {
+                // Recall the Shape base class defines an abstract Draw()
+                // member, so all shapes know how to draw themselves.
+                myShapes[i].Draw();
+                // Who's pointy?
+                if (myShapes[i] is IPointy)
+                    Console.WriteLine("-> Points: {0}", ((IPointy)myShapes[i]).Points);
+                else
+                    Console.WriteLine("-> {0}\'s not pointy!", myShapes[i].PetName);
+                Console.WriteLine();
+            }
 
             Console.ReadLine();
         }
