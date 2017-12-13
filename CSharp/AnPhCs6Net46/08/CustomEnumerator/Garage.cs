@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,18 +7,30 @@ using System.Threading.Tasks;
 
 namespace CustomEnumerator
 {
-    // Garage contains a set of Car objects.
-    public class Garage
+    public class Garage : IEnumerable
     {
+        // System.Array already implements IEnumerator!
         private Car[] carArray = new Car[4];
 
-        // Fill with some Car objects upon startup.
         public Garage()
         {
-            carArray[0] = new Car("Rusty", 30);
-            carArray[1] = new Car("Clunker", 55);
+            carArray[0] = new Car("FeeFee", 200);
+            carArray[1] = new Car("Clunker", 90);
             carArray[2] = new Car("Zippy", 30);
             carArray[3] = new Car("Fred", 30);
+        }
+
+        public IEnumerator GetEnumerator()
+        {
+            // Return the array object's IEnumerator.
+            return carArray.GetEnumerator();
+            
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            // Return the array object's IEnumerator.
+            return carArray.GetEnumerator();
         }
     }
 }
