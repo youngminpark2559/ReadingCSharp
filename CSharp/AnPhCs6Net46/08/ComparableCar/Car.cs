@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 //c I make Car type derive from IComparable and implement CompareTo() from IComparable.
+//c Update a class Car. I refactor CompareTo() towards simplification by using CompareTo() with Int32(structure) data type values inside of it method scope.
 
 namespace ComparableCar
 {
@@ -74,18 +75,27 @@ namespace ComparableCar
         }
 
         // IComparable implementation.
+        //int IComparable.CompareTo(object obj)
+        //{
+        //    Car temp = obj as Car;
+        //    if (temp != null)
+        //    {
+        //        if (this.CarID > temp.CarID)
+        //            return 1;
+        //        if (this.CarID < temp.CarID)
+        //            return -1;
+        //        else
+        //            return 0;
+        //    }
+        //    else
+        //        throw new ArgumentException("Parameter is not a Car!");
+        //}
+
         int IComparable.CompareTo(object obj)
         {
             Car temp = obj as Car;
             if (temp != null)
-            {
-                if (this.CarID > temp.CarID)
-                    return 1;
-                if (this.CarID < temp.CarID)
-                    return -1;
-                else
-                    return 0;
-            }
+                return this.CarID.CompareTo(temp.CarID);
             else
                 throw new ArgumentException("Parameter is not a Car!");
         }
