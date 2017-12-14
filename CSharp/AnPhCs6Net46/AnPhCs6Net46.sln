@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27130.2003
+VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProcessManipulator", "17\ProcessManipulator\ProcessManipulator.csproj", "{20E95310-030C-4CB0-B0A7-6ED0CEEB7FB7}"
 EndProject
@@ -239,6 +239,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "10", "10", "{14C7EBD3-C42C-47AA-8DC4-06FE29E16786}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleDelegate", "10\SimpleDelegate\SimpleDelegate.csproj", "{023D215D-4975-458D-AA75-B40F96DBC8B3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarDelegate", "10\CarDelegate\CarDelegate.csproj", "{58CF0DFC-C001-4F9D-A4B0-C7B6FAA8522F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -646,6 +648,10 @@ Global
 		{023D215D-4975-458D-AA75-B40F96DBC8B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{023D215D-4975-458D-AA75-B40F96DBC8B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{023D215D-4975-458D-AA75-B40F96DBC8B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58CF0DFC-C001-4F9D-A4B0-C7B6FAA8522F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58CF0DFC-C001-4F9D-A4B0-C7B6FAA8522F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58CF0DFC-C001-4F9D-A4B0-C7B6FAA8522F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58CF0DFC-C001-4F9D-A4B0-C7B6FAA8522F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -751,6 +757,7 @@ Global
 		{103DA97D-E04D-4B16-8703-6C9B0EAD0737} = {EA673D44-0A16-4CBD-9C55-3243011EE581}
 		{79A9C16D-3BC1-4BA0-A624-67ADC57F99E6} = {EA673D44-0A16-4CBD-9C55-3243011EE581}
 		{023D215D-4975-458D-AA75-B40F96DBC8B3} = {14C7EBD3-C42C-47AA-8DC4-06FE29E16786}
+		{58CF0DFC-C001-4F9D-A4B0-C7B6FAA8522F} = {14C7EBD3-C42C-47AA-8DC4-06FE29E16786}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A2719945-F9D2-4AD1-A033-50C94AB8803C}
