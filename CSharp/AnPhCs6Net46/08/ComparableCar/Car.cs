@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,6 +7,7 @@ using System.Threading.Tasks;
 
 //c I make Car type derive from IComparable and implement CompareTo() from IComparable.
 //c Update a class Car. I refactor CompareTo() towards simplification by using CompareTo() with Int32(structure) data type values inside of it method scope.
+//c Add a read-only property (get property) SortByPetName which returns PetNameComparer(class) type instance after explicit type casting it to IComparable(interface) type.
 
 namespace ComparableCar
 {
@@ -20,6 +22,15 @@ namespace ComparableCar
             CurrentSpeed = currSp;
             PetName = name;
             CarID = id;
+        }
+
+        // Property to return the PetNameComparer.
+        public static IComparer SortByPetName
+        {
+            get
+            {
+                return (IComparer)new PetNameComparer();
+            }
         }
 
         // Constant for maximum speed.
