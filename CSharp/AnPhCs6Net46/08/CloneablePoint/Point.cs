@@ -5,11 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 
 //c Add a class Point.
+//c Update a class Point to derive from ICloneable. And I implement Clone() from ICloneable to internally instantiate new Point type object and copy the values of p1's fields to p2's fields and return this instance's reference to the caller.
 
 namespace CloneablePoint
 {
-    // A class named Point.
-    public class Point
+    // The Point now supports "clone-ability."
+    public class Point : ICloneable
     {
         public int X { get; set; }
         public int Y { get; set; }
@@ -20,5 +21,9 @@ namespace CloneablePoint
         // Override Object.ToString().
         public override string ToString()
         { return string.Format("X = {0}; Y = {1}", X, Y); }
+
+        // Return a copy of the current object.
+        public object Clone()
+        { return new Point(this.X, this.Y); }
     }
 }
