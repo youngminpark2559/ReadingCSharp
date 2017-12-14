@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 //c Update a class Garage. I add a method GetEnumerator() using "yield return syntax" inside of foreach iteration loop.
 //c Update a class Garage. I update a method GetEnumerator() using multiple "yield return syntax" without using foreach iteration loop.
+//c Add a method GetTheCars which is the "named iterator".
 
 namespace CustomEnumeratorWithYield
 {
@@ -23,18 +24,19 @@ namespace CustomEnumeratorWithYield
             carArray[3] = new Car("Fred", 30);
         }
 
-        //public IEnumerator GetEnumerator()
-        //{
-        //    // Return the array object's IEnumerator.
-        //    return carArray.GetEnumerator();
 
-        //}
-
-        IEnumerator IEnumerable.GetEnumerator()
+        public IEnumerator GetEnumerator()
         {
             // Return the array object's IEnumerator.
             return carArray.GetEnumerator();
+
         }
+
+        //IEnumerator IEnumerable.GetEnumerator()
+        //{
+        //    // Return the array object's IEnumerator.
+        //    return carArray.GetEnumerator();
+        //}
 
         //// Iterator method.
         //public IEnumerator GetEnumerator()
@@ -45,12 +47,32 @@ namespace CustomEnumeratorWithYield
         //    }
         //}
 
-        public IEnumerator GetEnumerator()
+        //public IEnumerator GetEnumerator()
+        //{
+        //    yield return carArray[0];
+        //    yield return carArray[1];
+        //    yield return carArray[2];
+        //    yield return carArray[3];
+        //}
+
+        public IEnumerable GetTheCars(bool ReturnRevesed)
         {
-            yield return carArray[0];
-            yield return carArray[1];
-            yield return carArray[2];
-            yield return carArray[3];
+            // Return the items in reverse.
+            if (ReturnRevesed)
+            {
+                for (int i = carArray.Length; i != 0; i--)
+                {
+                    yield return carArray[i - 1];
+                }
+            }
+            else
+            {
+                // Return the items as placed in the array.
+                foreach (Car c in carArray)
+                {
+                    yield return c;
+                }
+            }
         }
     }
 }
