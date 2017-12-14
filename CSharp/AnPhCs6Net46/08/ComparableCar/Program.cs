@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 //c I try to invoke Sort() with passing Car[](class) type instance myAutos. But the array of the custom(class) type Car doesn't implement CompareTo() from IComparable, this will trigger runtime exception.
+//c Test functionality by using CompareTo() I implemented from IComparable.
 
 namespace ComparableCar
 {
@@ -25,6 +26,19 @@ namespace ComparableCar
             // Sort my cars? Not yet!
             // Runtim error.
             Array.Sort(myAutos);
+
+            // Display current array.
+            Console.WriteLine("Here is the unordered set of cars:");
+            foreach (Car c in myAutos)
+                Console.WriteLine("{0} {1}", c.CarID, c.PetName);
+
+            // Now, sort them using IComparable!
+            Array.Sort(myAutos);
+            Console.WriteLine();
+            // Display sorted array.
+            Console.WriteLine("Here is the ordered set of cars:");
+            foreach (Car c in myAutos)
+                Console.WriteLine("{0} {1}", c.CarID, c.PetName);
 
             Console.ReadLine();
         }
