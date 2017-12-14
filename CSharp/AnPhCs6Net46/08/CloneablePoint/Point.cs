@@ -35,8 +35,17 @@ namespace CloneablePoint
             X, Y, desc.PetName, desc.PointID);
         }
 
-        // Return a copy of the current object.
+        // Now we need to adjust for the PointDescription member.
         public object Clone()
-        { return this.MemberwiseClone(); }
+        {
+            // First get a shallow copy.
+            Point newPoint = (Point)this.MemberwiseClone();
+
+            // Then fill in the gaps.
+            PointDescription currentDesc = new PointDescription();
+            currentDesc.PetName = this.desc.PetName;
+            newPoint.desc = currentDesc;
+            return newPoint;
+        }
     }
 }
