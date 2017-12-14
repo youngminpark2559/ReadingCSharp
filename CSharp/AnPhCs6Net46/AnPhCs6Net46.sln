@@ -236,6 +236,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloneablePoint", "08\Clonea
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComparableCar", "08\ComparableCar\ComparableCar.csproj", "{79A9C16D-3BC1-4BA0-A624-67ADC57F99E6}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "10", "10", "{14C7EBD3-C42C-47AA-8DC4-06FE29E16786}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleDelegate", "10\SimpleDelegate\SimpleDelegate.csproj", "{023D215D-4975-458D-AA75-B40F96DBC8B3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -638,6 +642,10 @@ Global
 		{79A9C16D-3BC1-4BA0-A624-67ADC57F99E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{79A9C16D-3BC1-4BA0-A624-67ADC57F99E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{79A9C16D-3BC1-4BA0-A624-67ADC57F99E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{023D215D-4975-458D-AA75-B40F96DBC8B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{023D215D-4975-458D-AA75-B40F96DBC8B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{023D215D-4975-458D-AA75-B40F96DBC8B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{023D215D-4975-458D-AA75-B40F96DBC8B3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -742,6 +750,7 @@ Global
 		{3122C7BA-E3DE-4F12-924E-E0EA43C4CE49} = {EA673D44-0A16-4CBD-9C55-3243011EE581}
 		{103DA97D-E04D-4B16-8703-6C9B0EAD0737} = {EA673D44-0A16-4CBD-9C55-3243011EE581}
 		{79A9C16D-3BC1-4BA0-A624-67ADC57F99E6} = {EA673D44-0A16-4CBD-9C55-3243011EE581}
+		{023D215D-4975-458D-AA75-B40F96DBC8B3} = {14C7EBD3-C42C-47AA-8DC4-06FE29E16786}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A2719945-F9D2-4AD1-A033-50C94AB8803C}
