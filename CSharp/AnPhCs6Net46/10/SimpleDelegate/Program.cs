@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 //c Create a console application SimpleDelegate. It contains BinaryOp(delegate) type being able to point to any method taking 2 parameters in Int32(struct) data type, returning Int32 data type value. It also contains SimpleMath(class) type containing two method matched to what BinaryOp(delegate) type points to.
 //c Add a method SquareNumber(). I make BinaryOp(delegate) type instance point to SquareNumber(). But it fails with showing compile time error because the method signature BinaryOp(delegate) type object pointing to is not compatable to the method signature of SquareNumber().
+//c Add a static method DisplayDelegateInfo(). This method takes delegate type object as an argument. On that object, you invoke GetInvocationList() then you get array(class) type composed of delegate type items which are invocation list. And you get informations on each invocation list by using two properties Method, Target.
 
 namespace SimpleDelegate
 {
@@ -41,6 +42,17 @@ namespace SimpleDelegate
             //BinaryOp b2 = new BinaryOp(SimpleMath.SquareNumber);
 
             Console.ReadLine();
+        }
+
+        static void DisplayDelegateInfo(Delegate delObj)
+        {
+            // Print the names of each member in the
+            // delegate's invocation list.
+            foreach (Delegate d in delObj.GetInvocationList())
+            {
+                Console.WriteLine("Method Name: {0}", d.Method);
+                Console.WriteLine("Type Name: {0}", d.Target);
+            }
         }
     }
 }
