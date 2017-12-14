@@ -4,9 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+//c I make Car type derive from IComparable and implement CompareTo() from IComparable.
+
 namespace ComparableCar
 {
-    class Car
+    // The iteration of the Car can be ordered
+    // based on the CarID.
+    public class Car : IComparable
     {
 
         public int CarID { get; set; }
@@ -67,6 +71,23 @@ namespace ComparableCar
                 else
                     Console.WriteLine("=> CurrentSpeed = {0}", CurrentSpeed);
             }
+        }
+
+        // IComparable implementation.
+        int IComparable.CompareTo(object obj)
+        {
+            Car temp = obj as Car;
+            if (temp != null)
+            {
+                if (this.CarID > temp.CarID)
+                    return 1;
+                if (this.CarID < temp.CarID)
+                    return -1;
+                else
+                    return 0;
+            }
+            else
+                throw new ArgumentException("Parameter is not a Car!");
         }
     }
 }
