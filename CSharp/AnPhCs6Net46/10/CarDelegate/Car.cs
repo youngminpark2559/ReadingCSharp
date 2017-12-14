@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 //c Add a Car(class) type.
 //c Update Car(class) type. I add a CarEngineHandler(delegate) type. I add a CarEngineHandler(delegate) type field listOfHandlers. I add a method RegisterWithCarEngine() which will be used as a register to regist methods to the CarEngineHandler(delegate) type object's invocation list by assigning method to listOfHandlers field.
+//c Add a method Accelerate(). This method will invoke method registered in invocation list of CarEngineHandler(delegate) type object under the correct circumstances like an event such as when carIsDead is true or when CurrentSpeed<=MaxSpeed etc.
 
 namespace CarDelegate
 {
@@ -38,6 +39,33 @@ namespace CarDelegate
         public void RegisterWithCarEngine(CarEngineHandler methodToCall)
         {
             listOfHandlers = methodToCall;
+        }
+
+        // 4) Implement the Accelerate() method to invoke the delegate's
+        //    invocation list under the correct circumstances.
+        public void Accelerate(int delta)
+        {
+            // If this car is "dead," send dead message.
+            if (carIsDead)
+            {
+                if (listOfHandlers != null)
+                    listOfHandlers("Sorry, this car is dead...");
+            }
+            else
+            {
+                CurrentSpeed += delta;
+
+                // Is this car "almost dead"?
+                if (10 == (MaxSpeed - CurrentSpeed)
+                    && listOfHandlers != null)
+                {
+                    listOfHandlers("Careful buddy! Gonna blow!");
+                }
+                if (CurrentSpeed >= MaxSpeed)
+                    carIsDead = true;
+                else
+                    Console.WriteLine("CurrentSpeed = {0}", CurrentSpeed);
+            }
         }
     }
 }
