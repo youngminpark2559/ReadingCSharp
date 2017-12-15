@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 //c I simplify above funtionality by using method group conversion syntax.
 //c Add a method HookIntoEvents. I add a new event handler method to newCar.AboutToBlow event by using VS.
 //c I update a method CarAboutToBlow() which is the event handler method for Exploded event. I update this event handler method to take 2 arguments.
+//c I use EventHandler<CarEventArgs>(delegate) type in Main().
 
 namespace CarEvents
 {
@@ -19,10 +20,10 @@ namespace CarEvents
             Car c1 = new Car("SlugBug", 100, 10);
 
             // Register event handlers.
-            c1.AboutToBlow += new Car.CarEngineHandler(CarIsAlmostDoomed);
-            c1.AboutToBlow += new Car.CarEngineHandler(CarAboutToBlow);
+            c1.AboutToBlow += CarIsAlmostDoomed;
+            c1.AboutToBlow += CarAboutToBlow;
 
-            Car.CarEngineHandler d = new Car.CarEngineHandler(CarExploded);
+            EventHandler<CarEventArgs> d = new EventHandler<CarEventArgs>(CarExploded);
             c1.Exploded += d;
             Console.WriteLine("***** Speeding up *****");
             for (int i = 0; i < 6; i++)
