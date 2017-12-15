@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 //c Update Car(class) type. I add a CarEngineHandler(delegate) type. I add a CarEngineHandler(delegate) type field listOfHandlers. I add a method RegisterWithCarEngine() which will be used as a register to regist methods to the CarEngineHandler(delegate) type object's invocation list by assigning method to listOfHandlers field.
 //c Add a method Accelerate(). This method will invoke method registered in invocation list of CarEngineHandler(delegate) type object under the correct circumstances like an event such as when carIsDead is true or when CurrentSpeed<=MaxSpeed etc.
 //c Update a method RegisterWithCarEngine() by making this method enable to register mulitple method to the CarEngineHandler(delegate) type instance's invocation list.
+//c Update a method RegisterWithCarEngine(). I can make delegate multicast methods functionality by using Delegate.Combine(). Overloaded += operator is shorthand for this method. Compiler converts += operator used to register mulitple method to the delegate type instance's invocation list to Combine() when it creates CIL instructions for assembly.
 
 namespace CarDelegate
 {
@@ -40,9 +41,17 @@ namespace CarDelegate
         // Now with multicasting support!
         // Note we are now using the += operator, not
         // the assignment operator (=).
+        //public void RegisterWithCarEngine(CarEngineHandler methodToCall)
+        //{
+        //    listOfHandlers += methodToCall;
+        //}
+
         public void RegisterWithCarEngine(CarEngineHandler methodToCall)
         {
-            listOfHandlers += methodToCall;
+            if (listOfHandlers == null)
+                listOfHandlers = methodToCall;
+            else
+                Delegate.Combine(listOfHandlers, methodToCall);
         }
 
         // 4) Implement the Accelerate() method to invoke the delegate's
