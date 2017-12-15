@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 //c I create a Car(class) type instance c1. I create CarEngineHandler(delegate) type instance pointing to CarExploded(). And I add the reference of CarEngineHandler(delegate) type instance pointing to CarExploded() to c1.AboutToBlow event.
 //c I simplify above funtionality by using method group conversion syntax.
 //c Add a method HookIntoEvents. I add a new event handler method to newCar.AboutToBlow event by using VS.
+//c I update a method CarAboutToBlow() which is the event handler method for Exploded event. I update this event handler method to take 2 arguments.
 
 namespace CarEvents
 {
@@ -37,8 +38,10 @@ namespace CarEvents
             Console.ReadLine();
         }
 
-        public static void CarAboutToBlow(string msg)
-        { Console.WriteLine(msg); }
+        public static void CarAboutToBlow(object sender, CarEventArgs e)
+        {
+            Console.WriteLine("{0} says: {1}", sender, e.msg);
+        }
 
         public static void CarIsAlmostDoomed(string msg)
         { Console.WriteLine("=> Critical Message from Car: {0}", msg); }
