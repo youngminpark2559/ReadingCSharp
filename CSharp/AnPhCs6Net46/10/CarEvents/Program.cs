@@ -43,11 +43,15 @@ namespace CarEvents
             Console.WriteLine("{0} says: {1}", sender, e.msg);
         }
 
-        public static void CarIsAlmostDoomed(string msg)
-        { Console.WriteLine("=> Critical Message from Car: {0}", msg); }
+        public static void CarIsAlmostDoomed(object sender, CarEventArgs e)
+        {
+            Console.WriteLine("=> Critical Message from Car:{1} says {0}", sender, e.msg);
+        }
 
-        public static void CarExploded(string msg)
-        { Console.WriteLine(msg); }
+        public static void CarExploded(object sender, CarEventArgs e)
+        {
+            Console.WriteLine(e.msg);
+        }
 
         public static void HookIntoEvents()
         {
@@ -55,7 +59,7 @@ namespace CarEvents
             newCar.AboutToBlow += NewCar_AboutToBlow;
         }
 
-        private static void NewCar_AboutToBlow(string msg)
+        private static void NewCar_AboutToBlow(object sender, CarEventArgs e)
         {
             throw new NotImplementedException();
         }
