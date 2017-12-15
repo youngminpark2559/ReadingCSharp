@@ -40,7 +40,13 @@ namespace CarEvents
 
         public static void CarAboutToBlow(object sender, CarEventArgs e)
         {
-            Console.WriteLine("{0} says: {1}", sender, e.msg);
+            // Just to be safe, perform a
+            // runtime check before casting.
+            if (sender is Car)
+            {
+                Car c = (Car)sender;
+                Console.WriteLine("Critical Message from {0}: {1}", c.PetName, e.msg);
+            }
         }
 
         public static void CarIsAlmostDoomed(object sender, CarEventArgs e)
