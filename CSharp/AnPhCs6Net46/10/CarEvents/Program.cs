@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 //c I create a Car(class) type instance c1. I create CarEngineHandler(delegate) type instance pointing to CarExploded(). And I add the reference of CarEngineHandler(delegate) type instance pointing to CarExploded() to c1.AboutToBlow event.
 //c I simplify above funtionality by using method group conversion syntax.
+//c Add a method HookIntoEvents. I add a new event handler method to newCar.AboutToBlow event by using VS.
 
 namespace CarEvents
 {
@@ -44,5 +45,16 @@ namespace CarEvents
 
         public static void CarExploded(string msg)
         { Console.WriteLine(msg); }
+
+        public static void HookIntoEvents()
+        {
+            Car newCar = new Car();
+            newCar.AboutToBlow += NewCar_AboutToBlow;
+        }
+
+        private static void NewCar_AboutToBlow(string msg)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
