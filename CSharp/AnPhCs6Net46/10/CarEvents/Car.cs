@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 //c I refactor null check by using null conditional operator. In this case, I should explicitly invoke Invoke().
 //c I update a CarEngineHandler(delegate) type to take Object(class) type instance and CarEventArgs(class) type instance as arguments.
 //c I update a method Accelerate(). When Exploded event is fired, I invoke event handler method by passing 2 arguments.
-
+//c I use EventHandler<CarEventArgs>(delegate) type instead of CarEngineHandler(delegate) type.
 namespace CarEvents
 {
     public class Car
@@ -36,8 +36,8 @@ namespace CarEvents
 
 
         // This car can send these events.
-        public event CarEngineHandler Exploded;
-        public event CarEngineHandler AboutToBlow;
+        public event EventHandler<CarEventArgs> Exploded;
+        public event EventHandler<CarEventArgs> AboutToBlow;
 
         public void Accelerate(int delta)
         {
