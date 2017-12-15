@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 //c Add a method DisplayMessage() taking 3 arguments, returning void.
+//c Update a method Main(). I create an Action<>(delegate) type instance pointing to DisplayMessage() and assgin the reference of that instance to actionTarget. And I invoke DisplayMessage() via actionTarget by making CLR invoke Invoke() in sealed Action<> class with passing 3 arguments.
 
 namespace ActionAndFuncDelegates
 {
@@ -12,6 +13,14 @@ namespace ActionAndFuncDelegates
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("***** Fun with Action and Func *****");
+
+            // Use the Action<> delegate to point to DisplayMessage.
+            Action<string, ConsoleColor, int> actionTarget =
+              new Action<string, ConsoleColor, int>(DisplayMessage);
+            actionTarget("Action Message!", ConsoleColor.Yellow, 5);
+
+            Console.ReadLine();
         }
 
         // This is a target for the Action<> delegate.
