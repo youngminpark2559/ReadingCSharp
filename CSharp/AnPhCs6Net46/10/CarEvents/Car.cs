@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 //c Add a class Car. I use event keyword to use delegate functionality in conjunction with event functionality.
+//c I refactor null check by using null conditional operator. In this case, I should explicitly invoke Invoke().
 
 namespace CarEvents
 {
@@ -36,32 +37,28 @@ namespace CarEvents
         public event CarEngineHandler Exploded;
         public event CarEngineHandler AboutToBlow;
 
-
-        
-
         public void Accelerate(int delta)
         {
             // If the car is dead, fire Exploded event.
             if (carIsDead)
             {
-                if (Exploded != null)
-                    Exploded("Sorry, this car is dead...");
+                Exploded?.Invoke("Sorry, this car is dead...");
             }
             else
             {
                 CurrentSpeed += delta;
-                // Almost dead?
-                if (10 == MaxSpeed - CurrentSpeed
-                  && AboutToBlow != null)
-                {
-                    AboutToBlow("Careful buddy! Gonna blow!");
-                }
+
 
                 // Still OK!
                 if (CurrentSpeed >= MaxSpeed)
                     carIsDead = true;
                 else
                     Console.WriteLine("CurrentSpeed = {0}", CurrentSpeed);
+            }
+            // Almost dead?
+            if (10 == MaxSpeed - CurrentSpeed)
+            {
+                AboutToBlow?.Invoke("Careful buddy!  Gonna blow!");
             }
         }
     }
