@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 //c I create a Car(class) type instance c1. I create CarEngineHandler(delegate) type instance pointing to CarExploded(). And I add the reference of CarEngineHandler(delegate) type instance pointing to CarExploded() to c1.AboutToBlow event.
+//c I simplify above funtionality by using method group conversion syntax.
 
 namespace CarEvents
 {
