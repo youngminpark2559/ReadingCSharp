@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 //c Add a class Car. I use event keyword to use delegate functionality in conjunction with event functionality.
 //c I refactor null check by using null conditional operator. In this case, I should explicitly invoke Invoke().
+//c I update a CarEngineHandler(delegate) type to take Object(class) type instance and CarEventArgs(class) type instance as arguments.
 
 namespace CarEvents
 {
@@ -30,7 +31,7 @@ namespace CarEvents
 
         // This delegate works in conjunction with the
         // Car's events.
-        public delegate void CarEngineHandler(string msg);
+        public delegate void CarEngineHandler(object sender, CarEventArgs e);
 
 
         // This car can send these events.
