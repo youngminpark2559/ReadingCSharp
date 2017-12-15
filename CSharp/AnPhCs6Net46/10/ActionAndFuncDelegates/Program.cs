@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 //c Add a method Add taking 2 Int32(struct) data type numerical values, returning Int32(string) data type value.
 //c Add a method SumToString().
 //c Update a method Main(). I use Func<>(delegate) type.
+//c Update a method Main(). I refactor the way of using Func<>(delegate) type by using "method group conversion syntax".
 
 namespace ActionAndFuncDelegates
 {
@@ -24,14 +25,21 @@ namespace ActionAndFuncDelegates
             actionTarget("Action Message!", ConsoleColor.Yellow, 5);
 
 
-            Func<int, int, int> funcTarget = new Func<int, int, int>(Add);
+            //Func<int, int, int> funcTarget = new Func<int, int, int>(Add);
+            //int result = funcTarget.Invoke(40, 40);
+            //Console.WriteLine("40 + 40 = {0}", result);
+
+            //Func<int, int, string> funcTarget2 = new Func<int, int, string>(SumToString);
+            //string sum = funcTarget2(90, 300);
+            //Console.WriteLine(sum);
+
+            Func<int, int, int> funcTarget = Add;
             int result = funcTarget.Invoke(40, 40);
             Console.WriteLine("40 + 40 = {0}", result);
 
-            Func<int, int, string> funcTarget2 = new Func<int, int, string>(SumToString);
+            Func<int, int, string> funcTarget2 = SumToString;
             string sum = funcTarget2(90, 300);
             Console.WriteLine(sum);
-
             Console.ReadLine();
         }
 
