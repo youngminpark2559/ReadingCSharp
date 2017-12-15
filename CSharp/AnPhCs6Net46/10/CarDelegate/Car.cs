@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 //c Update a method RegisterWithCarEngine() by making this method enable to register mulitple method to the CarEngineHandler(delegate) type instance's invocation list.
 //c Update a method RegisterWithCarEngine(). I can make delegate multicast methods functionality by using Delegate.Combine(). Overloaded += operator is shorthand for this method. Compiler converts += operator used to register mulitple method to the delegate type instance's invocation list to Combine() when it creates CIL instructions for assembly.
 //c Add a method UnRegisterWithCarEngine(). This method removes passed delegate instance pointing to a specific method from the delegate type instance's invocation list.
+//c I change listOfHandlers field as from private to public.
 
 namespace CarDelegate
 {
@@ -36,7 +37,9 @@ namespace CarDelegate
         public delegate void CarEngineHandler(string msgForCaller);
 
         // 2) Define a member variable of this delegate.
-        private CarEngineHandler listOfHandlers;
+        //private CarEngineHandler listOfHandlers;
+        // Now a public member!
+        public CarEngineHandler listOfHandlers;
 
         // 3) Add registration function for the caller.
         // Now with multicasting support!
