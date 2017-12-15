@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 //c Add a method DisplayMessage() taking 3 arguments, returning void.
 //c Update a method Main(). I create an Action<>(delegate) type instance pointing to DisplayMessage() and assgin the reference of that instance to actionTarget. And I invoke DisplayMessage() via actionTarget by making CLR invoke Invoke() in sealed Action<> class with passing 3 arguments.
+//c Add a method Add taking 2 Int32(struct) data type numerical values, returning Int32(string) data type value.
 
 namespace ActionAndFuncDelegates
 {
@@ -37,6 +38,12 @@ namespace ActionAndFuncDelegates
 
             // Restore color.
             Console.ForegroundColor = previous;
+        }
+
+        // Target for the Func<> delegate.
+        static int Add(int x, int y)
+        {
+            return x + y;
         }
     }
 }
