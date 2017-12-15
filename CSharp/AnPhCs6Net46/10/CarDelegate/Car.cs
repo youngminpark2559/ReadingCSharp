@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 //c Add a method Accelerate(). This method will invoke method registered in invocation list of CarEngineHandler(delegate) type object under the correct circumstances like an event such as when carIsDead is true or when CurrentSpeed<=MaxSpeed etc.
 //c Update a method RegisterWithCarEngine() by making this method enable to register mulitple method to the CarEngineHandler(delegate) type instance's invocation list.
 //c Update a method RegisterWithCarEngine(). I can make delegate multicast methods functionality by using Delegate.Combine(). Overloaded += operator is shorthand for this method. Compiler converts += operator used to register mulitple method to the delegate type instance's invocation list to Combine() when it creates CIL instructions for assembly.
+//c Add a method UnRegisterWithCarEngine(). This method removes passed delegate instance pointing to a specific method from the delegate type instance's invocation list.
 
 namespace CarDelegate
 {
@@ -52,6 +53,11 @@ namespace CarDelegate
                 listOfHandlers = methodToCall;
             else
                 Delegate.Combine(listOfHandlers, methodToCall);
+        }
+
+        public void UnRegisterWithCarEngine(CarEngineHandler methodToCall)
+        {
+            listOfHandlers -= methodToCall;
         }
 
         // 4) Implement the Accelerate() method to invoke the delegate's
