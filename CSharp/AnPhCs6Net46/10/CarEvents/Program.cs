@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 //c Add a method HookIntoEvents. I add a new event handler method to newCar.AboutToBlow event by using VS.
 //c I update a method CarAboutToBlow() which is the event handler method for Exploded event. I update this event handler method to take 2 arguments.
 //c I use EventHandler<CarEventArgs>(delegate) type in Main().
+//c I update a method Main() by refactoring codes by using anonymous methods. I create anonymous methods to be added into events, with not creating methods to be added to events in the scope out of Main().
 
 namespace CarEvents
 {
@@ -17,25 +18,48 @@ namespace CarEvents
         static void Main(string[] args)
         {
             Console.WriteLine("***** Fun with Events *****\n");
+            //Car c1 = new Car("SlugBug", 100, 10);
+
+            //// Register event handlers.
+            //c1.AboutToBlow += CarIsAlmostDoomed;
+            //c1.AboutToBlow += CarAboutToBlow;
+
+            //EventHandler<CarEventArgs> d = new EventHandler<CarEventArgs>(CarExploded);
+            //c1.Exploded += d;
+            //Console.WriteLine("***** Speeding up *****");
+            //for (int i = 0; i < 6; i++)
+            //    c1.Accelerate(20);
+
+            //// Remove CarExploded method
+            //// from invocation list.
+            //c1.Exploded -= d;
+
+            //Console.WriteLine("\n***** Speeding up *****");
+            //for (int i = 0; i < 6; i++)
+            //    c1.Accelerate(20);
+
+            Console.WriteLine("***** Anonymous Methods *****\n");
             Car c1 = new Car("SlugBug", 100, 10);
 
-            // Register event handlers.
-            c1.AboutToBlow += CarIsAlmostDoomed;
-            c1.AboutToBlow += CarAboutToBlow;
+            // Register event handlers as anonymous methods.
+            c1.AboutToBlow += delegate
+            {
+                Console.WriteLine("Eek! Going too fast!");
+            };
 
-            EventHandler<CarEventArgs> d = new EventHandler<CarEventArgs>(CarExploded);
-            c1.Exploded += d;
-            Console.WriteLine("***** Speeding up *****");
+            c1.AboutToBlow += delegate (object sender, CarEventArgs e)
+            {
+                Console.WriteLine("Message from Car: {0}", e.msg);
+            };
+            c1.Exploded += delegate (object sender, CarEventArgs e)
+            {
+                Console.WriteLine("Fatal Message from Car: {0}", e.msg);
+            };
+
+            // This will eventually trigger the events.
             for (int i = 0; i < 6; i++)
                 c1.Accelerate(20);
 
-            // Remove CarExploded method
-            // from invocation list.
-            c1.Exploded -= d;
-
-            Console.WriteLine("\n***** Speeding up *****");
-            for (int i = 0; i < 6; i++)
-                c1.Accelerate(20);
             Console.ReadLine();
         }
 
